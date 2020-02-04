@@ -6,6 +6,8 @@ Requires 2020.1-alpha build of Unity (2020.1.0a21 or later).
 
 Open the `ArmRobot` folder in Unity.
 
+Open `Scenes` > `ArticulationRobot` and press play.
+
 ### Manual Controls
 ```
 A/D - rotate base joint
