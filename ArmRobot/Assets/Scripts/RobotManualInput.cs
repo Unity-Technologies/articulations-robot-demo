@@ -9,6 +9,7 @@ public class RobotManualInput : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Update called!");
         RobotController robotController = robot.GetComponent<RobotController>();
         for (int i = 0; i < robotController.joints.Length; i++)
         {
