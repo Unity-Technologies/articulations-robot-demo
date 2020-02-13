@@ -27,12 +27,12 @@ public class RobotAgent : Agent
     
     public override void AgentReset()
     {
-        /*
-        float[] defaultRotations = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
-        robotController.ForceJointsToRotations(defaultRotations);
+        
+        //float[] defaultRotations = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+        //robotController.ForceJointsToRotations(defaultRotations);
         touchDetector.hasTouchedTarget = false;
         tablePositionRandomizer.Move();
-        */
+        
     }
 
     public override void CollectObservations(VectorSensor sensor)
