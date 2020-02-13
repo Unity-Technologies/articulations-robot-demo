@@ -8,7 +8,7 @@ public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
 public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
-    public float speed = 300.0f;
+    public float speed = 500.0f;
 
     private ArticulationBody articulation;
 
@@ -36,12 +36,9 @@ public class ArticulationJointController : MonoBehaviour
 
     float CurrentPrimaryAxisRotation()
     {
-        /* 
-        TODO: 
-        For better stability, this should read off the *actual* rotation in terms of the xDrive angles (not just the current target). 
-        We need an easy way to read this (not the same as the transform, although you could convert from the transform if you wanted).
-        */
-        return articulation.xDrive.target;
+        float currentRotationRads = articulation.jointPosition[0];
+        float currentRotation = Mathf.Rad2Deg * currentRotationRads;
+        return currentRotation;
     }
 
     void RotateTo(float primaryAxisRotation)
