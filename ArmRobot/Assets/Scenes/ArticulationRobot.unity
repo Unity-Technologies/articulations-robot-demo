@@ -1279,6 +1279,7 @@ GameObject:
   - component: {fileID: 1383161868}
   - component: {fileID: 1383161867}
   - component: {fileID: 1383161866}
+  - component: {fileID: 1383161872}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1390,6 +1391,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383161872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383161865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da88ebd4b6454604a77567f62605e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table: {fileID: 1064094162}
+  robotMinReach: 0.2
+  robotMaxReach: 0.5
 --- !u!1 &1390582873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1417,6 @@ GameObject:
   - component: {fileID: 1390582876}
   - component: {fileID: 1390582875}
   - component: {fileID: 1390582874}
-  - component: {fileID: 1390582877}
   m_Layer: 0
   m_Name: MLAgents
   m_TagString: Untagged
@@ -1463,21 +1478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1390582877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390582873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da88ebd4b6454604a77567f62605e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  table: {fileID: 1064094162}
-  robotMinReach: 0.2
-  robotMaxReach: 0.5
 --- !u!1 &1442213767
 GameObject:
   m_ObjectHideFlags: 0

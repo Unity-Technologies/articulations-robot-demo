@@ -9,7 +9,6 @@ public class RobotAgent : Agent
     public GameObject cube;
     public GameObject robot;
 
-    
     RobotController robotController;
     TouchDetector touchDetector;
     TablePositionRandomizer tablePositionRandomizer;
