@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    keepTiles: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -188,7 +190,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -212,6 +214,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!114 &385129269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +357,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -378,6 +381,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!64 &622386706
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -521,7 +525,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -545,6 +549,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!114 &948141747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,7 +750,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -769,6 +774,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!114 &995377199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +1001,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1019,6 +1025,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!114 &1089875219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1153,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1170,6 +1177,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!4 &1207038285
 Transform:
   m_ObjectHideFlags: 0
@@ -1575,6 +1583,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 1
+  m_UseGravity: 1
 --- !u!64 &1442213770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1709,6 +1718,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!65 &1449517476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2000,6 +2010,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!65 &1838417717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2157,7 +2168,7 @@ ArticulationBody:
     lowerLimit: 0
     upperLimit: 0
     stiffness: 100000
-    damping: 9000
+    damping: 100
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -2181,6 +2192,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
+  m_UseGravity: 1
 --- !u!114 &2127710634
 MonoBehaviour:
   m_ObjectHideFlags: 0
