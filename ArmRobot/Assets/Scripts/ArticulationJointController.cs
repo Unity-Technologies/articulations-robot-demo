@@ -31,6 +31,21 @@ public class ArticulationJointController : MonoBehaviour
 
     }
 
+    // CONTROL
+
+    public void ForceToRotation(float primaryAxisRotation)
+    {
+        // set target
+        RotateTo(primaryAxisRotation);
+
+        // force position
+        float rotationRads = Mathf.Deg2Rad * primaryAxisRotation;
+        ArticulationReducedSpace newReducedSpace = new ArticulationReducedSpace();
+        newReducedSpace[0] = rotationRads;
+        newReducedSpace.dofCount = 1;
+        articulation.jointPosition = newReducedSpace;
+    }
+
 
     // MOVEMENT HELPERS
 
@@ -50,6 +65,7 @@ public class ArticulationJointController : MonoBehaviour
         drive.target = primaryAxisRotation;
         articulation.xDrive = drive;
     }
+
 
 
 
