@@ -23,7 +23,6 @@ public class ArticulationJointController : MonoBehaviour
     void FixedUpdate() 
     {
         if (rotationState != RotationDirection.None) {
-            Debug.Log("Should be rotating!");
             float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(rotationGoal);
