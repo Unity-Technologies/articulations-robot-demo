@@ -32,6 +32,24 @@ public class RobotController : MonoBehaviour
         UpdateRotationState(direction, joint.robotPart);
     }
 
+    public void ForceJointsToRotations(float[] rotations)
+    {
+        /*
+        for (int i = 0; i < rotations.Length; i++)
+        {
+            float rotation = rotations[i];
+            Joint joint = joints[i];
+            ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
+            jointController.ForceToRotation(rotation);
+        }
+        */
+
+        // just do first joint, for testing:
+        Joint joint = joints[0];
+        ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
+        jointController.ForceToRotation(0.0f);
+    }
+
     // HELPERS
 
     static void UpdateRotationState(RotationDirection direction, GameObject robotPart)

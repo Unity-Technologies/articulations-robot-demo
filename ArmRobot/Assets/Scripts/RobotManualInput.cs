@@ -9,6 +9,7 @@ public class RobotManualInput : MonoBehaviour
 
     void Update()
     {
+        // check for robot movement
         RobotController robotController = robot.GetComponent<RobotController>();
         for (int i = 0; i < robotController.joints.Length; i++)
         {
@@ -22,6 +23,13 @@ public class RobotManualInput : MonoBehaviour
         }
         robotController.StopAllJointRotations();
 
+        //check for robot reset
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Pressed reset!");
+            float[] defaultRotations = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+            robotController.ForceJointsToRotations(defaultRotations);
+        }
     }
 
 
