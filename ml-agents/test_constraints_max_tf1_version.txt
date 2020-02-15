@@ -1,0 +1,8 @@
+# pip constraints to use the *highest* versions allowed in ml-agents/setup.py
+# with the exception of tensorflow, which is constrained to <2
+# For projects with upper bounds, we should periodically update this list to the latest release version
+grpcio>=1.23.0
+numpy>=1.17.2
+# Temporary workaround for https://github.com/tensorflow/tensorflow/issues/36179 and https://github.com/tensorflow/tensorflow/issues/36188
+tensorflow>=1.14.0,<1.15.1
+h5py>=2.10.0
