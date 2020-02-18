@@ -34,18 +34,14 @@ public class RobotController : MonoBehaviour
 
     public void ForceJointsToRotations(float[] rotations)
     {
-        DisableArticulations();
-
+        
         for (int i = 0; i < rotations.Length; i++)
         {
             Debug.Log("forcing joint to zero: joint " + i.ToString("F1"));
-            //float rotation = rotations[i];
             Joint joint = joints[i];
             ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
             jointController.ForceToRotation(0.0f);
         }
-        
-        // just do first joint, for testing:
       
     }
 
@@ -59,6 +55,7 @@ public class RobotController : MonoBehaviour
 
     void DisableArticulations()
     {
+        // NOTE: not being used right now
         for (int i = joints.Length - 1; i >= 0; i -= 1)
         {
             Debug.Log("Disabling articulation " + i.ToString("F1"));
@@ -66,7 +63,18 @@ public class RobotController : MonoBehaviour
             ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
             jointController.SetArticulationToEnabled(false);
         }
+    }
 
+    void EnableArticulations()
+    {
+        // NOTE: not being used right now
+        for (int i = 0; i < joints.Length; i++)
+        {
+            Debug.Log("Enabling articulation " + i.ToString("F1"));
+            Joint joint = joints[i];
+            ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
+            jointController.SetArticulationToEnabled(true);
+        }
     }
 
 }

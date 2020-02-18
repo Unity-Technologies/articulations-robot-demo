@@ -42,7 +42,7 @@ public class ArticulationJointController : MonoBehaviour
     {
         // set target
         RotateTo(rotation);
-
+        /*
         // force position
         float rotationRads = Mathf.Deg2Rad * rotation;
         ArticulationReducedSpace newPosition = new ArticulationReducedSpace(rotationRads);
@@ -51,19 +51,23 @@ public class ArticulationJointController : MonoBehaviour
         // force velocity to zero
         ArticulationReducedSpace newVelocity = new ArticulationReducedSpace(0.0f);
         articulation.jointVelocity = newVelocity;
+        */
     }
 
 
     // MOVEMENT HELPERS
 
     float CurrentPrimaryAxisRotation()
-    { 
+    {
+        /*
         float currentRotationRads = articulation.jointPosition[0];
         float currentRotation = Mathf.Rad2Deg * currentRotationRads;
         
         //Debug.Log("target: " + articulation.xDrive.target.ToString("F1") + ", current: " + currentRotation.ToString("F1"));
 
         return currentRotation;
+        */
+        return articulation.xDrive.target;
     }
 
     void RotateTo(float primaryAxisRotation)
