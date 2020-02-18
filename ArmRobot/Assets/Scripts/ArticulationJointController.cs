@@ -33,10 +33,13 @@ public class ArticulationJointController : MonoBehaviour
 
     // CONTROL
 
-    public void ForceToRotation(float primaryAxisRotation)
+    public void SetArticulationToEnabled(bool enabled)
     {
-        float rotation = CurrentPrimaryAxisRotation() + 40.0f;
+        articulation.enabled = enabled;
+    }
 
+    public void ForceToRotation(float rotation)
+    {
         // set target
         RotateTo(rotation);
 
@@ -48,8 +51,6 @@ public class ArticulationJointController : MonoBehaviour
         // force velocity to zero
         ArticulationReducedSpace newVelocity = new ArticulationReducedSpace(0.0f);
         articulation.jointVelocity = newVelocity;
-        
-
     }
 
 

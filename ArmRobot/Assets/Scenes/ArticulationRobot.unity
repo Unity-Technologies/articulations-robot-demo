@@ -1948,10 +1948,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3262837010919697893, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1051544179896239664, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f795b5118c0744de3bcac7a83315a637,
         type: 3}
       propertyPath: m_Name
       value: HandE
+      objectReference: {fileID: 0}
+    - target: {fileID: 505950275963751659, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f795b5118c0744de3bcac7a83315a637, type: 3}
