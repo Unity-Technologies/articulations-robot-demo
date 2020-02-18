@@ -35,21 +35,21 @@ public class ArticulationJointController : MonoBehaviour
 
     public void ForceToRotation(float primaryAxisRotation)
     {
-        Debug.Log("Forcing rotation back to: " + primaryAxisRotation.ToString("F1"));
-        //articulation.enabled = false;
+        float rotation = CurrentPrimaryAxisRotation() + 40.0f;
 
         // set target
-        RotateTo(primaryAxisRotation);
+        RotateTo(rotation);
 
         // force position
-        /*
-        float rotationRads = Mathf.Deg2Rad * primaryAxisRotation;
-        ArticulationReducedSpace newReducedSpace = new ArticulationReducedSpace();
-        newReducedSpace[0] = rotationRads;
-        newReducedSpace.dofCount = 1;
-        articulation.jointPosition = newReducedSpace;
-        */
-        //articulation.enabled = true;
+        float rotationRads = Mathf.Deg2Rad * rotation;
+        ArticulationReducedSpace newPosition = new ArticulationReducedSpace(rotationRads);
+        articulation.jointPosition = newPosition;
+
+        // force velocity to zero
+        ArticulationReducedSpace newVelocity = new ArticulationReducedSpace(0.0f);
+        articulation.jointVelocity = newVelocity;
+        
+
     }
 
 
