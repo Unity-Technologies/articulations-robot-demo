@@ -35,13 +35,17 @@ public class ArticulationJointController : MonoBehaviour
     // MOVEMENT HELPERS
 
     float CurrentPrimaryAxisRotation()
-    { 
+    {
+        // TODO: This is the better way to do things, but there is a crash caused by calling jointPosition on some of the joints. Switch back once that is fixed.
+        /*
         float currentRotationRads = articulation.jointPosition[0];
         float currentRotation = Mathf.Rad2Deg * currentRotationRads;
         
         Debug.Log("target: " + articulation.xDrive.target.ToString("F1") + ", current: " + currentRotation.ToString("F1"));
 
         return currentRotation;
+        */
+        return articulation.xDrive.target;
     }
 
     void RotateTo(float primaryAxisRotation)
