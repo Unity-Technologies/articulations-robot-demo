@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum GripState { Fixed = 0, Opening = -1, Closing = 1 };
 
-public class ArticulationFingerController : MonoBehaviour
+public class PincherController : MonoBehaviour
 {
     public GameObject fingerAGameObject;
     public GameObject fingerBGameObject;
