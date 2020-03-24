@@ -14,12 +14,6 @@ public class ArticulationFingerController : MonoBehaviour
     public float gripSpeed = 3.0f;
     public GripState gripState = GripState.Fixed;
 
-    //Vector3 fingerAOpenPosition;
-    //Vector3 fingerBOpenPosition;
-
-    //public float fingerAClosedZ;
-    //public float fingerBClosedZ;
-
     Finger fingerA;
     Finger fingerB;
 
@@ -69,19 +63,12 @@ public class ArticulationFingerController : MonoBehaviour
 
     void Start()
     {
-        /*
-        fingerAOpenPosition = fingerA.transform.localPosition;
-        fingerBOpenPosition = fingerB.transform.localPosition;
-        */
-
         //new
         fingerA = new Finger();
         fingerA.init(fingerAGameObject, -1.1f);
 
         fingerB = new Finger();
         fingerB.init(fingerBGameObject, 1.1f);
-        
-
     }
 
     void FixedUpdate()
@@ -119,9 +106,6 @@ public class ArticulationFingerController : MonoBehaviour
     public void ResetGripToOpen()
     {
         grip = 0.0f;
-        //UpdateFingersForGrip();
-        //fingerA.transform.localPosition = fingerAOpenPosition;
-        //fingerB.transform.localPosition = fingerBOpenPosition;
         fingerA.ForceOpen(transform);
         fingerB.ForceOpen(transform);
         gripState = GripState.Fixed;
@@ -143,41 +127,11 @@ public class ArticulationFingerController : MonoBehaviour
 
     void UpdateFingersForGrip()
     {
-        /*
-        // fingerA
-        float zPositionA = Mathf.Lerp(fingerAOpenPosition.z, fingerAClosedZ, grip);
-        MoveFinger(fingerA, fingerAOpenPosition.z, zPositionA);
-
-        //fingerB
-        float zPositionB = Mathf.Lerp(fingerBOpenPosition.z, fingerBClosedZ, grip);
-        MoveFinger(fingerB, fingerBOpenPosition.z, zPositionB);
-        */
-
         fingerA.UpdateGrip(grip, transform);
         fingerB.UpdateGrip(grip, transform);
     }
 
-    /*
-    void MoveFinger(GameObject finger, float fingerLocalOpenZ, float toLocalZ)
-    {
-        ArticulationBody articulation = finger.GetComponent<ArticulationBody>();
-        float targetZ = (toLocalZ - fingerLocalOpenZ) * transform.localScale.z;
 
-        var drive = articulation.zDrive;
-        drive.target = targetZ;
-        articulation.zDrive = drive;
-
-    }
-    */
-    /*
-    float FingerAZDriveTarget(float grip)
-    {
-        
-        float zPositionA = Mathf.Lerp(fingerAOpenPosition.z, fingerAClosedZ, grip);
-        float targetZ = (zPositionA - fingerAOpenPosition.z) * transform.localScale.z;
-        return targetZ;
-    }
-    */
 
 
 
