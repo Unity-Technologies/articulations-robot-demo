@@ -10,10 +10,27 @@ public class PincherFingerController : MonoBehaviour
     Vector3 openPosition;
     ArticulationBody articulation;
 
+
+    // INIT
+
     void Start()
     {
         openPosition = transform.localPosition;
         articulation = GetComponent<ArticulationBody>();
+        SetLimits();
+    }
+
+    void SetLimits()
+    {
+        float openZTarget = ZDriveTarget(0.0f);
+        float closedZTarget = ZDriveTarget(1.0f);
+        float min = Mathf.Min(openZTarget, closedZTarget);
+        float max = Mathf.Max(openZTarget, closedZTarget);
+
+        var drive = articulation.zDrive;
+        drive.lowerLimit = min;
+        drive.upperLimit = max;
+        articulation.zDrive = drive;
     }
 
 
