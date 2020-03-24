@@ -2,7 +2,7 @@
 
 A simulation of the Universal Robotics UR3 robot with articulation joints.
 
-Requires 2020.1-alpha build of Unity (2020.1.0a23 or later).
+Requires 2020.1.0b1 build of Unity or later.
 
 Open the `ArmRobot` folder in Unity.
 
@@ -24,8 +24,7 @@ Z - open pincher
 All manual control is handled through the scripts on the `ManualInput` object. To disable
 manual input, just uncheck this object in the Hierarchy window.
 
-Note: There's a lag on manual control in 2020.1.0a23, but the issue is not with the physics engine.
-It seems that getting the input axis is slow for some reason.
+
 
 
 
