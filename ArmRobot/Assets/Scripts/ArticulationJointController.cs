@@ -8,7 +8,7 @@ public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
 public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
-    public float speed = 500.0f;
+    public float speed = 300.0f;
 
     private ArticulationBody articulation;
 
