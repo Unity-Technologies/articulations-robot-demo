@@ -801,8 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa6ad71f110149099d51ebf19edb294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fingerAGameObject: {fileID: 1838417712}
-  fingerBGameObject: {fileID: 1449517471}
+  fingerA: {fileID: 1838417712}
+  fingerB: {fileID: 1449517471}
   grip: 0
   gripSpeed: 3
   gripState: 0
@@ -1595,7 +1595,7 @@ ArticulationBody:
   m_ArticulationJointType: 1
   m_LinearX: 0
   m_LinearY: 0
-  m_LinearZ: 2
+  m_LinearZ: 1
   m_SwingY: 0
   m_SwingZ: 0
   m_Twist: 0
@@ -1900,7 +1900,7 @@ ArticulationBody:
   m_ArticulationJointType: 1
   m_LinearX: 0
   m_LinearY: 0
-  m_LinearZ: 2
+  m_LinearZ: 1
   m_SwingY: 0
   m_SwingZ: 0
   m_Twist: 0
