@@ -8,7 +8,7 @@ public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
 public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
-    public float speed = 500.0f;
+    public float speed = 300.0f;
 
     private ArticulationBody articulation;
 
@@ -63,12 +63,9 @@ public class ArticulationJointController : MonoBehaviour
     // MOVEMENT HELPERS
 
     float CurrentPrimaryAxisRotation()
-    { 
+    {
         float currentRotationRads = articulation.jointPosition[0];
         float currentRotation = Mathf.Rad2Deg * currentRotationRads;
-        
-        //Debug.Log("target: " + articulation.xDrive.target.ToString("F1") + ", current: " + currentRotation.ToString("F1"));
-
         return currentRotation;
         
     }
