@@ -1,7 +1,0 @@
-*.asset binary
-*.unity binary
-*.prefab binary
-*.meta binary
-*/CommunicatorObjects/* binary
-*/communicator_objects/* binary
-*.md text

@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.unity.ext.nunit": "1.0.0",
-    "com.unity.ml-agents": "file:/Users/sarahw/Desktop/articulations-robot-demo/ml-agents/com.unity.ml-agents",
     "com.unity.ide.rider": "2.0.1",
     "com.unity.ide.vscode": "1.2.0",
+    "com.unity.ml-agents": "file:/Users/sarahw/Developer/ml-agents/com.unity.ml-agents",
     "com.unity.test-framework": "1.1.11",
     "com.unity.textmeshpro": "3.0.0-preview.1",
     "com.unity.ugui": "1.0.0",
