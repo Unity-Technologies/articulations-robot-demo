@@ -14,6 +14,22 @@ public class RobotController : MonoBehaviour
     public Joint[] joints;
 
 
+    // READ
+
+    public float[] GetCurrentJointRotations()
+    {
+        float[] list = new float[joints.Length];
+        for (int i = 0; i < joints.Length; i++)
+        {
+            Joint joint = joints[i];
+            ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
+            float currentRotation = jointController.CurrentPrimaryAxisRotation();
+            list[i] = currentRotation;
+        }
+        return list;
+    }
+
+
     // CONTROL
 
     public void StopAllJointRotations()

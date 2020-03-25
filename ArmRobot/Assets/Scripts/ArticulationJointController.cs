@@ -31,6 +31,17 @@ public class ArticulationJointController : MonoBehaviour
 
     }
 
+
+    // READ
+
+    public float CurrentPrimaryAxisRotation()
+    {
+        float currentRotationRads = articulation.jointPosition[0];
+        float currentRotation = Mathf.Rad2Deg * currentRotationRads;
+        return currentRotation;
+    }
+
+
     // CONTROL
 
     public void ForceToRotation(float rotation)
@@ -51,14 +62,6 @@ public class ArticulationJointController : MonoBehaviour
 
 
     // MOVEMENT HELPERS
-
-    float CurrentPrimaryAxisRotation()
-    {
-        float currentRotationRads = articulation.jointPosition[0];
-        float currentRotation = Mathf.Rad2Deg * currentRotationRads;
-        return currentRotation;
-        
-    }
 
     void RotateTo(float primaryAxisRotation)
     {
