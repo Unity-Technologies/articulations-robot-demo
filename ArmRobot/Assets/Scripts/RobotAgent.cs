@@ -57,11 +57,10 @@ public class RobotAgent : Agent
 
     public override void AgentAction(float[] vectorAction)
     {
-        /*
         // move
         int jointIndex = (int)vectorAction[0];
         int actionIndex = (int)vectorAction[1];
-        RotationDirection rotationDirection = AgentHelpers.ActionIndexToRotationDirection(actionIndex);
+        RotationDirection rotationDirection = ActionIndexToRotationDirection(actionIndex);
         robotController.RotateJoint(jointIndex, rotationDirection);
 
         // end episode if we touched the cube
@@ -73,12 +72,18 @@ public class RobotAgent : Agent
         //reward
         float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position);
         SetReward(-distanceToCube * 0.01f);
-        */
+        
     }
 
 
+    // HELPERS
 
-    
+    static public RotationDirection ActionIndexToRotationDirection(int actionIndex)
+    {
+        return (RotationDirection)(actionIndex + 1);
+    }
+
+
 
 
 }
