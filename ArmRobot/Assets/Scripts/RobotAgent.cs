@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using System;
 
 public class RobotAgent : Agent
 {
@@ -31,29 +32,27 @@ public class RobotAgent : Agent
         robotController.ForceJointsToRotations(defaultRotations);
         touchDetector.hasTouchedTarget = false;
         tablePositionRandomizer.Move();
-        
+       
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        /*
         // current rotations
         float[] rotations = robotController.GetCurrentJointRotations();
         foreach (float rotation in rotations)
         {
             float rotationRadians = rotation * (Mathf.PI / 180.0f);
-            AddVectorObs(Mathf.Sin(rotationRadians));
-            AddVectorObs(Mathf.Cos(rotationRadians));
+            sensor.AddObservation(Mathf.Sin(rotationRadians));
+            sensor.AddObservation(Mathf.Cos(rotationRadians));
         }
 
         //cube position
         Vector3 cubePosition = cube.transform.position - robot.transform.position;
-        AddVectorObs(cubePosition);
+        sensor.AddObservation(cubePosition);
 
         //end position
         Vector3 endPosition = endEffector.transform.position - robot.transform.position;
-        AddVectorObs(endPosition);
-        */
+        sensor.AddObservation(endPosition);        
     }
 
     public override void AgentAction(float[] vectorAction)
