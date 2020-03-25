@@ -33,16 +33,6 @@ public class ArticulationJointController : MonoBehaviour
 
     // CONTROL
 
-    public void PrintDOF()
-    {
-        Debug.Log("DOF = " + articulation.jointPosition.dofCount.ToString("F1"));
-    }
-
-    public void SetArticulationToEnabled(bool enabled)
-    {
-        articulation.enabled = enabled;
-    }
-
     public void ForceToRotation(float rotation)
     {
         // set target
