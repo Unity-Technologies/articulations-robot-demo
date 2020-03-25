@@ -24,7 +24,9 @@ Z - open pincher
 All manual control is handled through the scripts on the `ManualInput` object. To disable
 manual input, just uncheck this object in the Hierarchy window.
 
+### License
 
+[Apache License 2.0](LICENSE)
 
 
 
