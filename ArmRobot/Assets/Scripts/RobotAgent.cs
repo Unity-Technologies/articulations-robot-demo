@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using MLAgents.Sensors;
 using System;
 
 public class RobotAgent : Agent
@@ -24,15 +25,13 @@ public class RobotAgent : Agent
 
 
     // AGENT
-    
-    public override void AgentReset()
+
+    public override void OnEpisodeBegin()
     {
-        
         float[] defaultRotations = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
         robotController.ForceJointsToRotations(defaultRotations);
         touchDetector.hasTouchedTarget = false;
         tablePositionRandomizer.Move();
-       
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -55,7 +54,7 @@ public class RobotAgent : Agent
         sensor.AddObservation(endPosition);        
     }
 
-    public override void AgentAction(float[] vectorAction)
+    public override void OnActionReceived(float[] vectorAction)
     {
         // move
         int jointIndex = (int)vectorAction[0];
@@ -66,7 +65,7 @@ public class RobotAgent : Agent
         // end episode if we touched the cube
         if (touchDetector.hasTouchedTarget)
         {
-            Done();
+            EndEpisode();
         }
 
         //reward

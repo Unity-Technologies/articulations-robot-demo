@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-option csharp_namespace = "MLAgents.CommunicatorObjects";
-package communicator_objects;
-
-
-message UnityRLInitializationInputProto {
-    int32 seed = 1;
-}

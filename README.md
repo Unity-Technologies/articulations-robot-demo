@@ -30,14 +30,16 @@ manual input, just uncheck this object in the Hierarchy window.
 
 ### MLAgents
 
-There is an issue installing MLAgents with 2020.1-alpha, documented here:
-https://github.com/Unity-Technologies/ml-agents/issues/3109
+To install:
 
-To get around this, this project has its own local version of mlagents. If you have mlagents errors upon opening this project:
-1. Uninstall MLAgents in `Window` > `Package Manager`
-2. Reinstall it by clicking the plus button near the top of the package manager, selecting `Add package from disk`, and selecting `ml-agents/com.unity.ml-agents/package.json` in this project.
+1. Download MLAgents 0.15.0 from Github with: `git clone https://github.com/Unity-Technologies/ml-agents.git`
+2. Add MLAgents to the Unity project:
+     a. Go to `Window` > `Package Manager`
+     b. Select the plus button in the upper left corner, and then `add package from disk`
+     c. Navigate to the MLAgents project you just cloned, and within that select `com.unity.ml-agents` > `package.json`
+3. Install the corresponding MLAgents python package with `pip3 install mlagents==0.15.0`
 
-This should get rid of the errors.
+To train:
 
-
+`mlagents-learn config.yaml --run-id=[YOUR RUN ID] --train`
 
