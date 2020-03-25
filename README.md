@@ -39,6 +39,7 @@ To install:
      c. Navigate to the MLAgents project you just cloned, and within that select `com.unity.ml-agents` > `package.json`
 3. Install the corresponding MLAgents python package with `pip3 install mlagents==0.15.0`
 
+To train:
 
-
+`mlagents-learn config.yaml --run-id=[YOUR RUN ID] --train`
 
