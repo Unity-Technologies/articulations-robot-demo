@@ -1423,6 +1423,7 @@ GameObject:
   - component: {fileID: 1390582876}
   - component: {fileID: 1390582875}
   - component: {fileID: 1390582874}
+  - component: {fileID: 1390582877}
   m_Layer: 0
   m_Name: MLAgents
   m_TagString: Untagged
@@ -1442,7 +1443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74e778a3b8644a59be2e1022bf989f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStep: 0
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  maxStep: 5000
   endEffector: {fileID: 995377197}
   cube: {fileID: 1383161865}
   robot: {fileID: 1442213767}
@@ -1468,8 +1472,8 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: My Behavior
-  m_TeamID: 0
-  m_useChildSensors: 1
+  TeamId: 0
+  m_UseChildSensors: 1
 --- !u!4 &1390582876
 Transform:
   m_ObjectHideFlags: 0
@@ -1484,6 +1488,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390582877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390582873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 10
+  TakeActionsBetweenDecisions: 1
+  offsetStep: 0
 --- !u!1 &1442213767
 GameObject:
   m_ObjectHideFlags: 0
