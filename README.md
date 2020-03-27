@@ -9,13 +9,15 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 
 ## Getting Started
 
-Requires 2020.1.0b1 build of Unity or later.
-
-Open the `ArmRobot` folder in Unity.
-
-Open `Scenes` > `ArticulationRobot` and press play.
+Requires 2020.1.0b1 build of Unity or later. To get started:
+1. Open the `ArmRobot` folder in Unity.
+2. Open `Scenes` > `ArticulationRobot`
+3. Press play
 
 ## Manual Controls
+
+You can move the robot around manually using the following keyboard commands:
+
 ```
 A/D - rotate base joint
 S/W - rotate shoulder joint
