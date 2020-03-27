@@ -40,16 +40,16 @@ public class RobotAgent : Agent
         float[] rotations = robotController.GetCurrentJointRotations();
         foreach (float rotation in rotations)
         {
-            float rotationRadians = rotation * (Mathf.PI / 180.0f);
-            sensor.AddObservation(Mathf.Sin(rotationRadians));
-            sensor.AddObservation(Mathf.Cos(rotationRadians));
+            // normalize rotation to [0, 1] range
+            float normalizedRotation = rotation / 360.0f;
+            sensor.AddObservation(normalizedRotation);
         }
 
-        //cube position
+        // relative cube position
         Vector3 cubePosition = cube.transform.position - robot.transform.position;
         sensor.AddObservation(cubePosition);
 
-        //end position
+        // relative end position
         Vector3 endPosition = endEffector.transform.position - robot.transform.position;
         sensor.AddObservation(endPosition);        
     }
