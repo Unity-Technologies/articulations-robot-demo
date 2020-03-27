@@ -1,6 +1,9 @@
 # Articulations Demo Robot
 
-A simulation of the Universal Robotics UR3 robot with articulation joints.
+This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot using Unity's new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html).
+
+
+### Getting Started
 
 Requires 2020.1.0b1 build of Unity or later.
 
