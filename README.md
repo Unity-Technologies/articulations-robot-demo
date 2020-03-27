@@ -6,6 +6,8 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 
 This, along with other key improvements in PhysX 4, unlocks state of the art robotics simulation in Unity.
 
+![](images/RobotHandDemo.gif)
+
 
 ### Getting Started
 
