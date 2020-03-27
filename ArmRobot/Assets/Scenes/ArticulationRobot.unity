@@ -806,20 +806,6 @@ MonoBehaviour:
   grip: 0
   gripSpeed: 3
   gripState: 0
---- !u!114 &995377201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995377197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e19f16247fca40aab4e61e7403917a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchTarget: {fileID: 1383161865}
-  hasTouchedTarget: 0
 --- !u!136 &995377204
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1286,6 +1272,7 @@ GameObject:
   - component: {fileID: 1383161867}
   - component: {fileID: 1383161866}
   - component: {fileID: 1383161872}
+  - component: {fileID: 1383161873}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1412,6 +1399,20 @@ MonoBehaviour:
   table: {fileID: 1064094162}
   robotMinReach: 0.2
   robotMaxReach: 0.5
+--- !u!114 &1383161873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383161865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e19f16247fca40aab4e61e7403917a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchTargetTag: Pincher
+  hasTouchedTarget: 0
 --- !u!1 &1390582873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1390582874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1557304989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,20 +1984,40 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3262837010919697893, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pincher
+      objectReference: {fileID: 0}
     - target: {fileID: -1051544179896239664, guid: f795b5118c0744de3bcac7a83315a637,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1051544179896239664, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pincher
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f795b5118c0744de3bcac7a83315a637,
         type: 3}
       propertyPath: m_Name
       value: HandE
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pincher
+      objectReference: {fileID: 0}
     - target: {fileID: 505950275963751659, guid: f795b5118c0744de3bcac7a83315a637,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 505950275963751659, guid: f795b5118c0744de3bcac7a83315a637,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pincher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f795b5118c0744de3bcac7a83315a637, type: 3}

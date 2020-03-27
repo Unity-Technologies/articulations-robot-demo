@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TouchDetector : MonoBehaviour
 {
-    public GameObject touchTarget;
+    public string touchTargetTag;
     public bool hasTouchedTarget = false;
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.gameObject.name == touchTarget.name)
+        if (collision.transform.gameObject.tag == touchTargetTag)
         {
             Debug.Log("Touch Detected!");
             hasTouchedTarget = true;

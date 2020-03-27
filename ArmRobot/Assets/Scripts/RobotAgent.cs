@@ -19,7 +19,7 @@ public class RobotAgent : Agent
     void Start()
     {
         robotController = robot.GetComponent<RobotController>();
-        touchDetector = endEffector.GetComponent<TouchDetector>();
+        touchDetector = cube.GetComponent<TouchDetector>();
         tablePositionRandomizer = cube.GetComponent<TablePositionRandomizer>();
     }
 
