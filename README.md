@@ -39,19 +39,33 @@ When building a robot arm with articulation joints, each movable part of the rob
 
 <img width="300px" src="images/parent-child.png">
 
-Next, you must add an `ArticulationBody` component to each of the game objects that compose the robot arm. You will not need to add `Rigidbody` components to any parts of the robot arm, but you may still want to add them to other objects in the environment that the robot will interact with. In our example, there are `Rigidbody`s only on the cube and the table. 
+Next, you must add an `ArticulationBody` component to each of the game objects that compose the robot arm. You will not need to add `Rigidbody` components to any parts of the robot arm, but you may still want to add them to other objects in the environment that the robot will interact with. In our example, there are `Rigidbody` components only on the cube and the table. 
+
+### The Root Body
 
 If you examine the `ArticulationBody` component on the base of the robot (the `UR3` game object), you will notice that it has a very simple interface. The is the root body of the articulation, which plays a special role. The `immovable` property should be checked if you do not intend this part of the robot to move around.
 
 <img width="500px" src="images/articulation_base.png">
 
-The successive `ArticulationBody` components on your robot arm are much more customizable. The most important setting here is `Articulation Joint Type`. The available types are:
-* Fixed - does not allow any relative movement of the connected bodies
-* Prismatic - only allows relative translation of the connection bodies along one specified axis
-* Revolute - allows rotational movement around the X axis of the parent's anchor
-* Spherical - allows relative rotations (but not translations) of the two connected bodies
+The successive `ArticulationBody` components on your robot arm are much more customizable. 
 
 <img width="500px" src="images/articulation_other.png">
+
+### Articulation Joint Types
+
+The most important setting here is `Articulation Joint Type`. The available types are:
+* `Fixed` - does not allow any relative movement of the connected bodies
+* `Prismatic` - only allows relative translation of the connection bodies along one specified axis
+* `Revolute` - allows rotational movement around the X axis of the parent's anchor
+* `Spherical` - allows relative rotations (but not translations) of the two connected bodies
+
+Since all the joints on our robot arm rotate on only one axis, all of our articulation joints here are `Revolute`, except for the two pincher fingers on the hand, which are `Prismatic` because they slide back and forth on one axis. 
+
+### Damping and Friction
+
+### Drives
+
+### Limits
 
 
 ## License
