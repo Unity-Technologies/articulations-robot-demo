@@ -37,13 +37,13 @@ manual input, just uncheck this object in the Hierarchy window.
 
 When building a robot arm with articulation joints, each movable part of the robot should be a child of the previous part. You can see these successive parent-child relationships by expanding the `UR3` object in the Hierarchy window. 
 
-![](images/parent-child.png)
+<img width="300px" src="images/parent-child.png">
 
 Next, you must add an `ArticulationBody` component to each of the game objects that compose the robot arm. You will not need to add `Rigidbody` components to any parts of the robot arm, but you may still want to add them to other objects in the environment that the robot will interact with. In our example, there are `Rigidbody`s only on the cube and the table. 
 
-If you examine the `ArticulationBody` component on the base of the robot (the `UR3` game object), you will notice that it has a very simple interface. The is the root body of the articulation. The `immovable` property should be checked if you do not intend this part of the robot to move around.
+If you examine the `ArticulationBody` component on the base of the robot (the `UR3` game object), you will notice that it has a very simple interface. The is the root body of the articulation, which plays a special role. The `immovable` property should be checked if you do not intend this part of the robot to move around.
 
-![](images/articulation_base.png)
+<img width="500px" src="images/articulation_base.png">
 
 The successive `ArticulationBody` components on your robot arm are much more customizable. The most important setting here is `Articulation Joint Type`. The available types are:
 * Fixed - does not allow any relative movement of the connected bodies
@@ -51,7 +51,8 @@ The successive `ArticulationBody` components on your robot arm are much more cus
 * Revolute - allows rotational movement around the X axis of the parent's anchor
 * Spherical - allows relative rotations (but not translations) of the two connected bodies
 
-![](images/articulation_other.png)
+<img width="500px" src="images/articulation_other.png">
+
 
 ## License
 
