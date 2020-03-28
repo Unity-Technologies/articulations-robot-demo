@@ -47,7 +47,7 @@ If you examine the `ArticulationBody` component on the base of the robot (the `U
 
 <img width="500px" src="images/articulation_base.png">
 
-The successive `ArticulationBody` components on your robot arm are much more customizable. 
+The successive `ArticulationBody` components on your robot arm are much more customizable. We will dive into these settings next.
 
 <img width="500px" src="images/articulation_other.png">
 
