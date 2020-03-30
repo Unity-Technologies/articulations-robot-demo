@@ -59,11 +59,24 @@ The most important setting here is `Articulation Joint Type`. The available type
 * `Revolute` - allows rotational movement around the X axis of the parent's anchor
 * `Spherical` - allows relative rotations (but not translations) of the two connected bodies
 
-Since all the joints on our robot arm rotate on only one axis, all of our articulation joints here are `Revolute`, except for the two pincher fingers on the hand, which are `Prismatic` because they slide back and forth on one axis. 
+Since all the joints on our robot arm rotate on only one axis, all of our arm's articulation joints are `Revolute`. Although `Revolute` joints are contrained to only rotate around the X axis, you can use the `Angular Rotation` property to rotate the entire articulation body such that its X axis points in the desired direction. The two pincher fingers on the hand are `Prismatic` because they slide back and forth on one axis. 
 
 ### Damping and Friction
+All the joint types have the following physical parameters:
+
+* `Linear Damping` - Resistance that will slow down linear motion of the joint
+* `Angular Damping` - Resistance that will slow down angular motion of the joint
+* `Joint Friction` - Amount of friction that is applied as a result of connected bodies moving relative to this body
 
 ### Drives
+There are two ways to move articulation joints - by applying forces, or by using drives. A drive attempts to move the joint to the specified `target` or at the specified `target velocity`. For example, in this project, we move our revolute joints by updating the `target` to the desired rotation in degrees. You can see this being done in the `RotateTo` method in the `ArticulationJointController` script. 
+
+The drive acts like a spring in its attempt to achieve and maintain the `target`.
+
+On the drive, you can also specify:
+* `Stiffness` - The stiffness of the spring connected to this drive.
+* `Damping` - The damping of the spring attached to this drive.
+* `Force Limit` - The maximum force this drive can apply to a body.
 
 ### Limits
 
