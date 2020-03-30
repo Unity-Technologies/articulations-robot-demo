@@ -43,7 +43,7 @@ Next, you must add an `ArticulationBody` component to each of the game objects t
 
 ### The Root Body
 
-If you examine the `ArticulationBody` component on the base of the robot (the `UR3` game object), you will notice that it has a very simple interface. The is the root body of the articulation, which plays a special role. The `immovable` property should be checked if you do not intend this part of the robot to move around.
+If you examine the `ArticulationBody` component on the base of the robot (the `UR3` game object), you will notice that it has a very simple interface. This is the root body of the articulation, which plays a special role. The `immovable` property should be checked if you do not intend this part of the robot to move around.
 
 <img width="500px" src="images/articulation_base.png">
 
