@@ -69,7 +69,7 @@ All the joint types have the following physical parameters:
 * `Joint Friction` - Amount of friction that is applied as a result of connected bodies moving relative to this body
 
 ### Drives
-There are two ways to move articulation joints - by applying forces, or by using drives. A drive attempts to move the joint to the specified `target` or at the specified `target velocity`. For example, in this project, we move our revolute joints by updating the `target` to the desired rotation in degrees. You can see this being done in the `RotateTo` method in the `ArticulationJointController` script. 
+There are two ways to move articulation joints - by applying forces, or by using drives. In this project, we use drives. A drive attempts to move the joint to the specified `target` or at the specified `target velocity`. Here, we move our revolute joints by updating the `target` to the desired rotation in degrees. You can see this being done in the `RotateTo` method in the `ArticulationJointController` script. 
 
 The drive acts like a spring in its attempt to achieve and maintain the `target`.
 
@@ -79,6 +79,10 @@ On the drive, you can also specify:
 * `Force Limit` - The maximum force this drive can apply to a body.
 
 ### Limits
+
+By default, the `Motion` property on the articulation components will be set to `Free`. For a revolute joint, this means that the joint can rotate indefinitely. However, real systems rarely act this way. In the real UR3 robot, safeguards prevent the joints from moving beyond two full revolutions in either direction. Exceeding this limit in the real robot would twist the wires inside and damage the hardware.
+
+We can mimic this in simulation by adding limits to our joints. To do this, change the `Motion` selection to `Limited` in the dropdown. Doing so on the revolute joint will add two new properties to the drive - a `Lower Limit` and an `Upper Limit`, defined in degrees.
 
 
 ## License
