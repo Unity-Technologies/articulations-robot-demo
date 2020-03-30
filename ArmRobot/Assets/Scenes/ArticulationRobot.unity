@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 622386704}
   - component: {fileID: 622386703}
   m_Layer: 0
-  m_Name: Wrist03
+  m_Name: Wrist3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 1089875218}
   - component: {fileID: 1089875219}
   m_Layer: 0
-  m_Name: Base01
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 1207038284}
   - component: {fileID: 1207038286}
   m_Layer: 0
-  m_Name: Wrist02
+  m_Name: Wrist2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,7 +1397,7 @@ GameObject:
   - component: {fileID: 1442213769}
   - component: {fileID: 1442213768}
   m_Layer: 0
-  m_Name: UnityRobotics_RF3_s1
+  m_Name: UR3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2044,7 +2044,7 @@ GameObject:
   - component: {fileID: 2127710633}
   - component: {fileID: 2127710634}
   m_Layer: 0
-  m_Name: Wrist01
+  m_Name: Wrist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
