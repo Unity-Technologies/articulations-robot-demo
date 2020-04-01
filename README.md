@@ -9,7 +9,7 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 
 ## Getting Started
 
-Requires `2020.1.0b1` build of Unity or later. To get started:
+Requires `2020.1.0b4` build of Unity or later. To get started:
 1. Open the `ArmRobot` folder in Unity.
 2. Open `Scenes` > `ArticulationRobot`
 3. Press play
