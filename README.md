@@ -58,6 +58,7 @@ Then, press `play` in Unity.
 As the training runs, a `models` and a `summaries` folder will be automatically created in the root level of this project. As you might guess, the `models` folder stores the trained model files, and the `summaries` folder stores the event files where Tensorflow writes logs.
 
 To monitor training, navigate into the `summaries` folder and run:
+
 `tensorboard --logdir=[YOUR RUN ID]_TouchCube`
 
 You can then view the live Tensorboard at `localhost:6006`. 
