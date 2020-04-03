@@ -36,6 +36,11 @@ public class TablePositionRandomizer : MonoBehaviour
             Random.value * 360.0f, 
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
+
+        // reset velocity
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
     }
 
 
