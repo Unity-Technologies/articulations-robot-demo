@@ -23,6 +23,8 @@ N/M - rotate wrist3
 V/B - rotate hand
 X - close pincher
 Z - open pincher
+
+space - instant reset
 ```
 
 ## MLAgents
