@@ -4,9 +4,7 @@ A simulation of the Universal Robotics UR3 robot with articulation joints.
 
 Requires 2020.1.0b1 build of Unity or later.
 
-Open the `ArmRobot` folder in Unity.
-
-Open `Scenes` > `ArticulationRobot` and press play.
+Open the `ArmRobot` folder in Unity. Then open `Scenes` > `ArticulationRobot`.
 
 ## Manual Controls
 
