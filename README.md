@@ -1,4 +1,4 @@
-# Articulations Demo Robot
+# Training the UR3 with MLAgents
 
 A simulation of the Universal Robotics UR3 robot with articulation joints.
 
@@ -10,7 +10,7 @@ Open `Scenes` > `ArticulationRobot` and press play.
 
 ## Manual Controls
 
-All manual control is handled through the scripts on the `ManualInput` object. To disable
+All manual control is handled through the scripts on the `ManualInput` object. To enable
 manual input, just check this object in the Hierarchy window, and uncheck the `MLAgents` object.
 
 ```
