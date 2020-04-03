@@ -29,7 +29,7 @@ Z - open pincher
 
 In this project, we used MLAgents to train the robot to touch the cube. 
 
-The agent controls the robot at the level of its six joints in a discrete manner. It uses a 'joint index' to select the joint, and an 'action index' to move that joint clockwise, counterclockwise, or not at all. 
+The agent controls the robot at the level of its six joints in a discrete manner. It uses a 'joint index' to select the joint, and an 'action index' to move that joint clockwise, counterclockwise, or not at all. For state, the agent is given the current rotation of all six joints and the position of the cube.
 
 The reward at each step is simply the negative distance between the end effector and the cube. The advantage of this is that changes in reward are continuous and it does incentivize the agent to pursue our goal of touching the cube. However, other reward schemes may work as well or better. You should experiment!
 
