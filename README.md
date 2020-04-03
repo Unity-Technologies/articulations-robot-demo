@@ -1,4 +1,6 @@
-# Training the UR3 with MLAgents
+# Training the UR3 
+
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="200px" src="images/robot_still.png">
 
 This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot using Unity's new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html).
 
@@ -29,7 +31,7 @@ space - instant reset
 
 ## MLAgents
 
-In this project, we used MLAgents to train the robot to touch the cube. 
+In this project, we used [MLAgents](https://github.com/Unity-Technologies/ml-agents) to train the robot to touch the cube. 
 
 The agent controls the robot at the level of its six joints in a discrete manner. It uses a 'joint index' to select the joint, and an 'action index' to move that joint clockwise, counterclockwise, or not at all. For state, the agent is given the current rotation of all six joints and the position of the cube.
 
