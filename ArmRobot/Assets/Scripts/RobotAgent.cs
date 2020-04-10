@@ -57,10 +57,7 @@ public class RobotAgent : Agent
     public override void OnActionReceived(float[] vectorAction)
     {
         // move
-        int jointIndex = (int)vectorAction[0];
-        int actionIndex = (int)vectorAction[1];
-        RotationDirection rotationDirection = ActionIndexToRotationDirection(actionIndex);
-        robotController.RotateJoint(jointIndex, rotationDirection);
+        robotController.RotateAllJoints(vectorAction);
 
         // end episode if we touched the cube
         if (touchDetector.hasTouchedTarget)

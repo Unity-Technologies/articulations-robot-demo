@@ -29,6 +29,11 @@ public class RobotController : MonoBehaviour
         return list;
     }
 
+    public int NumberOfJoints()
+    {
+        return joints.Length;
+    }
+
 
     // CONTROL
 
@@ -38,6 +43,17 @@ public class RobotController : MonoBehaviour
         {
             GameObject robotPart = joints[i].robotPart;
             UpdateRotationState(RotationDirection.None, robotPart);
+        }
+    }
+
+    public void RotateAllJoints(float[] actionIndeces)
+    {
+        for (int i = 0; i < joints.Length; i++)
+        {
+            int actionIndex = (int)actionIndeces[i];
+            RotationDirection direction = (RotationDirection)(actionIndex + 1);
+            Joint joint = joints[i];
+            UpdateRotationState(direction, joint.robotPart);
         }
     }
 
