@@ -39,7 +39,7 @@ When building a robot arm with articulation joints, each movable part of the rob
 
 <img width="300px" src="images/parent-child.png">
 
-Next, you must add an `ArticulationBody` component to each of the game objects that compose the robot arm. You will not need to add `Rigidbody` components to any parts of the robot arm, but you may still want to add them to other objects in the environment that the robot will interact with. In our example, there are `Rigidbody` components only on the cube and the table. 
+Next, you must add an `ArticulationBody` component to each of the game objects that compose the robot arm. You will not need to add `Rigidbody` components to any parts of the robot arm, but you may still want to add them to other objects in the environment that the robot will interact with. In our example, there are `Rigidbody` components only on the cube and the table. You do still need to add colliders though.  
 
 ### The Root Body
 
