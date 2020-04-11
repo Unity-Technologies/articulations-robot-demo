@@ -19,7 +19,7 @@ public class GripperDemoController : MonoBehaviour
         Debug.Log(xDrivePostion);
 
         //increment this y position
-        float targetPosition = xDrivePostion + (float)moveState * Time.fixedDeltaTime * speed;
+        float targetPosition = xDrivePostion + -(float)moveState * Time.fixedDeltaTime * speed;
 
         //set joint Drive to new position
         var drive = articulation.xDrive;
