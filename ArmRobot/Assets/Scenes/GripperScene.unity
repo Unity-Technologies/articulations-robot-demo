@@ -366,6 +366,19 @@ ArticulationBody:
   m_JointFriction: 0.05
   m_Immovable: 0
   m_UseGravity: 1
+--- !u!65 &382827570
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382827568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7284993, y: 6.1900034, z: 1.1918553}
+  m_Center: {x: 0.70775217, y: 0.0000047683716, z: -1.6640732}
 --- !u!1 &657713067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1051544179896239664, guid: f795b5118c0744de3bcac7a83315a637,
@@ -422,6 +435,19 @@ ArticulationBody:
   m_JointFriction: 0.05
   m_Immovable: 0
   m_UseGravity: 1
+--- !u!65 &657713069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657713067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9711787, y: 6.1900034, z: 1.2197936}
+  m_Center: {x: -0.58641225, y: 0.0000047683716, z: 1.6501062}
 --- !u!1 &827560843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f795b5118c0744de3bcac7a83315a637,
@@ -445,6 +471,20 @@ MonoBehaviour:
   grip: 0
   gripSpeed: 3
   gripState: 0
+--- !u!136 &827560845
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827560843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.750002
+  m_Height: 9.920005
+  m_Direction: 1
+  m_Center: {x: -0.00000035762795, y: 4.940003, z: -8.526514e-14}
 --- !u!171741748 &827560848
 ArticulationBody:
   m_ObjectHideFlags: 0
