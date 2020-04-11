@@ -1,16 +1,52 @@
-# Training the UR3 
+# Training the UR3
 
 <img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="200px" src="images/robot_still.png">
 
 This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot using Unity's new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html).
 
-This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvidia.com/announcing-physx-sdk-4-0-an-open-source-physics-engine/), is a dramatic improvement over the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement. 
+This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvidia.com/announcing-physx-sdk-4-0-an-open-source-physics-engine/), is a dramatic improvement over the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement.
 
-Requires 2020.1.0b1 build of Unity or later.
+## Requirements
 
-Open the `ArmRobot` folder in Unity. Then open `Scenes` > `ArticulationRobot`.
+Unity 2020.1.0b1 or later is needed for the new joint system. This UR3 demo comes
+bundled with [ML-Agents v0.15.1](https://github.com/Unity-Technologies/ml-agents/tree/0.15.1)
+to demonstrate the UR3 learning to touch a cube.
 
-## Manual Controls
+## Installation
+
+To install this demo and experiment with the UR3 simulation and ML-Agents training you will
+need an appropriate version of Unity, a clone of this repo and the ML-Agents Toolkit.
+
+#### Install Unity
+
+If you do not have Unity 2020.1.0b1 or later, add the latest 2020.1 beta release
+through [Unity Hub](https://unity3d.com/get-unity/download). This demo has been
+last tested on Unity 2020.1.0b5.
+
+#### Clone the Articulations Robot Demo Repo
+
+Clone this branch of the repository: `git clone --branch mlagents https://github.com/Unity-Technologies/articulations-robot-demo`.
+
+Alternatively, you can clone the entire repo and checkout the `mlagents` branch:
+`git clone https://github.com/Unity-Technologies/articulations-robot-demo`
+`git checkout mlagents`
+
+The `ArmRobot` folder contains the `ArticulationRobot` scene. If you open the scene
+in Unity you will see a few errors since the ML-Agents package still needs to be added.
+
+#### Install the Unity ML-Agents Toolkit
+
+Detailed instructions for installing v0.15.1 of the ML-Agents Toolkit can be found on the
+[ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md).
+However, do skip the [Install Unity section](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md#install-unity-20184-or-later) as we've already covered the necessary
+Unity installation needed for this demo.
+
+## UR3 Demo
+
+After you have complete the installation, ppen the `ArmRobot` folder in Unity.
+Then open `Scenes` > `ArticulationRobot`.
+
+### Manual Controls
 
 All manual control is handled through the scripts on the `ManualInput` object. To enable
 manual input, just check this object in the Hierarchy window, and uncheck the `MLAgents` object.
@@ -29,33 +65,24 @@ Z - open pincher
 space - instant reset
 ```
 
-## MLAgents
+### Training using the Unity ML-Agents Toolkit
 
-In this project, we used [MLAgents](https://github.com/Unity-Technologies/ml-agents) to train the robot to touch the cube. 
+In this project, we used the [Unity ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents) to train the robot to touch the cube.
 
-The agent controls the robot at the level of its six joints in a discrete manner. It uses a 'joint index' to select the joint, and an 'action index' to move that joint clockwise, counterclockwise, or not at all. For state, the agent is given the current rotation of all six joints and the position of the cube.
+The agent controls the robot at the level of its six joints in a discrete manner. It uses a 'joint index' to select the joint, and an 'action index' to move that joint clockwise, counterclockwise, or not at all. For observations, the agent is given the current rotation of all six joints and the position of the cube.
 
 The reward at each step is simply the negative distance between the end effector and the cube. The advantage of this is that changes in reward are continuous and it does incentivize the agent to pursue our goal of touching the cube. However, other reward schemes may work as well or better. You should experiment!
 
 The episodes end immediately when the robot touches the cube, and are limited to a maximum of 500 steps. At the beginning of each new episode, the robot is reset to its base pose, and the cube is moved to a random location on the table.
 
-#### Install 
-
-If you have MLAgents errors upon opening the project, uninstall MLAgents (look under `Window` > `Package Manager`), then reinstall as shown below.
-
-1. Download MLAgents 0.15.0 from Github with: `git clone https://github.com/Unity-Technologies/ml-agents.git`
-2. Navigate into that folder and run `git checkout release-0.15.0`
-2. To add MLAgents to the Unity project:
-     a. Go to `Window` > `Package Manager`
-     b. Select the plus button in the upper left corner, and then `add package from disk`
-     c. Navigate to the MLAgents project you just cloned, and within that select `com.unity.ml-agents` > `package.json`
-3. Install the corresponding MLAgents python package with `pip3 install mlagents==0.15.0`
 
 #### Train
 
+Detailed instructions on how to train using the ML-Agents Toolkit can be found on the [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Training-ML-Agents.md).
+
 To start training, just run this command:
 
-`mlagents-learn config.yaml --run-id=[YOUR RUN ID] --train`
+`mlagents-learn ur3_config.yaml --run-id=[YOUR RUN ID] --train`
 
 Then, press `play` in Unity.
 
@@ -65,7 +92,7 @@ To monitor training, navigate into the `summaries` folder and run:
 
 `tensorboard --logdir=[YOUR RUN ID]_TouchCube`
 
-You can then view the live Tensorboard at `localhost:6006`. 
+You can then view the live Tensorboard at `localhost:6006`.
 
 #### Our Results
 
@@ -73,7 +100,15 @@ Since there is some randomness in the training process, your results might not l
 
 <img width='300px' src='images/reward.png'>
 
-Since the reward was quite noisy, we used heavy smoothing in this graph to more easily see the trend. Tensorboard makes this easy, and you might want to try the same. 
+Since the reward was quite noisy, we used heavy smoothing in this graph to more easily see the trend. Tensorboard makes this easy, and you might want to try the same.
+
+## Support
+
+This demo is provided as-is without guarantees. Please [submit
+an issue](https://github.com/Unity-Technologies/articulations-robot-demo/issues) if:
+* You run into issues downloading or installing this demo after following the instructions above.
+* You extend this demo in an interesting way. We may not be able to provide support, but would love to hear about it.
+
 
 ## License
 
