@@ -495,7 +495,7 @@ MonoBehaviour:
   fingerA: {fileID: 657713067}
   fingerB: {fileID: 382827568}
   grip: 0
-  gripSpeed: 3
+  gripSpeed: 1
   gripState: 0
 --- !u!136 &827560845
 CapsuleCollider:
