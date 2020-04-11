@@ -14,7 +14,6 @@ public class RobotAgent : Agent
     RobotController robotController;
     TouchDetector touchDetector;
     TablePositionRandomizer tablePositionRandomizer;
-    
 
     void Start()
     {
@@ -72,12 +71,6 @@ public class RobotAgent : Agent
     }
 
 
-    // HELPERS
-
-    static public RotationDirection ActionIndexToRotationDirection(int actionIndex)
-    {
-        return (RotationDirection)(actionIndex + 1);
-    }
 
 
 
