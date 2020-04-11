@@ -87,6 +87,8 @@ We can mimic this in simulation by adding limits to our joints. To do this, chan
 
 # Gripper Demo
 
+Open the `GripperScene`.
+
 Manual Controls:
 ```
 G - down

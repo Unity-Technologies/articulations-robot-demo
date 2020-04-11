@@ -12,18 +12,21 @@ public class GripperDemoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ArticulationBody articulation = GetComponent<ArticulationBody>();
+        if (moveState != BigHandState.Fixed)
+        {
+            ArticulationBody articulation = GetComponent<ArticulationBody>();
 
-        //get jointPosition along y axis
-        float xDrivePostion = articulation.jointPosition[0];
-        Debug.Log(xDrivePostion);
+            //get jointPosition along y axis
+            float xDrivePostion = articulation.jointPosition[0];
+            Debug.Log(xDrivePostion);
 
-        //increment this y position
-        float targetPosition = xDrivePostion + -(float)moveState * Time.fixedDeltaTime * speed;
+            //increment this y position
+            float targetPosition = xDrivePostion + -(float)moveState * Time.fixedDeltaTime * speed;
 
-        //set joint Drive to new position
-        var drive = articulation.xDrive;
-        drive.target = targetPosition;
-        articulation.xDrive = drive;
+            //set joint Drive to new position
+            var drive = articulation.xDrive;
+            drive.target = targetPosition;
+            articulation.xDrive = drive;
+        }
     }
 }
