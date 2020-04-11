@@ -1,4 +1,4 @@
-# Articulations Robot Demo
+# UR3 Demo
 
 <img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" width="350px" src="images/RobotHandDemo.gif">
 
@@ -32,6 +32,7 @@ Z - open pincher
 
 All manual control is handled through the scripts on the `ManualInput` object. To disable
 manual input, just uncheck this object in the Hierarchy window.
+
 
 ## Building with Articulations
 
@@ -83,6 +84,16 @@ On the drive, you can also specify:
 By default, the `Motion` property on the articulation components will be set to `Free`. For a revolute joint, this means that the joint can rotate indefinitely. However, real systems rarely act this way. In the real UR3 robot, safeguards prevent the joints from moving beyond two full revolutions in either direction. Exceeding this limit in the real robot would twist the wires inside and damage the hardware.
 
 We can mimic this in simulation by adding limits to our joints. To do this, change the `Motion` selection to `Limited` in the dropdown. Doing so on the revolute joint will add two new properties to the drive - a `Lower Limit` and an `Upper Limit`, defined in degrees.
+
+# Gripper Demo
+
+Manual Controls:
+```
+G - down
+H - up
+X - close pinhcer
+Z - open pincher
+```
 
 
 ## License
