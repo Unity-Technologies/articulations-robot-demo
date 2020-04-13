@@ -25,11 +25,16 @@ last tested on Unity 2020.1.0b5.
 
 #### Clone the Articulations Robot Demo Repo
 
-Clone this branch of the repository: `git clone --branch mlagents https://github.com/Unity-Technologies/articulations-robot-demo`.
+Clone this branch of the repository:
+```sh
+git clone --branch mlagents https://github.com/Unity-Technologies/articulations-robot-demo`.
+```
 
 Alternatively, you can clone the entire repo and checkout the `mlagents` branch:
-`git clone https://github.com/Unity-Technologies/articulations-robot-demo`
-`git checkout mlagents`
+```sh
+git clone https://github.com/Unity-Technologies/articulations-robot-demo
+git checkout mlagents
+```
 
 The `ArmRobot` folder contains the `ArticulationRobot` scene. If you open the scene
 in Unity you will see a few errors since the ML-Agents package still needs to be added.
