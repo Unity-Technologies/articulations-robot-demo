@@ -43,14 +43,14 @@ Unity installation needed for this demo.
 
 ## UR3 Demo
 
-After you have complete the installation, ppen the `ArmRobot` folder in Unity.
+After you have complete the installation, open the `ArmRobot` folder in Unity.
 Then open `Scenes` > `ArticulationRobot`.
 
 ### Manual Controls
 
-All manual control is handled through the scripts on the `ManualInput` object. To enable
-manual input, just check this object in the Hierarchy window, and uncheck the `MLAgents` object.
-
+All manual control is handled through the scripts on the `ManualInput` object. The scene
+is set-up for manual control - hit the **Play** button in the Unity Editor and experiment
+with moving the arm using the controls defined below:
 ```
 A/D - rotate base joint
 S/W - rotate shoulder joint
@@ -75,16 +75,21 @@ The reward at each step is simply the negative distance between the end effector
 
 The episodes end immediately when the robot touches the cube, and are limited to a maximum of 500 steps. At the beginning of each new episode, the robot is reset to its base pose, and the cube is moved to a random location on the table.
 
+#### Using a Pre-trained Model
+
+This project comes with a pre-trained model using the ML-Agents Toolkit. To see that behavior
+in action, just uncheck the `ManualInput` object in the Hierarchy window and check the `MLAgents`
+object. Then hit **Play** in the Unity Editor.
 
 #### Train
 
-Detailed instructions on how to train using the ML-Agents Toolkit can be found on the [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Training-ML-Agents.md).
+You can also train the arm yourself. Detailed instructions on how to train using the ML-Agents Toolkit can be found on the [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Training-ML-Agents.md).
 
 To start training, just run this command:
 
 `mlagents-learn ur3_config.yaml --run-id=[YOUR RUN ID] --train`
 
-Then, press `play` in Unity.
+Then, press **Play** in the Unity Editor.
 
 As the training runs, a `models` and a `summaries` folder will be automatically created in the root level of this project. As you might guess, the `models` folder stores the trained model files, and the `summaries` folder stores the event files where Tensorflow writes logs.
 
