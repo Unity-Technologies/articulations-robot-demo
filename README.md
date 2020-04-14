@@ -51,9 +51,9 @@ All manual control is handled through the scripts on the `ManualInput` object. T
 manual input, just uncheck this object in the Hierarchy window.
 
 
-## Robotek Hand-E Gripper 
+## Robotiq Hand-E Gripper 
 
-This simulation focuses on picking up different objects with the [Robotek Hand-E Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper).
+This simulation focuses on picking up different objects with the [Robotiq Hand-E Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper).
 
 Open `Scenes` > `GripperScene`, and press play. Try to pick up the cube and drop it!
 
