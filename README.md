@@ -4,7 +4,7 @@ The recent integration of [Nvidia's PhysX 4](https://news.developer.nvidia.com/a
 
 * The new articulation joint system (available in 2020.1) is much better suited to building things like robot arms than the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement. 
 
-* The new [Temporal Gauss Seidel (TGS) solver](Temporal Gauss Seidel) also supports more accurate simulation. 
+* The new [Temporal Gauss Seidel (TGS) solver](https://gameworksdocs.nvidia.com/PhysX/4.0/documentation/PhysXGuide/Manual/RigidBodyDynamics.html#temporal-gauss-seidel) also supports more accurate simulation. 
 
 ## Installation
 
