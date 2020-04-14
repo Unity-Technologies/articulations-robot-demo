@@ -20,7 +20,7 @@ last tested on Unity 2020.1.0b5.
 
 Clone this repository:
 ```sh
-git clone https://github.com/Unity-Technologies/articulations-robot-demo.git`
+git clone https://github.com/Unity-Technologies/articulations-robot-demo.git
 ```
 
 ## UR3 Robot Arm
