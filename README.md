@@ -25,7 +25,7 @@ git clone https://github.com/Unity-Technologies/articulations-robot-demo.git`
 
 ## UR3 Robot Arm
 
-<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" width="350px" src="images/RobotHandDemo.gif">
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" width="350px" src="docs/images/RobotHandDemo.gif">
 
 This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot. You can steer it by directly rotating all six joints of the arm. You can also rotate the end effector, and open and close the pincher. 
 
