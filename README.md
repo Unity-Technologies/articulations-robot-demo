@@ -2,7 +2,7 @@
 
 The recent integration of [Nvidia's PhysX 4](https://news.developer.nvidia.com/announcing-physx-sdk-4-0-an-open-source-physics-engine/) into Unity has dramatically improved the quality of robotics simulation that is possible in Unity. 
 
-* The new articulation joint system (available in 2020.1) is much better suited to building things like robot arms than the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement. 
+* The new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html) (available in 2020.1) is much better suited to building things like robot arms than the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement. 
 
 * The new [Temporal Gauss Seidel (TGS) solver](https://gameworksdocs.nvidia.com/PhysX/4.0/documentation/PhysXGuide/Manual/RigidBodyDynamics.html#temporal-gauss-seidel) also supports more accurate simulation. 
 
@@ -27,7 +27,7 @@ git clone https://github.com/Unity-Technologies/articulations-robot-demo.git`
 
 <img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" width="350px" src="images/RobotHandDemo.gif">
 
-This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot using Unity's new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html).
+This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot. You can steer it by directly rotating all six joints of the arm. You can also rotate the end effector, and open and close the pincher. 
 
 Open `Scenes` > `ArticulationRobot`, and press play.
 
