@@ -1,5 +1,7 @@
 # Building with Articulations
 
+Here we will walk through how the UR3 in the `ArticulationRobot` scene was put together. 
+
 When building a robot arm with articulation joints, each movable part of the robot should be a child of the previous part. You can see these successive parent-child relationships by expanding the `UR3` object in the Hierarchy window. 
 
 <img width="300px" src="images/parent-child.png">

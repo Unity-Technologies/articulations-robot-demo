@@ -50,6 +50,7 @@ Z - open pincher
 All manual control is handled through the scripts on the `ManualInput` object. To disable
 manual input, just uncheck this object in the Hierarchy window.
 
+You can learn more about how this robot was built with articulations by following our guide [here](docs/Building-With-Articulations). 
 
 ## Robotiq Hand-E Gripper 
 
