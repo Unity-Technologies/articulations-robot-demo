@@ -231,8 +231,9 @@ GameObject:
   - component: {fileID: 229205974}
   - component: {fileID: 229205973}
   - component: {fileID: 229205977}
+  - component: {fileID: 229205978}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: VacuumGripper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,6 +331,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &229205978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229205972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1afa47cce4c4c92a60de7d9b95622c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917074964
 GameObject:
   m_ObjectHideFlags: 0
