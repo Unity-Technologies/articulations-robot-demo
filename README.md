@@ -23,9 +23,11 @@ Clone this repository:
 git clone https://github.com/Unity-Technologies/articulations-robot-demo.git
 ```
 
+Then, open the `ArmRobot` project in Unity.
+
 ## UR3 Robot Arm
 
-<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="200px" src="docs/images/robot_still.png">
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/robot_still.png">
 
 This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot. You can steer it by directly rotating all six joints of the arm. You can also rotate the end effector, and open and close the pincher. 
 
