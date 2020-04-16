@@ -73,6 +73,11 @@ X - close pinhcer
 Z - open pincher
 ```
 
+## Survey
+
+Your opinion matters a great deal to us. Only by hearing your thoughts can we continue to make Unity a better simulator for robotics. Please take a few minutes to let us know about it.
+
+[Fill out the survey](https://docs.google.com/forms/d/e/1FAIpQLSc77ah4azt6D4AOxCWhjpCBgM6Si6f0DA_dunM-ZhDf5xJlgg/viewform)
 
 ## License
 
