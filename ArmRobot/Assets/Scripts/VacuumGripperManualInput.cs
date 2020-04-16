@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class VacuumGripperManualInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public GameObject vacuumGripper;
 
     // Update is called once per frame
     void Update()
@@ -16,14 +13,30 @@ public class VacuumGripperManualInput : MonoBehaviour
         float horizontalInput = Input.GetAxis("Base");
         float verticalInput = Input.GetAxis("Shoulder");
 
-        if (horizontalInput != 0)
-        {
-            Debug.Log("moving horizontally!");
-        }
+        ControlState horizontalControlState = InputToControlState(horizontalInput);
+        ControlState verticalControlState = InputToControlState(verticalInput);
 
-        if (verticalInput != 0)
+        VacuumGripperController controller = vacuumGripper.GetComponent<VacuumGripperController>();
+        controller.horizontalMotion = horizontalControlState;
+        controller.verticalMotion = verticalControlState;
+    }
+
+
+    // HELPERS
+
+    ControlState InputToControlState(float input)
+    {
+        if (input > 0)
         {
-            Debug.Log("moving vertically!");
+            return ControlState.PositiveMotion;
+        }
+        else if (input < 0)
+        {
+            return ControlState.NegativeMotion;
+        }
+        else
+        {
+            return ControlState.Fixed;
         }
     }
 }
