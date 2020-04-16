@@ -16,11 +16,11 @@ public class GripperDemoController : MonoBehaviour
         {
             ArticulationBody articulation = GetComponent<ArticulationBody>();
 
-            //get jointPosition along y axis
+            //get jointPosition along axis
             float xDrivePostion = articulation.jointPosition[0];
             Debug.Log(xDrivePostion);
 
-            //increment this y position
+            //increment this position
             float targetPosition = xDrivePostion + -(float)moveState * Time.fixedDeltaTime * speed;
 
             //set joint Drive to new position
