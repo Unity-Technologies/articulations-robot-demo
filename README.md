@@ -54,7 +54,9 @@ You can learn more about how this robot was built with articulations by followin
 
 ## Robotiq Hand-E Gripper 
 
-This simulation focuses on picking up different objects with the [Robotiq Hand-E Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper).
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="200px" src="docs/images/hand-e.gif">
+
+This simulation focuses on picking up objects with the [Robotiq Hand-E Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper).
 
 Open `Scenes` > `GripperScene`, and press play. Try to pick up the cube and drop it!
 
