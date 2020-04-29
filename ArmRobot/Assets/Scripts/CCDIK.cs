@@ -8,10 +8,12 @@ public class CCDIK : MonoBehaviour
      * Must be placed on a game object with a non-root articulation body. 
      */
 
+    public GameObject goalObject;
     public float sqrDistError = 0.01f;
     public int maxIterationCount = 10;
 
     List<Transform> bones = new List<Transform>();
+    Transform rootTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,15 @@ public class CCDIK : MonoBehaviour
             Transform parent = currentBone.parent;
             ArticulationBody parentArticulation = parent.gameObject.GetComponent<ArticulationBody>();
 
-            done = parentArticulation.isRoot;
-            currentBone = parent;
+            if (parentArticulation.isRoot)
+            {
+                done = true;
+                rootTransform = parent;
+            }
+            else
+            {
+                currentBone = parent;
+            }
         }
 
         // read out bones to test
@@ -39,8 +48,13 @@ public class CCDIK : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        Solve();
+    }
+
+    void Solve()
+    {
+
     }
 }
