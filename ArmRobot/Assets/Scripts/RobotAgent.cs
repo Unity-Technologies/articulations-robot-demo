@@ -40,9 +40,16 @@ public class RobotAgent : Agent
         float[] rotations = robotController.GetCurrentJointRotations();
         foreach (float rotation in rotations)
         {
-            // normalize rotation to [0, 1] range
-            float normalizedRotation = rotation / 360.0f;
+            // normalize rotation to [-1, 1] range
+            float normalizedRotation = (rotation / 360.0f) %  1f;
             sensor.AddObservation(normalizedRotation);
+        }
+
+        foreach (var joint in robotController.joints)
+        {
+            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
+            sensor.AddObservation(joint.robotPart.transform.forward);
+            sensor.AddObservation(joint.robotPart.transform.right);
         }
 
         // relative cube position
@@ -51,27 +58,40 @@ public class RobotAgent : Agent
 
         // relative end position
         Vector3 endPosition = endEffector.transform.position - robot.transform.position;
-        sensor.AddObservation(endPosition);        
+        sensor.AddObservation(endPosition);  
+        sensor.AddObservation(cubePosition - endPosition);      
     }
 
     public override void OnActionReceived(float[] vectorAction)
     {
         // move
-        int jointIndex = (int)vectorAction[0];
-        int actionIndex = (int)vectorAction[1];
-        RotationDirection rotationDirection = ActionIndexToRotationDirection(actionIndex);
-        robotController.RotateJoint(jointIndex, rotationDirection);
-
-        // end episode if we touched the cube
-        if (touchDetector.hasTouchedTarget)
+        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
         {
-            EndEpisode();
+            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
+            robotController.RotateJoint(jointIndex, rotationDirection, false);
         }
 
+            // end episode if we touched the cube
+            if (touchDetector.hasTouchedTarget)
+            {
+                SetReward(1f);
+                EndEpisode();
+            }
+
+
         //reward
-        float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position);
-        SetReward(-distanceToCube * 0.01f);
+        float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position); // roughly 0.7f
         
+
+        var jointHeight = 0f; // This is to reward the agent for keeping high up // max is roughly 3.0f
+        for (int jointIndex = 0; jointIndex < robotController.joints.Length; jointIndex ++)
+        {
+            jointHeight += robotController.joints[jointIndex].robotPart.transform.position.y - cube.transform.position.y;
+        }
+        var reward = - distanceToCube + jointHeight / 100f;
+
+        SetReward(reward * 0.1f);
+
     }
 
 
@@ -79,7 +99,7 @@ public class RobotAgent : Agent
 
     static public RotationDirection ActionIndexToRotationDirection(int actionIndex)
     {
-        return (RotationDirection)(actionIndex + 1);
+        return (RotationDirection)(actionIndex - 1);
     }
 
 
