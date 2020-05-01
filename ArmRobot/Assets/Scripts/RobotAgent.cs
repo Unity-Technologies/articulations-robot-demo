@@ -71,12 +71,12 @@ public class RobotAgent : Agent
             robotController.RotateJoint(jointIndex, rotationDirection, false);
         }
 
-            // end episode if we touched the cube
-            if (touchDetector.hasTouchedTarget)
-            {
-                SetReward(1f);
-                EndEpisode();
-            }
+        // end episode if we touched the cube
+        if (touchDetector.hasTouchedTarget)
+        {
+            SetReward(1f);
+            EndEpisode();
+        }
 
 
         //reward
