@@ -36,6 +36,11 @@ public class RobotAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        if (robotController.joints[0].robotPart == null)
+        {
+            // No robot is present, no observation should be added
+            return;
+        }
         // current rotations
         float[] rotations = robotController.GetCurrentJointRotations();
         foreach (float rotation in rotations)
