@@ -8,7 +8,7 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 
 ## Requirements
 
-Unity 2020.1.0b1 or later is needed for the new joint system. This UR3 demo works
+Unity 2020.1.0b7 or later is needed for the new joint system. This UR3 demo works
 with [ML-Agents Release 1](https://github.com/Unity-Technologies/ml-agents/tree/release_1)
 to demonstrate the UR3 learning to touch a cube.
 
@@ -19,9 +19,9 @@ need an appropriate version of Unity, a clone of this repo and the ML-Agents Too
 
 #### Install Unity
 
-If you do not have Unity 2020.1.0b1 or later, add the latest 2020.1 beta release
-through [Unity Hub](https://unity3d.com/get-unity/download). This demo has been
-last tested on Unity 2020.1.0b7.
+If you do not have Unity 2020.1.0b7 or later, add the latest 2020.1 beta release
+through [Unity Hub](https://unity3d.com/get-unity/download). This demo was last
+tested on Unity 2020.1.0b7.
 
 #### Clone the Articulations Robot Demo Repo
 
