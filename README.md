@@ -9,7 +9,7 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 ## Requirements
 
 Unity 2020.1.0b1 or later is needed for the new joint system. This UR3 demo works
-with [ML-Agents release_1](https://github.com/Unity-Technologies/ml-agents/tree/release_1)
+with [ML-Agents Release 1](https://github.com/Unity-Technologies/ml-agents/tree/release_1)
 to demonstrate the UR3 learning to touch a cube.
 
 ## Installation
@@ -41,7 +41,7 @@ in Unity you will see a few errors since the ML-Agents package still needs to be
 
 #### Install the Unity ML-Agents Toolkit
 
-Detailed instructions for installing release_1 of the ML-Agents Toolkit can be found on the
+Detailed instructions for installing _Release 1_ of the ML-Agents Toolkit can be found on the
 [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md).
 However, do skip the [Install Unity section](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md#install-unity-20184-or-later) as we've already covered the necessary
 Unity installation needed for this demo.
