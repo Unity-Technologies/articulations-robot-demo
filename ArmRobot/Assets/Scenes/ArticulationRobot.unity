@@ -1270,7 +1270,6 @@ GameObject:
   - component: {fileID: 1383161869}
   - component: {fileID: 1383161868}
   - component: {fileID: 1383161867}
-  - component: {fileID: 1383161866}
   - component: {fileID: 1383161872}
   - component: {fileID: 1383161873}
   m_Layer: 0
@@ -1280,18 +1279,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1383161866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383161865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737d05647d4314c93adc5bcd10746113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1383161867
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1447,7 +1434,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  maxStep: 5000
+  MaxStep: 5000
   endEffector: {fileID: 995377197}
   cube: {fileID: 1383161865}
   robot: {fileID: 1442213767}
@@ -1464,11 +1451,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    vectorObservationSize: 79
-    numStackedVectorObservations: 1
-    vectorActionSize: 03000000030000000300000003000000030000000300000003000000
-    vectorActionDescriptions: []
-    vectorActionSpaceType: 0
+    VectorObservationSize: 79
+    NumStackedVectorObservations: 1
+    VectorActionSize: 03000000030000000300000003000000030000000300000003000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
   m_Model: {fileID: 5022602860645237092, guid: 965343639351b49a091455c76c06ba76, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
@@ -1503,7 +1490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 20
   TakeActionsBetweenDecisions: 1
-  offsetStep: 0
 --- !u!1 &1442213767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,7 +1766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1557304989
 MonoBehaviour:
   m_ObjectHideFlags: 0

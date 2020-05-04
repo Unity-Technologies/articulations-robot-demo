@@ -8,8 +8,8 @@ This new joint system, powered by [Nvidia's PhysX 4](https://news.developer.nvid
 
 ## Requirements
 
-Unity 2020.1.0b1 or later is needed for the new joint system. This UR3 demo comes
-bundled with [ML-Agents v0.15.1](https://github.com/Unity-Technologies/ml-agents/tree/0.15.1)
+Unity 2020.1.0b1 or later is needed for the new joint system. This UR3 demo works
+with [ML-Agents release_1](https://github.com/Unity-Technologies/ml-agents/tree/release_1)
 to demonstrate the UR3 learning to touch a cube.
 
 ## Installation
@@ -21,7 +21,7 @@ need an appropriate version of Unity, a clone of this repo and the ML-Agents Too
 
 If you do not have Unity 2020.1.0b1 or later, add the latest 2020.1 beta release
 through [Unity Hub](https://unity3d.com/get-unity/download). This demo has been
-last tested on Unity 2020.1.0b5.
+last tested on Unity 2020.1.0b7.
 
 #### Clone the Articulations Robot Demo Repo
 
@@ -41,9 +41,9 @@ in Unity you will see a few errors since the ML-Agents package still needs to be
 
 #### Install the Unity ML-Agents Toolkit
 
-Detailed instructions for installing v0.15.1 of the ML-Agents Toolkit can be found on the
-[ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md).
-However, do skip the [Install Unity section](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md#install-unity-20184-or-later) as we've already covered the necessary
+Detailed instructions for installing release_1 of the ML-Agents Toolkit can be found on the
+[ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md).
+However, do skip the [Install Unity section](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md#install-unity-20184-or-later) as we've already covered the necessary
 Unity installation needed for this demo.
 
 ## UR3 Demo
@@ -70,6 +70,9 @@ Z - open pincher
 space - instant reset
 ```
 
+Note that ManualInput must be set inactive in the scene if you are using the Agent to control
+the arm and vice-versa.
+
 ### Training using the Unity ML-Agents Toolkit
 
 In this project, we used the [Unity ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents) to train the robot to touch the cube.
@@ -88,11 +91,11 @@ object. Then hit **Play** in the Unity Editor.
 
 #### Train
 
-You can also train the arm yourself. Detailed instructions on how to train using the ML-Agents Toolkit can be found on the [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Training-ML-Agents.md).
+You can also train the arm yourself. Detailed instructions on how to train using the ML-Agents Toolkit can be found on the [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Training-ML-Agents.md).
 
 To start training, just run this command:
 
-`mlagents-learn ur3_config.yaml --run-id=[YOUR RUN ID] --train`
+`mlagents-learn ur3_config.yaml --run-id=[YOUR RUN ID]`
 
 Then, press **Play** in the Unity Editor.
 
