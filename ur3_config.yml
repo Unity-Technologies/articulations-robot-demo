@@ -1,24 +1,26 @@
-default:
-    trainer: ppo
-    batch_size: 512
-    beta: 1.0e-4
-    buffer_size: 5120
-    epsilon: 0.1
+TouchCube:
+    trainer: sac
+    batch_size: 128
+    buffer_size: 50000
+    buffer_init_steps: 0
     hidden_units: 128
-    lambd: 0.95
-    learning_rate: 1.0e-3
-    learning_rate_schedule: linear
-    max_steps: 1.0e7
-    memory_size: 256
+    init_entcoef: 1.0
+    learning_rate: 3.0e-4
+    learning_rate_schedule: constant
+    max_steps: 5.0e5
+    memory_size: 128
     normalize: false
-    num_epoch: 3
+    num_update: 1
+    train_interval: 1
+    steps_per_update: 1
     num_layers: 2
     time_horizon: 64
     sequence_length: 64
-    summary_freq: 1000
+    summary_freq: 5000
+    tau: 0.005
     use_recurrent: false
     vis_encode_type: simple
     reward_signals:
         extrinsic:
             strength: 1.0
-            gamma: 0.99
+            gamma: 0.95

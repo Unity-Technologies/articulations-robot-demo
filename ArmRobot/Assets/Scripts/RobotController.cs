@@ -41,9 +41,12 @@ public class RobotController : MonoBehaviour
         }
     }
 
-    public void RotateJoint(int jointIndex, RotationDirection direction)
+    public void RotateJoint(int jointIndex, RotationDirection direction, bool stopPrevious = true)
     {
-        StopAllJointRotations();
+        if (stopPrevious)
+        {
+            StopAllJointRotations();
+        }
         Joint joint = joints[jointIndex];
         UpdateRotationState(direction, joint.robotPart);
     }
