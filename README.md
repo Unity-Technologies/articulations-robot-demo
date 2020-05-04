@@ -43,8 +43,16 @@ in Unity you will see a few errors since the ML-Agents package still needs to be
 
 Detailed instructions for installing _Release 1_ of the ML-Agents Toolkit can be found on the
 [ml-agents repo](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md).
-However, do skip the [Install Unity section](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md#install-unity-20184-or-later) as we've already covered the necessary
-Unity installation needed for this demo.
+
+Note that we've already covered the Unity installation needed for this demo and
+the UR3 project has the `com.unity.ml-agents` Unity package as a dependecy. As
+such, you can skip the
+[Install Unity](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md#install-unity-20184-or-later)
+and
+[Install the `com.unity.ml-agents` Unity package](https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Installation.md#install-the-comunityml-agents-unity-package)
+sections. Furthermore, you can explore the UR3 demo scene and run the
+pre-trained model without any additional installation. You only need to install
+the ML-Agents Python packages if you're interested in training the robotic arm.
 
 ## UR3 Demo
 
