@@ -1412,13 +1412,14 @@ GameObject:
   - component: {fileID: 1390582875}
   - component: {fileID: 1390582874}
   - component: {fileID: 1390582877}
+  - component: {fileID: 1390582878}
   m_Layer: 0
   m_Name: MLAgents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1390582874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 79
+    VectorObservationSize: 9
     NumStackedVectorObservations: 1
     VectorActionSize: 03000000030000000300000003000000030000000300000003000000
     VectorActionDescriptions: []
@@ -1490,6 +1491,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 20
   TakeActionsBetweenDecisions: 1
+--- !u!114 &1390582878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390582873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae1ad4b0c504a2ab52e4dc39d7070af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RootBody: {fileID: 1442213769}
 --- !u!1 &1442213767
 GameObject:
   m_ObjectHideFlags: 0

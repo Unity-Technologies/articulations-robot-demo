@@ -42,13 +42,13 @@ public class RobotAgent : Agent
             return;
         }
         // current rotations
-        float[] rotations = robotController.GetCurrentJointRotations();
-        foreach (float rotation in rotations)
-        {
-            // normalize rotation to [-1, 1] range
-            float normalizedRotation = (rotation / 360.0f) %  1f;
-            sensor.AddObservation(normalizedRotation);
-        }
+//        float[] rotations = robotController.GetCurrentJointRotations();
+//        foreach (float rotation in rotations)
+//        {
+//            // normalize rotation to [-1, 1] range
+//            float normalizedRotation = (rotation / 360.0f) %  1f;
+//            sensor.AddObservation(normalizedRotation);
+//        }
 
 //        foreach (var joint in robotController.joints)
 //        {

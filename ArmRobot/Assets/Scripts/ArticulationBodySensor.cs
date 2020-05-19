@@ -31,28 +31,7 @@ public class ArticulationBodySensor : ISensor
         int obsIndex = 0;
         foreach (var body in m_Bodies)
         {
-            if (body == null)
-            {
-                // TODO - getting this error
-                //   MissingReferenceException: The object of type 'ArticulationBody' has been destroyed but you are still trying to access it.
-                //   Your script should either check if it is null or you should not destroy the object.
-                // Handle later.
-                continue;
-            }
-            var pos = body.transform.position;
-            writer[obsIndex++] = pos.x;
-            writer[obsIndex++] = pos.y;
-            writer[obsIndex++] = pos.z;
-
-            var fwd = body.transform.forward;
-            writer[obsIndex++] = fwd.x;
-            writer[obsIndex++] = fwd.y;
-            writer[obsIndex++] = fwd.z;
-
-            var right = body.transform.right;
-            writer[obsIndex++] = right.x;
-            writer[obsIndex++] = right.y;
-            writer[obsIndex++] = right.z;
+            obsIndex = WriteBody(writer, body, obsIndex);
         }
 
         return obsIndex;
@@ -104,7 +83,48 @@ public class ArticulationBodySensor : ISensor
     static int GetArticulationObservationSize(ArticulationBody body)
     {
         var isRoot = body.isRoot;
-        return 9; // 3 for transform pos, fwd, right
+        var obsSize = 9; // 3 for transform pos, fwd, right
+
+        // TODO more observations for dof depending on type
+        var dof = body.dofCount;
+        return obsSize + dof;
+    }
+
+    int WriteBody(ObservationWriter writer, ArticulationBody body, int observationIndex)
+    {
+        if (body == null)
+        {
+            // TODO - getting this error
+            //   MissingReferenceException: The object of type 'ArticulationBody' has been destroyed but you are still trying to access it.
+            //   Your script should either check if it is null or you should not destroy the object.
+            // Handle later.
+            return observationIndex;
+        }
+        var pos = body.transform.position;
+        writer[observationIndex++] = pos.x;
+        writer[observationIndex++] = pos.y;
+        writer[observationIndex++] = pos.z;
+
+        var fwd = body.transform.forward;
+        writer[observationIndex++] = fwd.x;
+        writer[observationIndex++] = fwd.y;
+        writer[observationIndex++] = fwd.z;
+
+        var right = body.transform.right;
+        writer[observationIndex++] = right.x;
+        writer[observationIndex++] = right.y;
+        writer[observationIndex++] = right.z;
+
+        // Write degree-of-freedom info. For now, assume all angular.
+        for (var dofIndex = 0; dofIndex < body.dofCount; dofIndex++)
+        {
+            var jointRotationRads = body.jointPosition[dofIndex];
+            var jointRotationDegs = jointRotationRads * Mathf.Rad2Deg;
+            var rotationFmod = (jointRotationDegs / 360.0f) % 1f;
+            writer[observationIndex++] = rotationFmod;
+        }
+
+        return observationIndex;
     }
 }
 
