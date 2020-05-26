@@ -1504,6 +1504,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RootBody: {fileID: 1442213769}
+  Settings:
+    transformFormat: 1
+    jointAngleFunction: 2
 --- !u!1 &1442213767
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,19 +3,67 @@ using System.Collections.Generic;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
+[Serializable]
+public class ArticulationBodySensorSettings
+{
+    public enum TransformFormat
+    {
+        PositionForwardRight,
+        PositionQuaternion,
+    };
+
+    public enum JointAngleFunction
+    {
+        Ignore,
+        Fmod,
+        SinCos,
+    }
+
+    public static readonly Dictionary<TransformFormat, int> s_NumObservationsByTransformFormat =
+        new Dictionary<TransformFormat, int>
+        {
+            { TransformFormat.PositionForwardRight, 9 }, // transform pos, fwd, right
+            { TransformFormat.PositionQuaternion, 7 } // transform pos, quaternion
+        };
+
+    public static readonly Dictionary<JointAngleFunction, int> s_NumObservationsByJointAngleFunction =
+        new Dictionary<JointAngleFunction, int>
+        {
+            { JointAngleFunction.Ignore, 0 },
+            { JointAngleFunction.Fmod, 1 },
+            { JointAngleFunction.SinCos, 2 }
+        };
+
+    public TransformFormat transformFormat = TransformFormat.PositionForwardRight;
+    public JointAngleFunction jointAngleFunction = JointAngleFunction.Fmod;
+
+
+    public int NumTransformObservations
+    {
+        get { return s_NumObservationsByTransformFormat[transformFormat]; }
+    }
+
+    public int NumJointAngleObservations
+    {
+        get { return s_NumObservationsByJointAngleFunction[jointAngleFunction]; }
+    }
+}
+
 public class ArticulationBodySensor : ISensor
 {
     string m_SensorName;
     int[] m_Shape;
     ArticulationBody[] m_Bodies;
+    ArticulationBodySensorSettings m_Settings;
 
-    public ArticulationBodySensor(ArticulationBody rootBody, string name = null)
+    public ArticulationBodySensor(ArticulationBody rootBody, ArticulationBodySensorSettings settings, string name = null)
     {
         m_SensorName = string.IsNullOrEmpty(name) ? $"ArticulationBodySensor:{rootBody.name}" : name;
+        m_Settings = settings;
         // Note that m_Bodies[0] will always be rootBody
         m_Bodies = rootBody.GetComponentsInChildren<ArticulationBody>();
 
-        var sensorSize = GetArticulationSensorSize(rootBody);
+        var sensorSize = GetArticulationSensorSize(rootBody, settings);
         m_Shape = new[] { sensorSize };
     }
 
@@ -64,7 +112,7 @@ public class ArticulationBodySensor : ISensor
         return m_SensorName;
     }
 
-    public static int GetArticulationSensorSize(ArticulationBody rootBody)
+    public static int GetArticulationSensorSize(ArticulationBody rootBody, ArticulationBodySensorSettings settings)
     {
         if (rootBody == null)
         {
@@ -72,22 +120,28 @@ public class ArticulationBodySensor : ISensor
         }
 
         int numObs = 0;
-        foreach (var childBody in rootBody.GetComponentsInChildren<ArticulationBody>())
+        var bodies = rootBody.GetComponentsInChildren<ArticulationBody>();
+        foreach (var childBody in bodies)
         {
-            numObs += GetArticulationObservationSize(childBody);
+            numObs += GetArticulationObservationSize(childBody, settings);
         }
 
         return numObs;
     }
 
-    static int GetArticulationObservationSize(ArticulationBody body)
+    static int GetArticulationObservationSize(ArticulationBody body, ArticulationBodySensorSettings settings)
     {
-        var isRoot = body.isRoot;
-        var obsSize = 9; // 3 for transform pos, fwd, right
+        if (body == null)
+        {
+            return 0;
+        }
+
+        var transformObsSize = settings.NumTransformObservations;
 
         // TODO more observations for dof depending on type
+        var obsPerDof = settings.NumJointAngleObservations;
         var dof = body.dofCount;
-        return obsSize + dof;
+        return transformObsSize + dof * obsPerDof;
     }
 
     int WriteBody(ObservationWriter writer, ArticulationBody body, int observationIndex)
@@ -105,23 +159,46 @@ public class ArticulationBodySensor : ISensor
         writer[observationIndex++] = pos.y;
         writer[observationIndex++] = pos.z;
 
-        var fwd = body.transform.forward;
-        writer[observationIndex++] = fwd.x;
-        writer[observationIndex++] = fwd.y;
-        writer[observationIndex++] = fwd.z;
+        if (m_Settings.transformFormat == ArticulationBodySensorSettings.TransformFormat.PositionForwardRight)
+        {
+            var fwd = body.transform.forward;
+            writer[observationIndex++] = fwd.x;
+            writer[observationIndex++] = fwd.y;
+            writer[observationIndex++] = fwd.z;
 
-        var right = body.transform.right;
-        writer[observationIndex++] = right.x;
-        writer[observationIndex++] = right.y;
-        writer[observationIndex++] = right.z;
+            var right = body.transform.right;
+            writer[observationIndex++] = right.x;
+            writer[observationIndex++] = right.y;
+            writer[observationIndex++] = right.z;
+        }
+        else
+        {
+            var quat = body.transform.rotation;
+            writer[observationIndex++] = quat.x;
+            writer[observationIndex++] = quat.y;
+            writer[observationIndex++] = quat.z;
+            writer[observationIndex++] = quat.w;
+        }
 
         // Write degree-of-freedom info. For now, assume all angular.
         for (var dofIndex = 0; dofIndex < body.dofCount; dofIndex++)
         {
             var jointRotationRads = body.jointPosition[dofIndex];
-            var jointRotationDegs = jointRotationRads * Mathf.Rad2Deg;
-            var rotationFmod = (jointRotationDegs / 360.0f) % 1f;
-            writer[observationIndex++] = rotationFmod;
+            if (m_Settings.jointAngleFunction == ArticulationBodySensorSettings.JointAngleFunction.Ignore)
+            {
+                // Nothing
+            }
+            else if (m_Settings.jointAngleFunction == ArticulationBodySensorSettings.JointAngleFunction.Fmod)
+            {
+                var jointRotationDegs = jointRotationRads * Mathf.Rad2Deg;
+                var rotationFmod = (jointRotationDegs / 360.0f) % 1f;
+                writer[observationIndex++] = rotationFmod;
+            }
+            else if (m_Settings.jointAngleFunction == ArticulationBodySensorSettings.JointAngleFunction.SinCos)
+            {
+                writer[observationIndex++] = Mathf.Sin(jointRotationRads);
+                writer[observationIndex++] = Mathf.Cos(jointRotationRads);
+            }
         }
 
         return observationIndex;
