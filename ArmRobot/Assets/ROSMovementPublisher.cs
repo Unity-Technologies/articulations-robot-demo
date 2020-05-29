@@ -1,15 +1,14 @@
 ﻿using RosSharp.RosBridgeClient;
 using Messages = RosSharp.RosBridgeClient.Messages;
-
+using RobotMessageType = RosSharp.RosBridgeClient.Messages.RobotMessageType;
 using UnityEngine;
-using Time = UnityEngine.Time;
-using System.Collections.Generic;
 
-
-public class ROSMovementPublisher : Publisher<Messages.Standard.String>
+public class ROSMovementPublisher : Publisher<RobotMessageType>
 {
 
-    private Messages.Standard.String message;
+    private RobotMessageType message; 
+    
+
     protected override void Start()
     {
         base.Start();
@@ -23,11 +22,11 @@ public class ROSMovementPublisher : Publisher<Messages.Standard.String>
     }
 
     private void InitializeMessage(){
-        message = new Messages.Standard.String(); 
+        message = new RobotMessageType(); 
+        message.robotbase = 0;
     }
 
     private void UpdateMessage(){
-        message.data = "hello world!";
         Publish(message);
     }
 }
