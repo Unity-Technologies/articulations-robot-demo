@@ -3,11 +3,11 @@ using Messages = RosSharp.RosBridgeClient.Messages;
 
 using UnityEngine;
 using Time = UnityEngine.Time;
+using System.Collections.Generic;
 
 public class ROSMovementController : Subscriber<Messages.Standard.String>
 {
     public Transform SubscribedTransform;
-    public ArticulationBody tester; 
     public GameObject robot;
 
 
@@ -16,11 +16,14 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
     private float previousRealTime;
     private string receivedMessage;
     private bool isMessageReceived;
+    //used to map incoming keys to the proper axis
+    private Dictionary<string, string> dict;
 
     protected override void Start()
     {
         lookDir = SubscribedTransform.position;
         base.Start();
+        // dict = new Dictionary<string, string>() { {"w","Shoulder" }, {""}}
     }
 
     static RotationDirection GetRotationDirection(float inputVal)
@@ -56,29 +59,11 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
         // Forward
         if (receivedMessage == "w")
         {
-
-            Debug.Log("cool!");
-
-            var drive = tester.xDrive;
-            drive.target += 10;
-            tester.xDrive = drive;
-
-            SubscribedTransform.Translate(0, 0, lookDir.z * Time.deltaTime * movementMultiplier * -1);
             RobotController robotController = robot.GetComponent<RobotController>();
-            for (int i = 0; i < robotController.joints.Length; i++)
-            {   
-                //Filler number for now
-                float inputVal = 1f; 
-                RotationDirection direction = GetRotationDirection(inputVal);
-                robotController.RotateJoint(i, direction);
-
-            }
-
-            robotController.StopAllJointRotations();
+            robotController.RotateJoint(1, GetRotationDirection(1f));
         }
         // Back
         if (receivedMessage == "s")
-            Debug.Log("cool");
             SubscribedTransform.Translate(0, 0, lookDir.z * Time.deltaTime * movementMultiplier);
 
         // Left

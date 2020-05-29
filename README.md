@@ -54,7 +54,7 @@ manual input, just uncheck this object in the Hierarchy window.
 
 You can learn more about how this robot was built with articulations by following our guide [here](docs/Building-With-Articulations.md). 
 
-## ROS Control
+### ROS Control
 Internal ROS integration is currently in early progress.  Please follow Michael's more detailed instructions [here](https://github.com/Unity-Technologies/ROS-Sharp-Example), but ensure that the WebURL property on the ROSConnector is changed to your VM's IP Address.  Basic ROS/Unity installation instructions can be found [here](https://github.com/Unity-Technologies/yantra-dev).
 
 ## Robotiq Hand-E Gripper 

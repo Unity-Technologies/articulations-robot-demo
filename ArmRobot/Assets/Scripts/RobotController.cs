@@ -29,7 +29,6 @@ public class RobotController : MonoBehaviour
     {
         StopAllJointRotations();
         Joint joint = joints[jointIndex];
-        Debug.Log(joint.robotPart);
         UpdateRotationState(direction, joint.robotPart);
     }
 
