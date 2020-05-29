@@ -13,6 +13,7 @@ public class RobotManualInput : MonoBehaviour
         for (int i = 0; i < robotController.joints.Length; i++)
         {
             float inputVal = Input.GetAxis(robotController.joints[i].inputAxis);
+            // Debug.Log(inputVal);
             if (Mathf.Abs(inputVal) > 0)
             {
                 RotationDirection direction = GetRotationDirection(inputVal);
