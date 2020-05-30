@@ -10,7 +10,9 @@ public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
     public float speed = 300.0f;
-
+    public float maxSpeed = 300.0f;
+    public float driveTargetValue;
+    public float rotationDirection;
     private ArticulationBody articulation;
 
 
@@ -23,16 +25,25 @@ public class ArticulationJointController : MonoBehaviour
 
     void FixedUpdate() 
     {
-//        if (rotationState != RotationDirection.None) {
-        if (rotationState != RotationDirection.None && speed > 0) {
-            float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
-            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
-            RotateTo(rotationGoal);
-        }
+        
+            float rotationChange = rotationDirection * maxSpeed * Time.fixedDeltaTime;
+            driveTargetValue = CurrentPrimaryAxisRotation() + rotationChange;
+            RotateTo(driveTargetValue);
+//        if (rotationState != RotationDirection.None && speed > 0) {
+//            float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
+//            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
+//            RotateTo(rotationGoal);
+//        }
 
 
     }
 
+//    public void SetJointDriveTargetValue(float dir = 0)
+//    {
+//        float rotationChange = dir * maxSpeed * Time.fixedDeltaTime;
+//        driveTargetValue = CurrentPrimaryAxisRotation() + rotationChange;
+//    }
+//    
 
     // READ
 

@@ -118,23 +118,40 @@ public class RobotAgent : Agent
 //            
 ////            robotController.joints[jointIndex].bpJointController.speed
 //        }
-
-        int i = -1;
-        robotController.joints[0].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[0].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[1].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[1].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[2].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[2].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[3].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[3].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[4].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[4].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[5].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[5].bpJointController.speed = 50 * (int)vectorAction[++i];
-        robotController.joints[6].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
-        robotController.joints[6].bpJointController.speed = 50 * (int)vectorAction[++i];
-
+        for (int i = 0; i < vectorAction.Length; i++)
+        {
+            robotController.joints[i].bpJointController.rotationDirection = vectorAction[i];
+//            robotController.joints[i].bpJointController.SetJointDriveTargetValue(vectorAction[i]);
+        }
+//        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
+//        {
+//        }
+//        int i = -1;
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//        robotController.joints[0].bpJointController.SetJointDriveTargetValue(vectorAction[++i]);
+//
+//        
+//        int i = -1;
+//        robotController.joints[0].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[0].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[1].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[1].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[2].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[2].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[3].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[3].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[4].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[4].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[5].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[5].bpJointController.speed = 50 * (int)vectorAction[++i];
+//        robotController.joints[6].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+//        robotController.joints[6].bpJointController.speed = 50 * (int)vectorAction[++i];
+//
 //        for (int x = 0; i < robotController.joints.Length; x++)
 //        {
 //            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
