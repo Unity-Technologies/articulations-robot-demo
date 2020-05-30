@@ -41,7 +41,7 @@ public class RobotAgent : Agent
             // No robot is present, no observation should be added
             return;
         }
-        // current rotations
+//        // current rotations
 //        float[] rotations = robotController.GetCurrentJointRotations();
 //        foreach (float rotation in rotations)
 //        {
@@ -50,6 +50,23 @@ public class RobotAgent : Agent
 //            sensor.AddObservation(normalizedRotation);
 //        }
 
+        foreach (var joint in robotController.joints)
+        {
+            sensor.AddObservation(joint.robotPart.transform.localRotation);
+//            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
+            sensor.AddObservation(robot.transform.InverseTransformDirection(joint.robotPart.transform.position - robot.transform.position));
+
+//            sensor.AddObservation(robot.transform.InverseTransformPoint(joint.robotPart.transform.position));
+        }
+//        // current rotations
+//        float[] rotations = robotController.GetCurrentJointRotations();
+//        foreach (float rotation in rotations)
+//        {
+//            // normalize rotation to [-1, 1] range
+//            float normalizedRotation = (rotation / 360.0f) %  1f;
+//            sensor.AddObservation(normalizedRotation);
+//        }
+//
 //        foreach (var joint in robotController.joints)
 //        {
 //            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
@@ -58,13 +75,25 @@ public class RobotAgent : Agent
 //        }
 
         // relative cube position
-        Vector3 cubePosition = cube.transform.position - robot.transform.position;
-        sensor.AddObservation(cubePosition);
+//        sensor.AddObservation(robot.transform.InverseTransformPoint(cube.transform.position));
+//        sensor.AddObservation(endEffector.transform.position - robot.transform.position);
+//        sensor.AddObservation(cube.transform.position - endEffector.transform.position);
 
-        // relative end position
-        Vector3 endPosition = endEffector.transform.position - robot.transform.position;
-        sensor.AddObservation(endPosition);
-        sensor.AddObservation(cubePosition - endPosition);
+        sensor.AddObservation(robot.transform.InverseTransformDirection(cube.transform.position - robot.transform.position));
+        sensor.AddObservation(robot.transform.InverseTransformDirection(endEffector.transform.position - robot.transform.position));
+        sensor.AddObservation(endEffector.transform.InverseTransformDirection(cube.transform.position - endEffector.transform.position));
+
+//        sensor.AddObservation(robot.transform.InverseTransformPoint(endEffector.transform.position));
+
+
+//        // relative cube position
+//        Vector3 cubePosition = cube.transform.position - robot.transform.position;
+//        sensor.AddObservation(cubePosition);
+//
+//        // relative end position
+//        Vector3 endPosition = endEffector.transform.position - robot.transform.position;
+//        sensor.AddObservation(endPosition);
+//        sensor.AddObservation(cubePosition - endPosition);
     }
 
     public override void OnActionReceived(float[] vectorAction)
