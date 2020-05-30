@@ -40,6 +40,13 @@ public class RobotController : MonoBehaviour
             UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
         }
     }
+    public void RotateJoints()
+    {
+        for (int i = 0; i < joints.Length; i++)
+        {
+            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
+        }
+    }
 
     public void RotateJoint(int jointIndex, RotationDirection direction, bool stopPrevious = true)
     {
@@ -47,8 +54,8 @@ public class RobotController : MonoBehaviour
         {
             StopAllJointRotations();
         }
-        Joint joint = joints[jointIndex];
-        UpdateRotationState(direction, joint.bpJointController);
+        var joint = joints[jointIndex].bpJointController;
+        UpdateRotationState(direction, joint);
     }
 
     public void ForceJointsToRotations(float[] rotations)

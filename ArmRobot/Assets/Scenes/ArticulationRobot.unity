@@ -150,6 +150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotArm (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,6 +263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RobotArm (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}
@@ -555,6 +565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotArm (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -669,6 +684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotArm (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -767,6 +787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RobotArm (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}

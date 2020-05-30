@@ -102,12 +102,43 @@ public class RobotAgent : Agent
     {
 //        print($"decision {Time.fixedTime} {Time.renderedFrameCount} {Time.timeSinceLevelLoad}");
         // move
-        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
-        {
-            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
-            robotController.RotateJoint(jointIndex, rotationDirection, false);
-        }
+//        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
+//        {
+//            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
+//            robotController.RotateJoint(jointIndex, rotationDirection, false);
+//            
+//            robotController.joints[jointIndex].bpJointController.speed
+//        }
 
+//        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
+//        {
+////            var rotDir = (int)vectorAction[jointIndex]
+//            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
+//            robotController.RotateJoint(jointIndex, rotationDirection, false);
+//            
+////            robotController.joints[jointIndex].bpJointController.speed
+//        }
+
+        int i = -1;
+        robotController.joints[0].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[0].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[1].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[1].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[2].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[2].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[3].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[3].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[4].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[4].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[5].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[5].bpJointController.speed = 50 * (int)vectorAction[++i];
+        robotController.joints[6].bpJointController.rotationState = ActionIndexToRotationDirection((int) vectorAction[++i]);
+        robotController.joints[6].bpJointController.speed = 50 * (int)vectorAction[++i];
+
+//        for (int x = 0; i < robotController.joints.Length; x++)
+//        {
+//            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
+//        }
         // end episode if we touched the cube
         if (touchDetector.hasTouchedTarget)
         {

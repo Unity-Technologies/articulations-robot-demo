@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
+//    public enum JointRotationSpeed {0, 50, 100, 150, 200, 250, 300};
 
 public class ArticulationJointController : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class ArticulationJointController : MonoBehaviour
 
     void FixedUpdate() 
     {
-        if (rotationState != RotationDirection.None) {
+//        if (rotationState != RotationDirection.None) {
+        if (rotationState != RotationDirection.None && speed > 0) {
             float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(rotationGoal);
