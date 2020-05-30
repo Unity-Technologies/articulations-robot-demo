@@ -10,7 +10,7 @@ public class RobotAgent : Agent
     public GameObject endEffector;
     public GameObject cube;
     public GameObject robot;
-
+    
     RobotController robotController;
     TouchDetector touchDetector;
     TablePositionRandomizer tablePositionRandomizer;
@@ -82,7 +82,9 @@ public class RobotAgent : Agent
         sensor.AddObservation(robot.transform.InverseTransformDirection(cube.transform.position - robot.transform.position));
         sensor.AddObservation(robot.transform.InverseTransformDirection(endEffector.transform.position - robot.transform.position));
         sensor.AddObservation(endEffector.transform.InverseTransformDirection(cube.transform.position - endEffector.transform.position));
-
+        sensor.AddObservation(endEffector.transform.up);
+        sensor.AddObservation(Vector3.Dot(endEffector.transform.up, Vector3.up));
+//        sensor.AddObservation(touchDetector.hasTouchedTarget);
 //        sensor.AddObservation(robot.transform.InverseTransformPoint(endEffector.transform.position));
 
 
@@ -98,6 +100,7 @@ public class RobotAgent : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
+//        print($"decision {Time.fixedTime} {Time.renderedFrameCount} {Time.timeSinceLevelLoad}");
         // move
         for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
         {
@@ -108,23 +111,29 @@ public class RobotAgent : Agent
         // end episode if we touched the cube
         if (touchDetector.hasTouchedTarget)
         {
-            SetReward(1f);
-            EndEpisode();
+//            AddReward(1f);
+            AddReward(1f * Vector3.Dot(endEffector.transform.up, Vector3.up));
+            touchDetector.hasTouchedTarget = false;
+            tablePositionRandomizer.Move();
+//            SetReward(1f);
+//            EndEpisode();
         }
 
+        //encourage head alignment with up axis
+        AddReward(0.001f * Vector3.Dot(endEffector.transform.up, Vector3.up));
 
-        //reward
-        float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position); // roughly 0.7f
-
-
-        var jointHeight = 0f; // This is to reward the agent for keeping high up // max is roughly 3.0f
-        for (int jointIndex = 0; jointIndex < robotController.joints.Length; jointIndex ++)
-        {
-            jointHeight += robotController.joints[jointIndex].robotPart.transform.position.y - cube.transform.position.y;
-        }
-        var reward = - distanceToCube + jointHeight / 100f;
-
-        SetReward(reward * 0.1f);
+//        //reward
+//        float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position); // roughly 0.7f
+//
+//
+//        var jointHeight = 0f; // This is to reward the agent for keeping high up // max is roughly 3.0f
+//        for (int jointIndex = 0; jointIndex < robotController.joints.Length; jointIndex ++)
+//        {
+//            jointHeight += robotController.joints[jointIndex].robotPart.transform.position.y - cube.transform.position.y;
+//        }
+//        var reward = - distanceToCube + jointHeight / 100f;
+//
+//        AddReward(reward * 0.1f);
 
     }
 

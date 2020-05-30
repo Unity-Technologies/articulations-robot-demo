@@ -10,6 +10,7 @@ public class RobotController : MonoBehaviour
     {
         public string inputAxis;
         public GameObject robotPart;
+        public ArticulationJointController bpJointController;
     }
     public Joint[] joints;
 
@@ -36,8 +37,7 @@ public class RobotController : MonoBehaviour
     {
         for (int i = 0; i < joints.Length; i++)
         {
-            GameObject robotPart = joints[i].robotPart;
-            UpdateRotationState(RotationDirection.None, robotPart);
+            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
         }
     }
 
@@ -48,25 +48,23 @@ public class RobotController : MonoBehaviour
             StopAllJointRotations();
         }
         Joint joint = joints[jointIndex];
-        UpdateRotationState(direction, joint.robotPart);
+        UpdateRotationState(direction, joint.bpJointController);
     }
 
     public void ForceJointsToRotations(float[] rotations)
     {
         for (int i = 0; i < rotations.Length; i++)
         {
-            Joint joint = joints[i];
-            ArticulationJointController jointController = joint.robotPart.GetComponent<ArticulationJointController>();
-            jointController.ForceToRotation(0.0f);
+            joints[i].bpJointController.ForceToRotation(0.0f);
         }
     }
 
     // HELPERS
 
-    static void UpdateRotationState(RotationDirection direction, GameObject robotPart)
+    static void UpdateRotationState(RotationDirection direction, ArticulationJointController robotPartJoint)
     {
-        ArticulationJointController jointController = robotPart.GetComponent<ArticulationJointController>();
-        jointController.rotationState = direction;
+//        ArticulationJointController jointController = robotPart.GetComponent<ArticulationJointController>();
+        robotPartJoint.rotationState = direction;
     }
 
 

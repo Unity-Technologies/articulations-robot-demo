@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotManualInput : MonoBehaviour
 {
     public GameObject robot;
+    RobotController robotController;
 
+    private void OnEnable()
+    {
+        robotController = robot.GetComponent<RobotController>();
+    }
 
     void Update()
     {
         // check for robot movement
-        RobotController robotController = robot.GetComponent<RobotController>();
         for (int i = 0; i < robotController.joints.Length; i++)
         {
             float inputVal = Input.GetAxis(robotController.joints[i].inputAxis);

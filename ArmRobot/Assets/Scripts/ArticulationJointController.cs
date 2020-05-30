@@ -15,7 +15,7 @@ public class ArticulationJointController : MonoBehaviour
 
     // LIFE CYCLE
 
-    void Start()
+    void OnEnable()
     {
         articulation = GetComponent<ArticulationBody>();
     }

@@ -132,13 +132,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535023954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 12.23, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1151963581776022305}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &1535023957
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -553,18 +553,25 @@ MonoBehaviour:
   joints:
   - inputAxis: Base
     robotPart: {fileID: 5370028021222349204}
+    bpJointController: {fileID: 5370028021222349207}
   - inputAxis: Shoulder
     robotPart: {fileID: 5370028021926899638}
+    bpJointController: {fileID: 5370028021926899633}
   - inputAxis: Elbow
     robotPart: {fileID: 5370028022427503156}
+    bpJointController: {fileID: 5370028022427503159}
   - inputAxis: Wrist1
     robotPart: {fileID: 5370028021258288419}
+    bpJointController: {fileID: 5370028021258288430}
   - inputAxis: Wrist2
     robotPart: {fileID: 5370028021138703823}
+    bpJointController: {fileID: 5370028021138703818}
   - inputAxis: Wrist3
     robotPart: {fileID: 5370028022771804810}
+    bpJointController: {fileID: 5370028022771804811}
   - inputAxis: Hand
     robotPart: {fileID: 4154501519529785650}
+    bpJointController: {fileID: 5370028022407132331}
 --- !u!1 &5370028020912182413
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 58
+    VectorObservationSize: 62
     NumStackedVectorObservations: 1
     VectorActionSize: 03000000030000000300000003000000030000000300000003000000
     VectorActionDescriptions: []
@@ -796,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 10
   TakeActionsBetweenDecisions: 1
 --- !u!1 &5370028021138703823
 GameObject:
