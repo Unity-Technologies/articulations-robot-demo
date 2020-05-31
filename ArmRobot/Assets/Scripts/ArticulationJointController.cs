@@ -9,11 +9,12 @@ public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
 public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
-    public float speed = 300.0f;
+//    public float speed = 300.0f;
     public float maxSpeed = 300.0f;
     public float driveTargetValue;
     public float rotationDirection;
     private ArticulationBody articulation;
+    public bool jointIsLocked;
 
 
     // LIFE CYCLE
@@ -23,12 +24,23 @@ public class ArticulationJointController : MonoBehaviour
         articulation = GetComponent<ArticulationBody>();
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
-        
+
+        jointIsLocked = Mathf.Abs(rotationDirection) < .1f;
+        if (!jointIsLocked)
+        {
             float rotationChange = rotationDirection * maxSpeed * Time.fixedDeltaTime;
+//            float rotationChange = rotationDirection * maxSpeed;
             driveTargetValue = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(driveTargetValue);
+        }
+        else
+        {
+            
+            
+            
+        }
 //        if (rotationState != RotationDirection.None && speed > 0) {
 //            float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
 //            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;

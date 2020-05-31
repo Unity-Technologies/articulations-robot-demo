@@ -991,7 +991,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 647661045222322993, guid: 7c1541e5c45cb4213bbdf61d5eae494f, type: 3}
+  - {fileID: -3154233406835817432, guid: 3fba682e7b5a0444eb5e51e6fc772147, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1125,6 +1125,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5370028021138703818, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349207, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288430, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
         type: 3}
       propertyPath: m_Name
@@ -1184,6 +1199,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899633, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132331, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503159, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804811, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b30f76067da46dfafb095036fc5614, type: 3}

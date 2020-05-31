@@ -4,34 +4,60 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using System;
+using Random = UnityEngine.Random;
 
 public class RobotAgent : Agent
 {
     public GameObject endEffector;
-    public GameObject cube;
     public GameObject robot;
     
     RobotController robotController;
-    TouchDetector touchDetector;
+//    TouchDetector touchDetector;
     TablePositionRandomizer tablePositionRandomizer;
+    
+    [Header("TARGET")] 
+    public GameObject target;
 
+    public int updateTargetPosEveryXSeconds = 10;
+    public Transform spawnOrigin;
+    public float spawnRadiusFromBase = .4f;
 
-    void Start()
+    public float currentDistToTarget;
+//    public Collider s ;
+
+    [Header("REWARDS")] 
+    public bool rewardPos;
+    public bool rewardLookDirection;
+    public Vector3 startingLookDir;
+    private Vector3 dirToLook;
+
+    public override void Initialize()
     {
+        dirToLook = startingLookDir;
+        UpdateTargetPosAndRot();
+        
         robotController = robot.GetComponent<RobotController>();
-        touchDetector = cube.GetComponent<TouchDetector>();
-        tablePositionRandomizer = cube.GetComponent<TablePositionRandomizer>();
+//        touchDetector = target.GetComponent<TouchDetector>();
+        tablePositionRandomizer = target.GetComponent<TablePositionRandomizer>();
+        InvokeRepeating("UpdateTargetPosAndRot", 2,updateTargetPosEveryXSeconds);
     }
 
+    void UpdateTargetPosAndRot()
+    {
+        target.transform.position = spawnOrigin.position + (Random.onUnitSphere * spawnRadiusFromBase);
+//        target.transform.rotation = Quaternion.Euler(0, Random.Range(0.0f, 360.0f), 0);
+        target.transform.rotation = Random.rotationUniform;
 
+    }
+    
+    
     // AGENT
-
     public override void OnEpisodeBegin()
     {
         float[] defaultRotations = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
         robotController.ForceJointsToRotations(defaultRotations);
-        touchDetector.hasTouchedTarget = false;
-        tablePositionRandomizer.Move();
+//        touchDetector.hasTouchedTarget = false;
+//        tablePositionRandomizer.Move();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -53,6 +79,7 @@ public class RobotAgent : Agent
         foreach (var joint in robotController.joints)
         {
             sensor.AddObservation(joint.robotPart.transform.localRotation);
+            sensor.AddObservation(joint.bpJointController.jointIsLocked);
 //            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
             sensor.AddObservation(robot.transform.InverseTransformDirection(joint.robotPart.transform.position - robot.transform.position));
 
@@ -79,11 +106,14 @@ public class RobotAgent : Agent
 //        sensor.AddObservation(endEffector.transform.position - robot.transform.position);
 //        sensor.AddObservation(cube.transform.position - endEffector.transform.position);
 
-        sensor.AddObservation(robot.transform.InverseTransformDirection(cube.transform.position - robot.transform.position));
+        sensor.AddObservation(robot.transform.InverseTransformDirection(target.transform.position - robot.transform.position));
         sensor.AddObservation(robot.transform.InverseTransformDirection(endEffector.transform.position - robot.transform.position));
-        sensor.AddObservation(endEffector.transform.InverseTransformDirection(cube.transform.position - endEffector.transform.position));
-        sensor.AddObservation(endEffector.transform.up);
-        sensor.AddObservation(Vector3.Dot(endEffector.transform.up, Vector3.up));
+        sensor.AddObservation(endEffector.transform.InverseTransformDirection(target.transform.position - endEffector.transform.position));
+//        sensor.AddObservation(endEffector.transform.up);
+//        sensor.AddObservation(Vector3.Dot(endEffector.transform.up, Vector3.up));
+        sensor.AddObservation(endEffector.transform.forward);
+        sensor.AddObservation(target.transform.forward);
+        sensor.AddObservation(Vector3.Dot(endEffector.transform.up, target.transform.forward));
 //        sensor.AddObservation(touchDetector.hasTouchedTarget);
 //        sensor.AddObservation(robot.transform.InverseTransformPoint(endEffector.transform.position));
 
@@ -121,8 +151,11 @@ public class RobotAgent : Agent
         for (int i = 0; i < vectorAction.Length; i++)
         {
             robotController.joints[i].bpJointController.rotationDirection = vectorAction[i];
+            
 //            robotController.joints[i].bpJointController.SetJointDriveTargetValue(vectorAction[i]);
         }
+        
+        
 //        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
 //        {
 //        }
@@ -156,32 +189,44 @@ public class RobotAgent : Agent
 //        {
 //            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
 //        }
-        // end episode if we touched the cube
-        if (touchDetector.hasTouchedTarget)
+
+        currentDistToTarget = Vector3.Distance(endEffector.transform.position, target.transform.position);
+        if (rewardPos)
         {
-//            AddReward(1f);
-            AddReward(1f * Vector3.Dot(endEffector.transform.up, Vector3.up));
-            touchDetector.hasTouchedTarget = false;
-            tablePositionRandomizer.Move();
-//            SetReward(1f);
-//            EndEpisode();
+            //max 1
+            float distRew = 1 - Mathf.Clamp(currentDistToTarget,0, 1);
+            AddReward(0.01f * distRew);
         }
-
-        //encourage head alignment with up axis
-        AddReward(0.001f * Vector3.Dot(endEffector.transform.up, Vector3.up));
-
-//        //reward
-//        float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position); // roughly 0.7f
-//
-//
-//        var jointHeight = 0f; // This is to reward the agent for keeping high up // max is roughly 3.0f
-//        for (int jointIndex = 0; jointIndex < robotController.joints.Length; jointIndex ++)
+        if (rewardLookDirection)
+        {
+//            if (currentDistToTarget < .25f)
+//            {
+                AddReward(0.005f * Vector3.Dot(endEffector.transform.forward, target.transform.forward));
+//            }
+        }
+        
+        
+        
+        
+//        ///////////////////
+//        // end episode if we touched the cube
+//        if (touchDetector.hasTouchedTarget)
 //        {
-//            jointHeight += robotController.joints[jointIndex].robotPart.transform.position.y - cube.transform.position.y;
+////            AddReward(1f);
+//            AddReward(1f * Vector3.Dot(endEffector.transform.up, Vector3.up));
+//            touchDetector.hasTouchedTarget = false;
+//            tablePositionRandomizer.Move();
+////            SetReward(1f);
+////            EndEpisode();
 //        }
-//        var reward = - distanceToCube + jointHeight / 100f;
-//
-//        AddReward(reward * 0.1f);
+        
+//        //encourage head alignment with up axis
+//        AddReward(0.001f * Vector3.Dot(endEffector.transform.up, Vector3.up));
+
+        
+        
+        
+        
 
     }
 
