@@ -59,8 +59,11 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
         // Forward
         if (receivedMessage == "w")
         {
+            Debug.Log("ere");
             RobotController robotController = robot.GetComponent<RobotController>();
-            robotController.RotateJoint(1, GetRotationDirection(1f));
+            robotController.RotateJoint(1, RotationDirection.Positive);
+            
+
         }
         // Back
         if (receivedMessage == "s")
