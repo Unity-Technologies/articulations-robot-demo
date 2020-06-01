@@ -137,8 +137,9 @@ public class RobotAgent : Agent
 
     void Update()
     {
-        if (target.transform.position.y < -.5f)
+        if (target.transform.localPosition.y < -.2f)
         {
+            print("fell off table");
             touchDetector.hasTouchedTarget = false;
             tablePositionRandomizer.Move();
         }
