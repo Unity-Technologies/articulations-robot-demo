@@ -27,20 +27,20 @@ public class ArticulationJointController : MonoBehaviour
     void FixedUpdate()
     {
 
-        jointIsLocked = Mathf.Abs(rotationDirection) < .1f;
-        if (!jointIsLocked)
-        {
-            float rotationChange = rotationDirection * maxSpeed * Time.fixedDeltaTime;
-//            float rotationChange = rotationDirection * maxSpeed;
+//        jointIsLocked = Mathf.Abs(rotationDirection) < .1f;
+//        if (!jointIsLocked)
+//        {
+//            float rotationChange = rotationDirection * maxSpeed * Time.fixedDeltaTime;
+            float rotationChange = rotationDirection * maxSpeed;
             driveTargetValue = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(driveTargetValue);
-        }
-        else
-        {
-            
-            
-            
-        }
+//        }
+//        else
+//        {
+//            
+//            
+//            
+//        }
 //        if (rotationState != RotationDirection.None && speed > 0) {
 //            float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
 //            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;

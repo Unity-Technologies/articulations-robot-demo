@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &815597417599486005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4154501518270112860, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154501518270112860, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020912182409, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57c541320a8284fd9b12f825e193757b, type: 2}
+    - target: {fileID: 5370028020912182411, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020912182411, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.038882837
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020912182411, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.038882837
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020912182411, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.038882837
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020912182413, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_Name
+      value: TARGET
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609566, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: MaxStep
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609566, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 4744464757361417400}
+    - target: {fileID: 5370028020919609566, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: rewardPos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609566, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: rewardLookDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609566, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: rewardLookingDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609567, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028020919609567, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: c5212389ac34842b6b03eb71e7440e81,
+        type: 3}
+    - target: {fileID: 5370028021138703816, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021138703816, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021138703816, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021138703816, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021138703816, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021138703818, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349206, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349206, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349206, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349206, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349206, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021222349207, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288429, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288429, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288429, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288429, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288429, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021258288430, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274545, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_Name
+      value: RobotArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021374274546, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899632, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899632, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899632, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899632, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899632, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028021926899633, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022336388432, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022336388432, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022336388432, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132330, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132330, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132330, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132330, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132330, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022407132331, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503158, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503158, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503158, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503158, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503158, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022427503159, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804811, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804820, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.stiffness
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804820, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_XDrive.forceLimit
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804820, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_LinearDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804820, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_AngularDamping
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370028022771804820, guid: d7b30f76067da46dfafb095036fc5614,
+        type: 3}
+      propertyPath: m_JointFriction
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7b30f76067da46dfafb095036fc5614, type: 3}
+--- !u!1 &4744464757361417400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5370028020912182413, guid: d7b30f76067da46dfafb095036fc5614,
+    type: 3}
+  m_PrefabInstance: {fileID: 815597417599486005}
+  m_PrefabAsset: {fileID: 0}
