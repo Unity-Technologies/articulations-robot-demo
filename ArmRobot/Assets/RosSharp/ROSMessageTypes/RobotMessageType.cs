@@ -3,16 +3,17 @@ This message class is generated automatically with 'SimpleMessageGenerator' of R
 */
 
 using Newtonsoft.Json;
+using RosSharp.RosBridgeClient;
 
 
-namespace RosSharp.RosBridgeClient.Messages
+namespace Assets.RosSharp.ROSMessageTypes
 {
     public class RobotMessageType : Message
     {
         [JsonIgnore]
         public const string RosMessageName = "ros_unity_control/RobotMessageType";
 
-        public int robotbase;
+        public int robot_base;
         public int shoulder;
         public int elbow;
         public int wrist1;
@@ -22,7 +23,7 @@ namespace RosSharp.RosBridgeClient.Messages
 
         public RobotMessageType()
         {
-            robotbase = new int();
+            robot_base = new int();
             shoulder = new int();
             elbow = new int();
             wrist1 = new int();

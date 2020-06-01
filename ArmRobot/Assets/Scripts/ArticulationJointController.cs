@@ -20,8 +20,9 @@ public class ArticulationJointController : MonoBehaviour
         articulation = GetComponent<ArticulationBody>();
     }
 
-    void FixedUpdate() 
+    public void FixedUpdate() 
     {
+        Debug.Log(rotationState);
         if (rotationState != RotationDirection.None) {
             float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
