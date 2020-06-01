@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ML-Agents_GridPattern
+  m_Shader: {fileID: 4800000, guid: bc7c15414f5d046a9ae1affe74895879, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _DrawU: 1
+    - _DrawV: 1
+    - _GridSize: 39
+    - _LineSize: 0.01
+    m_Colors:
+    - _CellColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _LineColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  m_BuildTextureStacks: []
