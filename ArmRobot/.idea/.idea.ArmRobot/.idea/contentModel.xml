@@ -7,6 +7,9 @@
       <e p="ArmRobot.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Materials" t="Include">
+          <e p="GridPatternShader.shader" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="ArticulationBodySensor.cs" t="Include" />
           <e p="ArticulationBodySensorComponent.cs" t="Include" />
