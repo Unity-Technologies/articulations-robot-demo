@@ -12,7 +12,7 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
     private RobotController robotController;
     private Dictionary<string, int> keyToJointIndex;
     private Dictionary<string, RotationDirection> keyToDirection;
-
+    private int count = 0;
     protected override void Start()
     {
         base.Start();
@@ -66,11 +66,13 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
 
     private void FixedUpdate()
     {
-        if (isMessageReceived)
+        if(isMessageReceived)
             ProcessMessage();
     }
     private void ProcessMessage()
     {
+        Debug.Log("Process message count " + count);
+        count+=1; 
         float deltaTime = Time.realtimeSinceStartup - previousRealTime;
         
         //get the joint to rotate from the entered key
@@ -79,9 +81,9 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
         RotationDirection rotationDirection = keyToDirection[receivedMessage];
         //rotate the joint
         robotController.RotateJoint(jointIndexToRotate, rotationDirection);
-
-        robotController.joints[0].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();
-        robotController.joints[1].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();
+        //Physics.Simulate(Time.fixedDeltaTime);
+        //robotController.joints[0].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();
+        // robotController.joints[1].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();
 
 
 

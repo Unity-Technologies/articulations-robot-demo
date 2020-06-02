@@ -11,7 +11,7 @@ public class ArticulationJointController : MonoBehaviour
     public float speed = 300.0f;
 
     private ArticulationBody articulation;
-
+    private int count = 0; 
 
     // LIFE CYCLE
 
@@ -22,7 +22,8 @@ public class ArticulationJointController : MonoBehaviour
 
     public void FixedUpdate() 
     {
-        Debug.Log(rotationState);
+        Debug.Log("count " + count); 
+        count +=1; 
         if (rotationState != RotationDirection.None) {
             float rotationChange = (float)rotationState * speed * Time.fixedDeltaTime;
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
