@@ -36,16 +36,8 @@ public class RobotController : MonoBehaviour
 
     static void UpdateRotationState(RotationDirection direction, GameObject robotPart)
     {
-        var childrenList = robotPart.transform.GetComponentsInChildren<ArticulationJointController>();
-        foreach (var a in childrenList)
-        {
-            Debug.Log(a.gameObject.name + " " + robotPart.name);
-            if (a.gameObject.name == robotPart.name)
-            {
-                a.gameObject.GetComponent<ArticulationJointController>().rotationState = direction;
-            }
-
-        }
+        ArticulationJointController jointController = robotPart.GetComponent<ArticulationJointController>();
+        jointController.rotationState = direction;
     }
 
 

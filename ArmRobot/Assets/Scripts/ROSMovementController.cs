@@ -81,6 +81,8 @@ public class ROSMovementController : Subscriber<Messages.Standard.String>
         RotationDirection rotationDirection = keyToDirection[receivedMessage];
         //rotate the joint
         robotController.RotateJoint(jointIndexToRotate, rotationDirection);
+
+        
         //Physics.Simulate(Time.fixedDeltaTime);
         //robotController.joints[0].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();
         // robotController.joints[1].robotPart.GetComponent<ArticulationJointController>().FixedUpdate();

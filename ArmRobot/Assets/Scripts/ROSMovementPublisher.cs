@@ -8,13 +8,14 @@ public class ROSMovementPublisher : Publisher<RobotMessageType>
     public GameObject robot;
     private RobotMessageType message;
     private RobotController robotController;
-
+    public MeshRenderer renderer; 
     protected override void Start()
     {
         //get UR3 controller
         robotController = robot.GetComponent<RobotController>();
         base.Start();
         InitializeMessage();
+        Debug.Log(renderer.bounds.size);
 
     }
 

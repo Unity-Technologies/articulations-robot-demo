@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadac9b07c97b442ba4339c192aefe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationState: 1
+  rotationState: 0
   speed: 1000
 --- !u!64 &948141749
 MeshCollider:
@@ -835,7 +835,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.007
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
@@ -1441,7 +1441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383161865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.485, y: 0.778, z: -0.17}
+  m_LocalPosition: {x: 0.002, y: 1.457, z: -0.258}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1854,7 +1854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709081025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.803, y: 0, z: -0.153}
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
