@@ -19,7 +19,7 @@ public class ROSMovementPublisher : Publisher<RobotMessageType>
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateMessage();
 
