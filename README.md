@@ -54,8 +54,10 @@ manual input, just uncheck this object in the Hierarchy window.
 
 You can learn more about how this robot was built with articulations by following our guide [here](docs/Building-With-Articulations.md). 
 
+
+
 #### ROS Control
-**Note: this is one repo of two that are needed to link Unity and ROS.  This repo serves as the Unity portion.  Please see [this repo](https://github.com/Unity-Technologies/yantra-dev/tree/jacob/ros-unity-control) for the ROS portion. **
+**Note: this is one repo of two that are needed to link Unity and ROS.  This repo serves as the Unity portion.  Please see [this repo](https://github.com/Unity-Technologies/yantra-dev/tree/jacob/ros-unity-control) for the ROS portion.**
 
 Please follow the proceeding instructions in order to link ROS and Unity:
 1. In the Unity project, use the open scene at Assets/Scenes/Articulation Robot
@@ -65,7 +67,7 @@ Please follow the proceeding instructions in order to link ROS and Unity:
 4. Press play in the editor and check console for connection status: Connected to RosBridge: ws://YOUR_VM_IP:9090
 
 Finally: If you are greeted with the connected message in the Editor console you should be able to go to the terminal window with the key publisher running on it and use the following keys to control the robot:
- 
+```
 Kill the program: P
  
 Rotate base joint: A/D
@@ -75,7 +77,7 @@ Rotate wrist1: O/P
 Rotate wrist2: K/L
 Rotate wrist3: N/M
 Rotate hand: V/B
-
+```
 
 ## Robotiq Hand-E Gripper 
 
