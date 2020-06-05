@@ -83,33 +83,11 @@ public class RobotAgent : Agent
 
         foreach (var joint in robotController.joints)
         {
+            //local rotation of each body part
             sensor.AddObservation(joint.robotPart.transform.localRotation);
-//            sensor.AddObservation(joint.bpJointController.jointIsLocked);
-//            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
+            //pos delta relative to the robot's orientation space
             sensor.AddObservation(robot.transform.InverseTransformDirection(joint.robotPart.transform.position - robot.transform.position));
-
-//            sensor.AddObservation(robot.transform.InverseTransformPoint(joint.robotPart.transform.position));
         }
-//        // current rotations
-//        float[] rotations = robotController.GetCurrentJointRotations();
-//        foreach (float rotation in rotations)
-//        {
-//            // normalize rotation to [-1, 1] range
-//            float normalizedRotation = (rotation / 360.0f) %  1f;
-//            sensor.AddObservation(normalizedRotation);
-//        }
-//
-//        foreach (var joint in robotController.joints)
-//        {
-//            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
-//            sensor.AddObservation(joint.robotPart.transform.forward);
-//            sensor.AddObservation(joint.robotPart.transform.right);
-//        }
-
-        // relative cube position
-//        sensor.AddObservation(robot.transform.InverseTransformPoint(cube.transform.position));
-//        sensor.AddObservation(endEffector.transform.position - robot.transform.position);
-//        sensor.AddObservation(cube.transform.position - endEffector.transform.position);
 
         sensor.AddObservation(robot.transform.InverseTransformDirection(target.transform.position - robot.transform.position));
         sensor.AddObservation(robot.transform.InverseTransformDirection(endEffector.transform.position - robot.transform.position));
@@ -147,29 +125,11 @@ public class RobotAgent : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
-//        print($"decision {Time.fixedTime} {Time.renderedFrameCount} {Time.timeSinceLevelLoad}");
-        // move
-//        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
-//        {
-//            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
-//            robotController.RotateJoint(jointIndex, rotationDirection, false);
-//            
-//            robotController.joints[jointIndex].bpJointController.speed
-//        }
-
-//        for (int jointIndex = 0; jointIndex < vectorAction.Length; jointIndex ++)
-//        {
-////            var rotDir = (int)vectorAction[jointIndex]
-//            RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
-//            robotController.RotateJoint(jointIndex, rotationDirection, false);
-//            
-////            robotController.joints[jointIndex].bpJointController.speed
-//        }
         for (int i = 0; i < vectorAction.Length; i++)
         {
+            //the magnitude of the action float determines the speed
+            //the direction (positive or negative) determines the direction
             robotController.joints[i].bpJointController.rotationDirection = vectorAction[i];
-            
-//            robotController.joints[i].bpJointController.SetJointDriveTargetValue(vectorAction[i]);
         }
         
         
@@ -207,6 +167,8 @@ public class RobotAgent : Agent
 //            UpdateRotationState(RotationDirection.None, joints[i].bpJointController);
 //        }
 
+
+        //REWARDS
         currentDistToTarget = Vector3.Distance(endEffector.transform.position, target.transform.position);
         if (rewardPos)
         {
@@ -218,10 +180,7 @@ public class RobotAgent : Agent
         //head should look at target
         if (rewardLookDirection)
         {
-//            if (currentDistToTarget < .25f)
-//            {
-                AddReward(0.005f * Vector3.Dot(endEffector.transform.forward, target.transform.forward));
-//            }
+            AddReward(0.005f * Vector3.Dot(endEffector.transform.forward, target.transform.forward));
         }
         
         //head should look down
@@ -263,9 +222,4 @@ public class RobotAgent : Agent
         return (RotationDirection)(actionIndex - 1);
     }
 
-
-
-
 }
-
-
