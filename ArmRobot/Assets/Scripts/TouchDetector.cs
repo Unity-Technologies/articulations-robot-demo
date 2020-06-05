@@ -12,7 +12,7 @@ public class TouchDetector : MonoBehaviour
     {
         if (collision.transform.gameObject.tag == touchTargetTag)
         {
-            Debug.Log("Touch Detected!");
+            Debug.Log("Touch Detected!" + collision.transform.gameObject.name);
             hasTouchedTarget = true;
         }
     }
