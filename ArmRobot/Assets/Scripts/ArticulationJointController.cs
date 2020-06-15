@@ -48,23 +48,5 @@ public class ArticulationJointController : MonoBehaviour
         articulation.xDrive = drive;
     }
 
-    public void ForceToRotation(float primaryAxisRotation)
-    {
-        // set joint to given rotation
-        RotateTo(primaryAxisRotation);
-
-        // set transform to given rotation
-        float x = (articulation.jointPosition[0] * primaryAxisRotation) + (1.0f - articulation.jointPosition[0]) * transform.localRotation.eulerAngles.x;
-        float y = (articulation.jointPosition[1] * primaryAxisRotation) + (1.0f - articulation.jointPosition[1]) * transform.localRotation.eulerAngles.y;
-        float z = (articulation.jointPosition[2] * primaryAxisRotation) + (1.0f - articulation.jointPosition[2]) * transform.localRotation.eulerAngles.z;
-        transform.localRotation = Quaternion.Euler(x, y, z);
-    }
-
-    public float GetPrimaryAxisRotation()
-    {
-        Vector3 currentRotation = transform.localRotation.eulerAngles;
-        float primaryAxisRotation = currentRotation.x * articulation.jointPosition[0] + currentRotation.y * articulation.jointPosition[1] + currentRotation.z * articulation.jointPosition[2];
-        return primaryAxisRotation;
-    }
 
 }
