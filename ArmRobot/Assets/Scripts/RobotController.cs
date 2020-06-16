@@ -39,6 +39,16 @@ public class RobotController : MonoBehaviour
         RotateJoint(randomJointIndex, randomRotationDirection);
     }
 
+    public void ForceJointsToRotations(float[] rotations)
+    {
+        for (int i=0; i < rotations.Length; i++)
+        {
+            float rotation = rotations[i];
+            Joint joint = joints[i];
+            ForceJointToRotation(rotation, joint.robotPart);
+        }
+    }
+
 
     // READ
 
@@ -50,5 +60,9 @@ public class RobotController : MonoBehaviour
         ArticulationJointController jointController = robotPart.GetComponent<ArticulationJointController>();
         jointController.rotationState = direction;
     }
-
+    static void ForceJointToRotation(float rotation, GameObject robotPart)
+    {
+        ArticulationJointController jointController = robotPart.GetComponent<ArticulationJointController>();
+        jointController.ForceToRotation(rotation);
+    }
 }

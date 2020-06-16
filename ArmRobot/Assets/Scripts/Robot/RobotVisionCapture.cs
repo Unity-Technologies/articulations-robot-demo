@@ -38,7 +38,8 @@ public class RobotVisionCapture : MonoBehaviour
 
         // randomize robot position
         RobotController robotController = robot.GetComponent<RobotController>();
-        robotController.RandomJointRotation();
+        float[] rotation = {Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10};
+        robotController.ForceJointsToRotations(rotation);
     }
 
 

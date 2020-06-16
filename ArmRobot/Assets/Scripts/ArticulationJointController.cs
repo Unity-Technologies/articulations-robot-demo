@@ -28,7 +28,6 @@ public class ArticulationJointController : MonoBehaviour
             RotateTo(rotationGoal);
         }
 
-
     }
 
 
