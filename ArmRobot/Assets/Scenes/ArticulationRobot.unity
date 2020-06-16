@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 385129271}
   - component: {fileID: 385129268}
   - component: {fileID: 385129269}
-  - component: {fileID: 385129274}
   m_Layer: 0
   m_Name: Shoulder
   m_TagString: Untagged
@@ -298,22 +297,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385129266}
   m_Mesh: {fileID: 5101511310565666422, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &385129274
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385129266}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1 &622386702
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +539,6 @@ GameObject:
   - component: {fileID: 948141749}
   - component: {fileID: 948141746}
   - component: {fileID: 948141747}
-  - component: {fileID: 948141752}
   m_Layer: 0
   m_Name: Elbow
   m_TagString: Untagged
@@ -706,22 +688,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948141744}
   m_Mesh: {fileID: 4818066510471147553, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &948141752
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948141744}
-  serializedVersion: 2
-  m_Mass: 3
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1 &954335180
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,22 +867,6 @@ MonoBehaviour:
   grip: 0
   gripSpeed: 3
   gripState: 0
---- !u!54 &995377202
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995377197}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &995377204
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1049,7 +999,6 @@ GameObject:
   - component: {fileID: 1089875221}
   - component: {fileID: 1089875218}
   - component: {fileID: 1089875219}
-  - component: {fileID: 1089875224}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -1203,22 +1152,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089875216}
   m_Mesh: {fileID: -8855424465492398110, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &1089875224
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089875216}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1 &1207038283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1166,6 @@ GameObject:
   - component: {fileID: 1207038288}
   - component: {fileID: 1207038284}
   - component: {fileID: 1207038286}
-  - component: {fileID: 1207038291}
   m_Layer: 0
   m_Name: Wrist2
   m_TagString: Untagged
@@ -1386,22 +1318,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207038283}
   m_Mesh: {fileID: 8277753648479351336, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &1207038291
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207038283}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1207423632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1556,6 @@ GameObject:
   - component: {fileID: 1442213770}
   - component: {fileID: 1442213769}
   - component: {fileID: 1442213768}
-  - component: {fileID: 1442213771}
   m_Layer: 0
   m_Name: UR3
   m_TagString: Untagged
@@ -1739,22 +1654,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2668925742314654205, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &1442213771
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442213767}
-  serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!23 &1442213772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2477,7 +2376,6 @@ GameObject:
   - component: {fileID: 2127710636}
   - component: {fileID: 2127710633}
   - component: {fileID: 2127710634}
-  - component: {fileID: 2127710639}
   m_Layer: 0
   m_Name: Wrist1
   m_TagString: Untagged
@@ -2631,19 +2529,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127710631}
   m_Mesh: {fileID: -9002114468971159434, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
---- !u!54 &2127710639
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127710631}
-  serializedVersion: 2
-  m_Mass: 2
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
