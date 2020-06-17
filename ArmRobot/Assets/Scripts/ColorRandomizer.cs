@@ -8,6 +8,8 @@ public class ColorRandomizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        foreach (Material mat in GetComponent<Renderer>().materials) {
+            mat.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        }
     }
 }
