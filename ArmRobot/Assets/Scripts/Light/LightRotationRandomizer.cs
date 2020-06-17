@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LightPositionRandomizer : MonoBehaviour {
+public class LightRotationRandomizer : MonoBehaviour {
 
     void Update () {
         /* Here we want to rotate the light direction
