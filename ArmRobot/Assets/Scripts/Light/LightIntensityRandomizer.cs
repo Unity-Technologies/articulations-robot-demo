@@ -6,6 +6,8 @@ public class LightIntensityRandomizer : MonoBehaviour
 {
     Light lt;
 
+    public float minRangeIntensityLight = 0.6f;
+    public float maxRangeIntensityLight = 1.2f;
     void Start()
     {
         lt = GetComponent<Light>();
@@ -16,6 +18,6 @@ public class LightIntensityRandomizer : MonoBehaviour
     {
         // I generate a random number between 0.6 and 1.2 for the intensity 
 
-        lt.intensity = 0.6f + (1.2f - 0.6f) * Random.value;
+        lt.intensity =  minRangeIntensityLight + (maxRangeIntensityLight - minRangeIntensityLight) * Random.value;
     }
 }

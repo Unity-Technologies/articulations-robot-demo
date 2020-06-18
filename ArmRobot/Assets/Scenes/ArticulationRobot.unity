@@ -549,8 +549,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 1383161865}
-  robot: {fileID: 1442213767}
   cylinder: {fileID: 2074111942}
+  robot: {fileID: 1442213767}
+  robotMinReach: 0.2
+  robotMaxReach: 0.5
 --- !u!1 &948141744
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,8 +740,8 @@ GameObject:
   - component: {fileID: 954335182}
   - component: {fileID: 954335181}
   - component: {fileID: 954335184}
-  - component: {fileID: 954335183}
   - component: {fileID: 954335185}
+  - component: {fileID: 954335183}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -831,7 +833,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 954335180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96c30316af384d04acc3dc82472dea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 26aa1265604fd4580bd5bbfd42392129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &954335184
@@ -1650,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383161865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.485, y: 0.778, z: -0.17}
+  m_LocalPosition: {x: -0.4, y: 0.778, z: 0.3}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2303,9 +2305,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1883432540}
   - component: {fileID: 1883432539}
-  - component: {fileID: 1883432538}
   - component: {fileID: 1883432537}
   - component: {fileID: 1883432536}
+  - component: {fileID: 1883432538}
   m_Layer: 0
   m_Name: Directional Light (1)
   m_TagString: Untagged
@@ -2346,7 +2348,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1883432535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96c30316af384d04acc3dc82472dea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 26aa1265604fd4580bd5bbfd42392129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!108 &1883432539
@@ -2437,8 +2439,8 @@ GameObject:
   - component: {fileID: 2074111947}
   - component: {fileID: 2074111946}
   - component: {fileID: 2074111945}
-  - component: {fileID: 2074111944}
   - component: {fileID: 2074111943}
+  - component: {fileID: 2074111944}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2467,13 +2469,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074111942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215be699a31fd471c98bd9df0de560bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c87eca3d37f49ce94654534ab6996c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  table: {fileID: 1064094162}
-  cube: {fileID: 1383161865}
-  robotMinReach: 0.2
-  robotMaxReach: 0.5
 --- !u!54 &2074111945
 Rigidbody:
   m_ObjectHideFlags: 0

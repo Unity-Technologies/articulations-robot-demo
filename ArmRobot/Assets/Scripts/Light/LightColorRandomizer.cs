@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class LightColorRandomizer : MonoBehaviour
 {
+    public float minRangeReducedRValue = 0.4f;
+    public float maxRangeReducedRValue = 1.0f;
+    public float minRangeReducedGValue = 0.4f;
+    public float maxRangeReducedGValue = 1.0f;
+    public float minRangeReducedBValue = 0.4f;
+    public float maxRangeReducedBValue = 1.0f; 
+    
     Light lt;
 
     void Start()
@@ -18,9 +25,9 @@ public class LightColorRandomizer : MonoBehaviour
          * color 
          */
 
-        float R_value = 0.4f + (1.0f - 0.4f) * Random.value;
-        float G_value = 0.4f + (1.0f - 0.4f) * Random.value;
-        float B_value = 0.4f + (1.0f - 0.4f) * Random.value;
+        float R_value = minRangeReducedRValue + (maxRangeReducedRValue - minRangeReducedRValue) * Random.value;
+        float G_value = minRangeReducedGValue + (maxRangeReducedGValue - minRangeReducedGValue) * Random.value;
+        float B_value = minRangeReducedBValue + (maxRangeReducedBValue - minRangeReducedBValue) * Random.value;
 
         lt.color = new Color(R_value, G_value, B_value, 1.0f);
     }
