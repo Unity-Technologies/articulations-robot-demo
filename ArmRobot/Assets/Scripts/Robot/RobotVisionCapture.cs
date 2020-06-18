@@ -10,19 +10,18 @@ public class RobotVisionCapture : MonoBehaviour
    
     public int nbMaxGameobjectScene = 10;
     public float yAltitudeTable = 0.778f;
-    public float minimumDistanceWithoutObjects = 0.5f;
-    public float minimumDistanceBetweenObjects = 0.5f;
-
+    public float minimumDistanceWithoutObjects = 0.05f;
     public float scaleObject = 0.1f;
 
-    public int maxNumberObjectsPerRow = 5;
+    
     public float robotMinReach = 0.2f;
-    public float robotMaxReach = 0.6f;
+    public float robotMaxReach = 0.5f;
 
 
     void Start()
     {
         // first we set the position of the cube 
+        float minimumDistanceBetweenObjects = scaleObject + minimumDistanceWithoutObjects;
 
         cube.transform.position = new Vector3(-robotMaxReach + minimumDistanceWithoutObjects, 
                                         yAltitudeTable, -robotMaxReach + minimumDistanceWithoutObjects);
@@ -34,16 +33,18 @@ public class RobotVisionCapture : MonoBehaviour
         int randomNumberGameObjects = 1 + Random.Range(1, nbMaxGameobjectScene); 
 
         // we create game objects 
+        int maxNumberObjectsPerRow = (int)(1/(minimumDistanceWithoutObjects + scaleObject)); 
         for (var i = 0; i < randomNumberGameObjects; i++) {
             GameObject sphere  = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
-            // we separate the case where i < 5 to the case i > 5 because no more than five objects can have the same z coordinate 
+            // we separate the case where i < maxNumberObjectsPerRow to the case i > maxNumberObjectsPerRow 
+            // because no more than maxNumberObjectsPerRow objects can have the same z coordinate 
             if (i < maxNumberObjectsPerRow){
                 sphere.transform.position = new Vector3(robotMaxReach - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i, 
                                                     yAltitudeTable, robotMaxReach - minimumDistanceWithoutObjects);
             }
             else{
-                sphere.transform.position = new Vector3(robotMaxReach - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*(i-maxNumberObjectsPerRow), 
+                sphere.transform.position = new Vector3(robotMaxReach - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*(i-maxNumberObjectsPerRow+1), 
                                                     yAltitudeTable, robotMaxReach - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects);
             }
             
@@ -84,7 +85,7 @@ public class RobotVisionCapture : MonoBehaviour
 
         listOfAlreadyMovedObjects.Add(cube);
 
-        // then we need to move all the other objects 
+        // move other objects 
         // first we create an array of all the objects in the scene except the cube 
 
         GameObject[] arrayOfSpheres= GameObject.FindGameObjectsWithTag("Sphere");
@@ -93,8 +94,6 @@ public class RobotVisionCapture : MonoBehaviour
         listOfObjects.Add(cylinder);
 
         // then we will iterate through the arrayOfObjects and move them one by one 
-        Debug.Log("list of objects:");
-        Debug.Log(listOfObjects);
         foreach (GameObject gameobject in listOfObjects) {
             RandomizerPositionObject tablePositionRandomizerObject = gameobject.GetComponent<RandomizerPositionObject>();
             tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects);
@@ -102,7 +101,7 @@ public class RobotVisionCapture : MonoBehaviour
 
         }
 
-        // randomize robot position
+        // move robot 
         RobotController robotController = robot.GetComponent<RobotController>();
         float[] rotation = {Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10, Random.value * 10};
         robotController.ForceJointsToRotations(rotation);

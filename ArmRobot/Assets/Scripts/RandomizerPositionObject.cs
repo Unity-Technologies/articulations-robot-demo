@@ -109,14 +109,12 @@ public class RandomizerPositionObject : MonoBehaviour
             else {
                 randomZ = -maxRadius + (-minRadius - (-maxRadius)) * Random.value;
             }
-            Vector2 randomPoint = new Vector2(randomX, randomZ);
+            Vector2 randomPoint = new Vector2(randomX, randomZ); // now we are sure the point is in the area reachable by the robot 
 
-            // compute distance between the center of the table and the point
-            // float d_center_table = randomPoint.magnitude;
-
-
+            // now we need to check if their is no conflict with the position of objects already moved 
             // we define a flag that will give information on whether or not the random point fits 
             bool flag = true; 
+            
             // we iterate through all the list of already moved objects 
             for (var i = 0; i < listOfAlreadyMovedObjects.Count; i++){
                 gameobjectSeen = listOfAlreadyMovedObjects[i];
@@ -147,8 +145,7 @@ public class RandomizerPositionObject : MonoBehaviour
                     objectRadius = GetComponent<CapsuleCollider>().radius * GetComponent<Transform>().localScale[0]; 
                 }
 
-                /* keep only if point is between min and max radius and if the distance between the center
-                * of the current object and the center of the object from the list of already moved objects is superior 
+                /* keep only if the center of the object from the list of already moved objects is superior 
                 * to the sum of their respective radius  
                 */
                 if (distance_between_objects <= objectRadius + gameobjectSeenRadius){
@@ -156,7 +153,6 @@ public class RandomizerPositionObject : MonoBehaviour
                     break;
                 }
             }
-            
         
             if (flag == true){
                 return randomPoint;
