@@ -11,7 +11,7 @@ public class ColorRandomizer : MonoBehaviour
     public float valueMin = 0.5f; 
     public float valueMax = 1f;
     // Update is called once per frame
-    void Update()
+    public void ChangeColor()
     {
         foreach (Material mat in GetComponent<Renderer>().materials) {
             mat.color = Random.ColorHSV(hueMin, hueMax, saturationMin, saturationMax, valueMin, valueMax);

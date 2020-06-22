@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Base01
   - Sphere
+  - Cylinder
+  - Cube
+  - Light
   layers:
   - Default
   - TransparentFX
