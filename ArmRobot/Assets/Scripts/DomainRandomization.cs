@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class DomainRandomization : MonoBehaviour
 {
+    public GameObject table;
     public GameObject cube;
     public GameObject robot;
-    public GameObject table;
+    float robotMinReach;
+    float robotMaxReach;
+    
 
 
-    public float scaleObject = 0.1f;
+    public Vector3 scaleObject = new Vector3 (0.1f, 0.1f, 0.1f);
 
-    public float robotMinReach = 0.2f;
-    public float robotMaxReach = 0.5f;
-
-    public int nbMaxCylinders = 5;
-    public int nbMaxSpheres = 5;
+    public int nbMaxDistractorObjects = 8;
     public float rotationAngle = 10.0f;
 
     public float yAltitudeTable = 0.813f;
@@ -27,27 +26,24 @@ public class DomainRandomization : MonoBehaviour
     void start()
     {
         // first we set the position of the cube 
-        float minimumDistanceBetweenObjects = scaleObject + minimumDistanceWithoutObjects;
+        float minimumDistanceBetweenObjects = scaleObject[0] + minimumDistanceWithoutObjects;
 
         cube.transform.position = new Vector3(-robotMaxReach + 2*minimumDistanceWithoutObjects, 
                                         yAltitudeTable, -robotMaxReach + 2*minimumDistanceWithoutObjects);
         
         cube.tag = "Cube";
+
+        RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
+        robotMinReach = tablePositionRandomizerCube.robotMinReach;
+        robotMaxReach = tablePositionRandomizerCube.robotMaxReach;
+
     }
     
     public List<GameObject> InitializationObjects(){ 
 
-        // First we create the Cylinders
-        List<GameObject> listOfCylinders = CreateRandomListCylinders();
-        
-        // Then we create the spheres 
-        List<GameObject> listOfSpheres = CreateRandomListSpheres();
-        
-        // Then we create the list gathering all the objects which are on the table that we have created 
-        List<GameObject> listOfObjectsTable = ConcatenateListOfGameObjects(listOfCylinders, listOfSpheres);
-
-        // we also create a list of lights objects but these objects will not be part of the list of Objects 
-        List<GameObject> listOfLights = CreateRandomListLights();
+        List<GameObject> listOfObjectsTable = CreateRandomListDistractors();
+        // we also generate a list of lights objects but these objects will not be part of the list of Objects 
+        CreateRandomListLights();
 
         return listOfObjectsTable;
     }
@@ -60,8 +56,8 @@ public class DomainRandomization : MonoBehaviour
 
         // Then we start moving the objects and changing the color 
         // move cube
-        TablePositionRandomizer tablePositionRandomizer_cube = cube.GetComponent<TablePositionRandomizer>();
-        tablePositionRandomizer_cube.Move();
+        RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
+        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
         
         // then we change its color 
@@ -70,8 +66,8 @@ public class DomainRandomization : MonoBehaviour
 
         listOfAlreadyMovedObjects.Add(cube);
 
-        // We destroy the older objects 
-        DestroyObjects();
+        // We desactive the older objects 
+        DesactiveObjects();
 
         // Create and move the new objects 
         // We create the new ojects 
@@ -79,6 +75,7 @@ public class DomainRandomization : MonoBehaviour
 
         // then we move them
         // we iterate through the listOfObjects and move them one by one 
+        
         foreach (GameObject gameobject in listOfObjectsTable) {
             RandomizerPositionObject tablePositionRandomizerObject = gameobject.GetComponent<RandomizerPositionObject>();
             tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects);
@@ -119,90 +116,40 @@ public class DomainRandomization : MonoBehaviour
         robotController.ForceJointsToRotations(rotation);
     }
 
-    List<GameObject> CreateRandomListCylinders()
+    List<GameObject> CreateRandomListDistractors()
     {
         // this function is designed to create a list of a random number of cylinders and instantiate them 
-        float minimumDistanceBetweenObjects = scaleObject + minimumDistanceWithoutObjects;
-        int randomNumberCylinders = 1 + Random.Range(1, nbMaxCylinders); 
-        List<GameObject> listOfCylinders = new List<GameObject>();
-        for (var i = 0; i < randomNumberCylinders; i++) {
-            GameObject cylinder  = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            
-            cylinder.transform.position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects , 
-                                                yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
-            
-            
-            cylinder.transform.localScale = new Vector3(scaleObject, scaleObject, scaleObject);
-            cylinder.AddComponent<ColorRandomizer>();
-            cylinder.AddComponent<RandomizerPositionObject>();
-            cylinder.tag = "Cylinder";
-            ColorRandomizer colorRandomizer = cylinder.GetComponent<ColorRandomizer>();
-            colorRandomizer.ChangeColor();
-            listOfCylinders.Add(cylinder);
-        }
-        return listOfCylinders;
-    }
+        float minimumDistanceBetweenObjects = scaleObject[0] + minimumDistanceWithoutObjects;
+        int randomNumberDistractors = 1 + Random.Range(1, nbMaxDistractorObjects); 
+        List<GameObject> listOfDistractors = new List<GameObject>();
+        for (var i = 0; i < randomNumberDistractors; i++) {
+            int typeObject = Random.Range(0,2);
+            GameObject distractor;
+            if (typeObject == 0){
 
-    List<GameObject> CreateRandomListSpheres()
-    {
-        // this function is designed to create a list of a random number of spheres and instantiate them 
-        float minimumDistanceBetweenObjects = scaleObject + minimumDistanceWithoutObjects;
-        int randomNumberSpheres = 1 + Random.Range(1, nbMaxSpheres); 
-        List<GameObject> listOfSpheres = new List<GameObject>();
-        for (var i = 0; i < randomNumberSpheres; i++) {
-            GameObject sphere  = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-            sphere.transform.position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects, 
-                                                yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
-            
-            sphere.transform.localScale = new Vector3(scaleObject, scaleObject, scaleObject);
-            sphere.AddComponent<ColorRandomizer>();
-            sphere.AddComponent<RandomizerPositionObject>();
-            sphere.tag = "Sphere";
-            ColorRandomizer colorRandomizer = sphere.GetComponent<ColorRandomizer>();
-            colorRandomizer.ChangeColor();
-            listOfSpheres.Add(sphere);
+                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects , 
+                                    yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
+                distractor = CreateCylinder(position, scaleObject);
+            }
+            else {
+                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects, 
+                                    yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
+                distractor = CreateShere(position, scaleObject);
+            }
+            listOfDistractors.Add(distractor);
         }
-        return listOfSpheres;
+        return listOfDistractors;
     }
-    List<GameObject> CreateRandomListLights()
+    void CreateRandomListLights()
     {
         // this function is designed to create a list of a random number of lights and instantiate them 
         int randomNumberLights = 1 + Random.Range(1, nbMaxLights); 
-        List<GameObject> listOfLights = new List<GameObject>();
         for (var i = 0; i < randomNumberLights; i++) {
-            GameObject light = new GameObject();
-            light.tag = "Light";
-
-            Light lightComp = light.AddComponent<Light>();
-
-            PointLightRandomization lightRandomization = GetComponent<PointLightRandomization>();
-            
-            light.transform.position = lightRandomization.PositionUpdate();
-            lightComp.intensity = lightRandomization.IntensityUpdate();
-            Vector4 color = lightRandomization.ColorUpdate();
-            lightComp.color = new Color(color[0], color[1], color[2], color[3]);
-            lightComp.range = 20f;
-
-            listOfLights.Add(light);
+            GameObject light = CreateLight();
         }
-        return listOfLights;
     }
 
-    List<GameObject> ConcatenateListOfGameObjects(List<GameObject> list1, List<GameObject> list2){
-        // This function is designed to concatenate two lists of Gameobjects 
-        List<GameObject> listFinal  = new List<GameObject>();
-        foreach (GameObject gameobject in list1){
-            listFinal.Add(gameobject);
-        }
-        foreach (GameObject gameobject in list2){
-            listFinal.Add(gameobject);
-        }
-        return listFinal;
-    }
-    
-    void DestroyObjects(){
-        // this function is designed to destroy all the cylinders and spheres which are on the scene 
+    void DesactiveObjects(){
         GameObject[] arrayOfSpheres = GameObject.FindGameObjectsWithTag("Sphere");
         GameObject[] arrayOfCylinders = GameObject.FindGameObjectsWithTag("Cylinder");
         GameObject[] arrayOfLights = GameObject.FindGameObjectsWithTag("Light");
@@ -212,7 +159,53 @@ public class DomainRandomization : MonoBehaviour
         listOfObjects.AddRange(arrayOfLights);
         
         foreach (GameObject gameobject in listOfObjects){
-            Destroy(gameobject);
+            gameobject.SetActive(false);
         }
+    }
+
+    GameObject CreateCylinder(Vector3 position, Vector3 scale) {
+        GameObject cylinder  = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        cylinder.transform.position = position;
+        cylinder.tag = "Cylinder";
+        
+        cylinder.transform.localScale = scale;
+        cylinder.AddComponent<ColorRandomizer>();
+        cylinder.AddComponent<RandomizerPositionObject>();
+        //cylinder.AddComponent<TablePositionRandomizer>();
+
+        ColorRandomizer colorRandomizer = cylinder.GetComponent<ColorRandomizer>();
+        colorRandomizer.ChangeColor();
+        return cylinder;
+    }
+
+    GameObject CreateShere(Vector3 position, Vector3 scale) {
+        GameObject sphere  = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = position;
+        sphere.tag = "Sphere";
+        
+        sphere.transform.localScale = scale;
+        sphere.AddComponent<ColorRandomizer>();
+        sphere.AddComponent<RandomizerPositionObject>();
+        //sphere.AddComponent<TablePositionRandomizer>();
+
+        ColorRandomizer colorRandomizer = sphere.GetComponent<ColorRandomizer>();
+        colorRandomizer.ChangeColor();
+        return sphere;
+    }
+
+    GameObject CreateLight(){
+        GameObject light = new GameObject();
+        light.tag = "Light";
+
+        Light lightComp = light.AddComponent<Light>();
+        light.AddComponent<PointLightRandomization>();
+        PointLightRandomization lightRandomization = light.GetComponent<PointLightRandomization>();
+            
+        light.transform.position = lightRandomization.PositionUpdate();
+        lightComp.intensity = lightRandomization.IntensityUpdate();
+        Vector4 color = lightRandomization.ColorUpdate();
+        lightComp.color = new Color(color[0], color[1], color[2], color[3]);
+        lightComp.range = 20f;
+        return light;
     }
 }

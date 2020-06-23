@@ -7,11 +7,11 @@ public class RandomizerPositionObject : MonoBehaviour
 
 
     private GameObject gameObjectSeen;
-    float robotMinReach = 0.2f;
-    float robotMaxReach = 0.5f;
+    public float robotMinReach = 0.2f;
+    public float robotMaxReach = 0.45f;
 
     Bounds tableBounds;
-    public float yAltitudeTable = 0.778f;
+    float yAltitudeTable = 0.778f;
 
 
     // CONTROL
@@ -19,6 +19,9 @@ public class RandomizerPositionObject : MonoBehaviour
     public void Move(List<GameObject> listOfAlreadyMovedObjects)
     {
         // random position (on table, within reach)     
+        GameObject table = GameObject.Find("Table");
+        tableBounds = table.GetComponent<Collider>().bounds;
+
         Vector2 tableTopPoint = RandomReachablePointOnTable(listOfAlreadyMovedObjects);
         Vector3 tableCenter = tableBounds.center;
         float x = tableCenter.x + tableTopPoint.x;
@@ -38,10 +41,13 @@ public class RandomizerPositionObject : MonoBehaviour
     // HELPERS
 
     Vector2 RandomReachablePointOnTable(List<GameObject> listOfAlreadyMovedObjects)
-    {
+    {   
+        
         while (true)
-        {
+        {   
             Vector2 randomOffset = RandomPoint(robotMinReach, robotMaxReach, listOfAlreadyMovedObjects);
+            
+            
             bool onTable = PointOnTable(randomOffset);
             if (onTable)
             {
@@ -55,22 +61,15 @@ public class RandomizerPositionObject : MonoBehaviour
         /*  point: The 2D point on table top, relative to center of table top.
          *  Determines if this point would be on the table or not.      
          */
-        GameObject table = GameObject.Find("Table");
-        tableBounds = table.GetComponent<Collider>().bounds;
         Vector3 tableExtents = tableBounds.extents;
-        float targetRadius = 0f;
-        if (tag == "Sphere"){
-                targetRadius = GameObjectRadius(gameObject); // for the sphere 
-            } 
-        else if (tag == "Cylinder"){
-                targetRadius = GameObjectRadius(gameObject); 
-            }
-
+        float targetRadius = GameObjectRadius(gameObject);
+        
         float safeXDistance = tableExtents.x - targetRadius;
         float safeZDistance = tableExtents.z - targetRadius;
         float xDistance = Mathf.Abs(point.x);
         float yDistance = Mathf.Abs(point.y);
-    
+
+        
         bool onTable = (xDistance < safeXDistance) && (yDistance < safeZDistance);
         return onTable;
     }
@@ -86,10 +85,12 @@ public class RandomizerPositionObject : MonoBehaviour
         {
             // pick a random point between the square of edge (2 * minRadius + radiusOfTheGameObject) and the one with 
             // edge (2 * maxRadius - radiusOfTheGameObject) to be sure that the point is reachable by the robot 
+            
             float gameObjectRadius = GameObjectRadius(gameObject);
-            float randomX = 0.25f;
-            float randomZ = 0.25f;
+
+            float randomX;
             int randomSignX = 2 * Random.Range(0,2) - 1;
+            
             if (randomSignX == 1){
                 randomX = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
             }
@@ -97,6 +98,7 @@ public class RandomizerPositionObject : MonoBehaviour
                 randomX = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
             }
 
+            float randomZ;
             int randomSignZ = 2 * Random.Range(0,2) - 1;
             if (randomSignZ == 1){
                 randomZ = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
@@ -104,6 +106,7 @@ public class RandomizerPositionObject : MonoBehaviour
             else {
                 randomZ = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
             }
+            
             Vector2 randomPoint = new Vector2(randomX, randomZ); // now we are sure the point is in the area reachable by the robot 
 
             // now we need to check if their is no conflict with the position of objects already moved 
@@ -113,6 +116,7 @@ public class RandomizerPositionObject : MonoBehaviour
             if (goodPoint == true){
                 return randomPoint;
             }
+            
         }
     }
 
@@ -139,7 +143,7 @@ public class RandomizerPositionObject : MonoBehaviour
             /* keep only if the center of the object from the list of already moved objects is superior 
             * to the sum of their respective radius  
             */
-            if (distanceBetweenObjects <= gameObjectRadius + gameObjectSeenRadius){
+            if (distanceBetweenObjects < gameObjectRadius + gameObjectSeenRadius){
                 goodPoint = false;
                 break;
             }
@@ -147,12 +151,12 @@ public class RandomizerPositionObject : MonoBehaviour
         return goodPoint;
     }
 
-    public float GameObjectRadius(GameObject gameObject){
+    public static float GameObjectRadius(GameObject gameObject){
         /* method to take out the radius of a gameObject
         */
         float gameObjectRadius = 0f;
         if (gameObject.tag == "Cube"){
-                    gameObjectRadius = Mathf.Sqrt(2) * GetComponent<Collider>().bounds.extents.x; 
+                    gameObjectRadius = Mathf.Sqrt(2) * gameObject.GetComponent<Collider>().bounds.extents.x; 
                 }
         else if (gameObject.tag == "Cylinder"){
                     gameObjectRadius = gameObject.GetComponent<CapsuleCollider>().radius * gameObject.GetComponent<Transform>().localScale[0]; // for the sphere 

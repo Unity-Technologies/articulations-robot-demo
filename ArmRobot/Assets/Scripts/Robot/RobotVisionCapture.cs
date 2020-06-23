@@ -7,13 +7,14 @@ public class RobotVisionCapture : MonoBehaviour
     public GameObject cube;
     public GameObject robot;
     public GameObject table;
+    public GameObject DomainRandomizationObject;
 
     
 
     void Start()
     {
 
-        GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
+        //GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
             domainRandomization.InitializationObjects();
@@ -48,7 +49,7 @@ public class RobotVisionCapture : MonoBehaviour
         - position, orientation and specular characteristics of the lights
         */
        
-        GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
+        //GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
             domainRandomization.DomainRandomizationScene();
