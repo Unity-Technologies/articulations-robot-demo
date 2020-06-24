@@ -7,19 +7,19 @@ public class RandomizerPositionCamera : MonoBehaviour
     public float changePositionCamera = 0.005f;
     public float rotationCamera = 1.0f;
 
-    public Vector3 initialCameraPosition = new Vector3(0.0f, 1.8f, 0.0f);
+    public Vector3 initialCameraPosition;
 
-    public Vector3 initialCameraRotation = new Vector3(90.0f, 0.0f, 0.0f);
+    public Vector3 initialCameraRotation;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = initialCameraPosition;
-        transform.rotation = Quaternion.Euler(initialCameraRotation[0], initialCameraRotation[1], initialCameraRotation[2]);
+        initialCameraPosition = transform.position;
+        initialCameraRotation = transform.rotation.eulerAngles;
     }
 
-    
+     
     public void Move() {
         
         // Here we want to move the position of the camera
@@ -42,4 +42,5 @@ public class RandomizerPositionCamera : MonoBehaviour
         );
         
     }
+    
 }

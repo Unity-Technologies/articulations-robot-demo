@@ -13,8 +13,6 @@ public class RobotVisionCapture : MonoBehaviour
 
     void Start()
     {
-
-        //GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
             domainRandomization.InitializationObjects();
@@ -48,8 +46,7 @@ public class RobotVisionCapture : MonoBehaviour
         - position, orientation and filed of view of camera 
         - position, orientation and specular characteristics of the lights
         */
-       
-        //GameObject DomainRandomizationObject = GameObject.Find("DomainRandomizationObject");
+        
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
             domainRandomization.DomainRandomizationScene();

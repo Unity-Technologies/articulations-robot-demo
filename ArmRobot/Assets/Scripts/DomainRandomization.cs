@@ -23,14 +23,8 @@ public class DomainRandomization : MonoBehaviour
     public int nbMaxLights = 3;
 
     
-    void start()
+    void Start()
     {
-        // first we set the position of the cube 
-        float minimumDistanceBetweenObjects = scaleObject[0] + minimumDistanceWithoutObjects;
-
-        cube.transform.position = new Vector3(-robotMaxReach + 2*minimumDistanceWithoutObjects, 
-                                        yAltitudeTable, -robotMaxReach + 2*minimumDistanceWithoutObjects);
-        
         cube.tag = "Cube";
 
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
@@ -171,7 +165,6 @@ public class DomainRandomization : MonoBehaviour
         cylinder.transform.localScale = scale;
         cylinder.AddComponent<ColorRandomizer>();
         cylinder.AddComponent<RandomizerPositionObject>();
-        //cylinder.AddComponent<TablePositionRandomizer>();
 
         ColorRandomizer colorRandomizer = cylinder.GetComponent<ColorRandomizer>();
         colorRandomizer.ChangeColor();
@@ -186,7 +179,6 @@ public class DomainRandomization : MonoBehaviour
         sphere.transform.localScale = scale;
         sphere.AddComponent<ColorRandomizer>();
         sphere.AddComponent<RandomizerPositionObject>();
-        //sphere.AddComponent<TablePositionRandomizer>();
 
         ColorRandomizer colorRandomizer = sphere.GetComponent<ColorRandomizer>();
         colorRandomizer.ChangeColor();
