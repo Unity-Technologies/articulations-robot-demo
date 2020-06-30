@@ -53,10 +53,14 @@ public class DomainRandomization : MonoBehaviour
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
+        // then we change its pattern 
+        CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
+        checkerBoardCube.CheckerBoardChange();
         
+
         // then we change its color 
-        ColorRandomizer colorRandomizercube = cube.GetComponent<ColorRandomizer>();
-        colorRandomizercube.ChangeColor();
+        ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
+        colorRandomizerCube.ChangeColor();
 
         listOfAlreadyMovedObjects.Add(cube);
 
@@ -163,8 +167,13 @@ public class DomainRandomization : MonoBehaviour
         cylinder.tag = "Cylinder";
         
         cylinder.transform.localScale = scale;
+        cylinder.AddComponent<CheckerBoard>();
         cylinder.AddComponent<ColorRandomizer>();
         cylinder.AddComponent<RandomizerPositionObject>();
+
+        // we change the pattern of the mesh renderer: introduce a check pattern or not 
+        CheckerBoard checkerBoard = cylinder.GetComponent<CheckerBoard>();
+        checkerBoard.CheckerBoardChange();
 
         ColorRandomizer colorRandomizer = cylinder.GetComponent<ColorRandomizer>();
         colorRandomizer.ChangeColor();
@@ -177,8 +186,13 @@ public class DomainRandomization : MonoBehaviour
         sphere.tag = "Sphere";
         
         sphere.transform.localScale = scale;
+        sphere.AddComponent<CheckerBoard>();
         sphere.AddComponent<ColorRandomizer>();
         sphere.AddComponent<RandomizerPositionObject>();
+
+        // we change the pattern of the mesh renderer: introduce a check pattern or not 
+        CheckerBoard checkerBoard = sphere.GetComponent<CheckerBoard>();
+        checkerBoard.CheckerBoardChange();
 
         ColorRandomizer colorRandomizer = sphere.GetComponent<ColorRandomizer>();
         colorRandomizer.ChangeColor();
