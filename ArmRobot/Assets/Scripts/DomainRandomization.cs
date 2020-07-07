@@ -6,7 +6,7 @@ public class DomainRandomization : MonoBehaviour
 {
     public GameObject table;
     public GameObject cube;
-    public GameObject robot;
+    //public GameObject robot;
     float robotMinReach;
     float robotMaxReach;
     
@@ -33,6 +33,7 @@ public class DomainRandomization : MonoBehaviour
 
     }
     
+    /*
     public List<GameObject> InitializationObjects(){ 
 
         List<GameObject> listOfObjectsTable = CreateRandomListDistractors();
@@ -41,7 +42,7 @@ public class DomainRandomization : MonoBehaviour
 
         return listOfObjectsTable;
     }
-    
+    */
     
     public void DomainRandomizationScene()
     {
@@ -53,6 +54,7 @@ public class DomainRandomization : MonoBehaviour
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
+        /*
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
         checkerBoardCube.CheckerBoardChange();
@@ -89,11 +91,13 @@ public class DomainRandomization : MonoBehaviour
             colorRandomizerChildRobot.ChangeColor();
         } 
         
+        
         // move the camera
         GameObject camera = GameObject.Find("VisionCamera");
         RandomizerPositionCamera randomizedPositionCamera = camera.GetComponent<RandomizerPositionCamera>();
         randomizedPositionCamera.Move();
 
+        /*
         // change the color of the table 
         ColorRandomizer colorRandomizerTable = table.GetComponent<ColorRandomizer>();
         colorRandomizerTable.ChangeColor();
@@ -102,15 +106,17 @@ public class DomainRandomization : MonoBehaviour
         GameObject directionLight = GameObject.Find("DirectionalLight");
         DirectionalLightRandomization directionalLightRandomizer = directionLight.GetComponent<DirectionalLightRandomization>();
         directionalLightRandomizer.UpdateLight();
-    
+        */
     }
-
+    
+    /*
     public void MoveRobot(float rotationAngle)
     {
         // this function is designed to do the move operation for the robot
         RobotController robotController = robot.GetComponent<RobotController>();
         float rangeRotation = -rotationAngle + 2 * rotationAngle * Random.value;
-        float[] rotation = {rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation};
+        // float[] rotation = {rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation};
+        float[] rotation = {0,0,0,0,0,0};
         robotController.ForceJointsToRotations(rotation);
     }
 
@@ -214,4 +220,5 @@ public class DomainRandomization : MonoBehaviour
         lightComp.range = 20f;
         return light;
     }
+    */
 }

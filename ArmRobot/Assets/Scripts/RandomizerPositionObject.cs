@@ -7,11 +7,11 @@ public class RandomizerPositionObject : MonoBehaviour
 
 
     private GameObject gameObjectSeen;
-    public float robotMinReach = 0.2f;
-    public float robotMaxReach = 0.45f;
+    public float robotMinReach = 2f;
+    public float robotMaxReach = 4.5f;
 
     Bounds tableBounds;
-    float yAltitudeTable = 0.778f;
+    public float yAltitudeTable = 7.78f;
 
 
     // CONTROL
@@ -30,11 +30,13 @@ public class RandomizerPositionObject : MonoBehaviour
         
 
         // random rotation
+        /*
         Vector3 randomRotation = new Vector3(
             transform.rotation.eulerAngles.x,
             Random.value * 360.0f,
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
+        */
     }
 
 
