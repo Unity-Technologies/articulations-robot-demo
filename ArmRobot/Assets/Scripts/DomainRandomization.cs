@@ -18,7 +18,7 @@ public class DomainRandomization : MonoBehaviour
     public float rotationAngle = 10.0f;
 
     public float yAltitudeTable = 0.813f;
-    public float minimumDistanceWithoutObjects = 0.05f;
+    public float minimumDistanceWithoutObjects = 0.5f;
 
     public int nbMaxLights = 3;
 
@@ -115,8 +115,7 @@ public class DomainRandomization : MonoBehaviour
         // this function is designed to do the move operation for the robot
         RobotController robotController = robot.GetComponent<RobotController>();
         float rangeRotation = -rotationAngle + 2 * rotationAngle * Random.value;
-        // float[] rotation = {rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation};
-        float[] rotation = {0,0,0,0,0,0};
+        float[] rotation = {rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation, rangeRotation};
         robotController.ForceJointsToRotations(rotation);
     }
 
