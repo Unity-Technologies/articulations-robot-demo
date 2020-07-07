@@ -11,13 +11,15 @@ public class RandomizerPositionObject : MonoBehaviour
     public float robotMaxReach = 4.5f;
 
     Bounds tableBounds;
-    public float yAltitudeTable = 7.78f;
+    public float yAltitudeTable = 8.2f;
 
 
     // CONTROL
 
     public void Move(List<GameObject> listOfAlreadyMovedObjects)
     {
+        Vector3 initialRotation = new Vector3(0f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(initialRotation);
         // random position (on table, within reach)     
         GameObject table = GameObject.Find("Table");
         tableBounds = table.GetComponent<Collider>().bounds;
