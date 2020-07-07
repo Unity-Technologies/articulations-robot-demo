@@ -13,12 +13,12 @@ public class RobotVisionCapture : MonoBehaviour
 
     void Start()
     {
-    
+        /*
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
             domainRandomization.InitializationObjects();
         }
-        
+        */
     }
 
     private void Update()
