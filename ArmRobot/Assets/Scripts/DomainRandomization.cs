@@ -17,7 +17,7 @@ public class DomainRandomization : MonoBehaviour
     public int nbMaxDistractorObjects = 8;
     public float rotationAngle = 10.0f;
 
-    public float yAltitudeTable = 0.813f;
+    public float yAltitudeTable = 8.13f;
     public float minimumDistanceWithoutObjects = 0.05f;
 
     public int nbMaxLights = 3;
