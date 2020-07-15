@@ -92,27 +92,6 @@ public class RandomizerPositionObject : MonoBehaviour
             // edge (2 * maxRadius - radiusOfTheGameObject) to be sure that the point is reachable by the robot 
             
             float gameObjectRadius = GameObjectRadius(gameObject);
-
-            /*
-            float randomX;
-            int randomSignX = 2 * Random.Range(0,2) - 1;
-            
-            if (randomSignX == 1){
-                randomX = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
-            }
-            else {
-                randomX = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
-            }
-
-            float randomZ;
-            int randomSignZ = 2 * Random.Range(0,2) - 1;
-            if (randomSignZ == 1){
-                randomZ = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
-            }
-            else {
-                randomZ = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
-            }
-            */
             
             float randomX;
             float randomZ;
@@ -144,10 +123,6 @@ public class RandomizerPositionObject : MonoBehaviour
 
                 randomX = -maxRadius + gameObjectRadius + (2 * maxRadius - 2 * gameObjectRadius) * Random.value;
             }
-            
-
-            
-
 
             Vector2 randomPoint = new Vector2(randomX, randomZ); // now we are sure the point is in the area reachable by the robot 
 
