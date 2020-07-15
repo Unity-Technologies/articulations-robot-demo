@@ -69,3 +69,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties.ArmRobot/osxbuild
 .ArmRobot/osxbuild_2
+.ArmRobot/.idea
