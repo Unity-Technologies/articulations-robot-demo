@@ -13,23 +13,30 @@ namespace Assets.RosSharp.ROSMessageTypes
         [JsonIgnore]
         public const string RosMessageName = "ros_unity_control/RobotMessageType";
 
-        public float robot_base_target;
         public float shoulder_target;
-        public float elbow_target;
+        public float upper_arm_target;
+        public float forearm_target;
         public float wrist1_target;
         public float wrist2_target;
         public float wrist3_target;
-        public float hand_target;
+
+
 
         public RobotMessageType()
         {
-            robot_base_target = new float();
             shoulder_target = new float();
-            elbow_target = new float();
+            upper_arm_target = new float();
+            forearm_target = new float();
             wrist1_target = new float();
             wrist2_target = new float();
             wrist3_target = new float();
-            hand_target = new float();
+        }
+
+
+        public float[] GetAnglesAsArray()
+        {
+            float[] arrayToReturn = { shoulder_target, upper_arm_target, forearm_target, wrist1_target, wrist2_target, wrist3_target };
+            return arrayToReturn;
         }
     }
 }
