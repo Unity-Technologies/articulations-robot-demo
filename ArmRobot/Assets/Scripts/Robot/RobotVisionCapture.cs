@@ -8,7 +8,7 @@ public class RobotVisionCapture : MonoBehaviour
     public GameObject robot;
     public GameObject table;
     public GameObject DomainRandomizationObject;
-    public int index = 0;
+
 
     
 
