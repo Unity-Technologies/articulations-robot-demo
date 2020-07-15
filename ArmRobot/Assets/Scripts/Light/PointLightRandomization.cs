@@ -11,13 +11,13 @@ public class PointLightRandomization : MonoBehaviour
     public float minRangeReducedBValue = 0.85f;
     public float maxRangeReducedBValue = 1.0f; 
 
-    public float minRangeIntensityLight = 0.6f;
-    public float maxRangeIntensityLight = 0.9f;
+    public float minRangeIntensityLight = 0.7f;
+    public float maxRangeIntensityLight = 0.95f;
 
     public float minRangePositionLightXAxis = -10f;
     public float maxRangePositionLightXAxis = 10f;
-    public float minRangePositionLightYAxis = 100f;
-    public float maxRangePositionLightYAxis = 120f;
+    public float minRangePositionLightYAxis = 80f;
+    public float maxRangePositionLightYAxis = 90f;
     public float minRangePositionLightZAxis = -10f;
     public float maxRangePositionLightZAxis = 10f;
 

@@ -8,7 +8,7 @@ public class ColorRandomizer : MonoBehaviour
     public float hueMax = 1f;
     public float saturationMin = 1f; 
     public float saturationMax = 1f;
-    public float valueMin = 0.5f; 
+    public float valueMin = 0.6f; 
     public float valueMax = 1f;
     // Update is called once per frame
     public void ChangeColor()
