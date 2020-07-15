@@ -16,7 +16,7 @@ public class RandomizerPositionObject : MonoBehaviour
 
     // CONTROL
 
-    public void Move(List<GameObject> listOfAlreadyMovedObjects, int index)
+    public void Move(List<GameObject> listOfAlreadyMovedObjects)
     {
         Vector3 initialRotation = new Vector3(0f, 0f, 0f);
         transform.rotation = Quaternion.Euler(initialRotation);
