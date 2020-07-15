@@ -16,7 +16,7 @@ public class RandomizerPositionObject : MonoBehaviour
 
     // CONTROL
 
-    public void Move(List<GameObject> listOfAlreadyMovedObjects)
+    public void Move(List<GameObject> listOfAlreadyMovedObjects, int index)
     {
         Vector3 initialRotation = new Vector3(0f, 0f, 0f);
         transform.rotation = Quaternion.Euler(initialRotation);
@@ -24,7 +24,17 @@ public class RandomizerPositionObject : MonoBehaviour
         GameObject table = GameObject.Find("Table");
         tableBounds = table.GetComponent<Collider>().bounds;
 
-        Vector2 tableTopPoint = RandomReachablePointOnTable(listOfAlreadyMovedObjects);
+        //Vector2 tableTopPoint = RandomReachablePointOnTable(listOfAlreadyMovedObjects);
+        Vector2 tableTopPoint;
+        if (index % 3 == 0){
+            tableTopPoint = new Vector2(40, -20);
+        }
+        else if (index % 3 == 1){
+            tableTopPoint = new Vector2(-40, 20);
+        }
+        else {
+            tableTopPoint = new Vector2(40, 20);
+        }
         Vector3 tableCenter = tableBounds.center;
         float x = tableCenter.x + tableTopPoint.x;
         float z = tableCenter.z + tableTopPoint.y;

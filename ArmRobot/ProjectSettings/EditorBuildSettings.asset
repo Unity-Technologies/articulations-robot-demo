@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/RobotWithHand.unity
-    guid: ba85471f9074a496ca00dc9fb80078d0
-  - enabled: 1
-    path: Assets/Scenes/MovingHandSolo.unity
-    guid: d7c40e5832a6949f5b3a1ea2adb7fdc7
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

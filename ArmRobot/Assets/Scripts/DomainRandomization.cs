@@ -45,7 +45,7 @@ public class DomainRandomization : MonoBehaviour
     }
     */
     
-    public void DomainRandomizationScene()
+    public void DomainRandomizationScene(int index)
     {
         // we create a list that will contains all the objects we have already moved 
         List<GameObject> listOfAlreadyMovedObjects = new List<GameObject>();
@@ -53,7 +53,7 @@ public class DomainRandomization : MonoBehaviour
         // Then we start moving the objects and changing the color 
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
+        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects, index);
         
         /*
         // then we change its pattern 
