@@ -12,13 +12,13 @@ public class DomainRandomization : MonoBehaviour
     
 
 
-    public Vector3 scaleObject = new Vector3 (0.1f, 0.1f, 0.1f);
+    public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
 
     public int nbMaxDistractorObjects = 8;
     public float rotationAngle = 10.0f;
 
-    public float yAltitudeTable = 8.13f;
-    public float minimumDistanceWithoutObjects = 0.5f;
+    public float yAltitudeTable = 57f;
+    public float minimumDistanceWithoutObjects = 0.35f;
 
     public int nbMaxLights = 3;
 
@@ -55,7 +55,7 @@ public class DomainRandomization : MonoBehaviour
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
-        /*
+        
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
         checkerBoardCube.CheckerBoardChange();
@@ -108,7 +108,7 @@ public class DomainRandomization : MonoBehaviour
         DirectionalLightRandomization directionalLightRandomizer = directionLight.GetComponent<DirectionalLightRandomization>();
         directionalLightRandomizer.UpdateLight();
 
-        */        
+                
     }
     
     
@@ -218,7 +218,7 @@ public class DomainRandomization : MonoBehaviour
         lightComp.intensity = lightRandomization.IntensityUpdate();
         Vector4 color = lightRandomization.ColorUpdate();
         lightComp.color = new Color(color[0], color[1], color[2], color[3]);
-        lightComp.range = 20f;
+        lightComp.range = 120f;
         return light;
     }
     

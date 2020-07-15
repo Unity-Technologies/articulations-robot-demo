@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PointLightRandomization : MonoBehaviour
 {
-    public float minRangeReducedRValue = 0.4f;
+    public float minRangeReducedRValue = 0.85f;
     public float maxRangeReducedRValue = 1.0f;
-    public float minRangeReducedGValue = 0.4f;
+    public float minRangeReducedGValue = 0.85f;
     public float maxRangeReducedGValue = 1.0f;
-    public float minRangeReducedBValue = 0.4f;
+    public float minRangeReducedBValue = 0.85f;
     public float maxRangeReducedBValue = 1.0f; 
 
-    public float minRangeIntensityLight = 0.4f;
-    public float maxRangeIntensityLight = 0.8f;
+    public float minRangeIntensityLight = 0.6f;
+    public float maxRangeIntensityLight = 0.9f;
 
-    public float minRangePositionLightXAxis = -0.2f;
-    public float maxRangePositionLightXAxis = 0.2f;
-    public float minRangePositionLightYAxis = 2.5f;
-    public float maxRangePositionLightYAxis = 3f;
-    public float minRangePositionLightZAxis = -0.2f;
-    public float maxRangePositionLightZAxis = 0.2f;
+    public float minRangePositionLightXAxis = -10f;
+    public float maxRangePositionLightXAxis = 10f;
+    public float minRangePositionLightYAxis = 100f;
+    public float maxRangePositionLightYAxis = 120f;
+    public float minRangePositionLightZAxis = -10f;
+    public float maxRangePositionLightZAxis = 10f;
 
     public Vector4 ColorUpdate()
     {

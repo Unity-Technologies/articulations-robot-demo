@@ -567,7 +567,6 @@ MonoBehaviour:
   robot: {fileID: 1442213767}
   table: {fileID: 1064094162}
   DomainRandomizationObject: {fileID: 1054542686}
-  index: 0
 --- !u!114 &886963048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,11 +1013,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   table: {fileID: 1064094162}
   cube: {fileID: 1383161865}
-  scaleObject: {x: 1, y: 1, z: 1}
-  nbMaxDistractorObjects: 8
+  robot: {fileID: 1442213767}
+  scaleObject: {x: 7, y: 7, z: 7}
+  nbMaxDistractorObjects: 2
   rotationAngle: 10
-  yAltitudeTable: 8.13
-  minimumDistanceWithoutObjects: 0.05
+  yAltitudeTable: 57
+  minimumDistanceWithoutObjects: 0.35
   nbMaxLights: 3
 --- !u!4 &1054542688
 Transform:
@@ -1596,10 +1596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e52f65537c84b3394814c00ffa70fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changePositionCamera: 0.005
+  changePositionCamera: 0.05
   rotationCamera: 1
-  initialCameraPosition: {x: 0, y: 16, z: 0}
-  initialCameraRotation: {x: 90, y: 0, z: 0}
+  initialCameraPosition: {x: 1.7, y: 98, z: -104.8}
+  initialCameraRotation: {x: 15, y: 0, z: 0}
 --- !u!20 &1207423634
 Camera:
   m_ObjectHideFlags: 0
