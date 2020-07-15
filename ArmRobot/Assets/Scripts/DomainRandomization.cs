@@ -6,7 +6,7 @@ public class DomainRandomization : MonoBehaviour
 {
     public GameObject table;
     public GameObject cube;
-    //public GameObject robot;
+    public GameObject robot;
     float robotMinReach;
     float robotMaxReach;
     
@@ -34,7 +34,7 @@ public class DomainRandomization : MonoBehaviour
     }
     
     
-    /*
+    
     public List<GameObject> InitializationObjects(){ 
 
         List<GameObject> listOfObjectsTable = CreateRandomListDistractors();
@@ -43,7 +43,7 @@ public class DomainRandomization : MonoBehaviour
 
         return listOfObjectsTable;
     }
-    */
+    
     
     public void DomainRandomizationScene()
     {
@@ -111,7 +111,7 @@ public class DomainRandomization : MonoBehaviour
         */        
     }
     
-    /*
+    
     public void MoveRobot(float rotationAngle)
     {
         // this function is designed to do the move operation for the robot
@@ -221,5 +221,5 @@ public class DomainRandomization : MonoBehaviour
         lightComp.range = 20f;
         return light;
     }
-    */
+    
 }
