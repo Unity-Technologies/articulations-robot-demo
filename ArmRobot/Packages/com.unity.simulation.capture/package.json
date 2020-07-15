@@ -1,0 +1,11 @@
+{
+    "name":        "com.unity.simulation.capture",
+    "displayName": "Unity Simulation Capture",
+    "version":     "0.0.10-preview.8",
+    "unity":       "2018.4",
+    "description": "Simulation SDK. Contains functionality to capture screen shots and data logs from the simulation, and persist it to the file system or the cloud.",
+    "dependencies":
+    {
+        "com.unity.simulation.core": "0.0.10-preview.12"
+    }
+}

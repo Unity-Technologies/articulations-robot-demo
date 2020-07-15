@@ -1,0 +1,35 @@
+{
+    "name": "Unity.Simulation.Capture.Tests",
+    "references": [
+        "Unity.Simulation.Capture",
+        "Unity.Simulation.Core",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Unity.PerformanceTesting",
+        "com.unity.simulation.tools"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.simulation.tools",
+            "expression": "[0.0.10-preview.1]",
+            "define": "ENABLE_CLOUDTESTS"
+        },
+        {
+            "name": "com.unity.test-framework.performance",
+            "expression": "[2.0.9-preview]",
+            "define": "ENABLE_PERFORMANCE_TESTS"
+        }
+    ],
+    "noEngineReferences": false
+}

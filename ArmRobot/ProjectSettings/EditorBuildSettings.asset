@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/ArticulationRobot.unity
+    guid: 94fa6bc4b68eb4fd0b73c109f3ff4e02
   m_configObjects: {}

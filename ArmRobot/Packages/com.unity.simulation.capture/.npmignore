@@ -1,0 +1,9 @@
+Documentation/ApiDocs/**
+.npmrc
+.npmignore
+.gitignore
+QAReport.md
+QAReport.md.meta
+README.md
+README.md.meta
+

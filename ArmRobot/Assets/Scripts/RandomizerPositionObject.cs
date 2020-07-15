@@ -20,21 +20,12 @@ public class RandomizerPositionObject : MonoBehaviour
     {
         Vector3 initialRotation = new Vector3(0f, 0f, 0f);
         transform.rotation = Quaternion.Euler(initialRotation);
+        
         // random position (on table, within reach)     
         GameObject table = GameObject.Find("Table");
         tableBounds = table.GetComponent<Collider>().bounds;
 
-        //Vector2 tableTopPoint = RandomReachablePointOnTable(listOfAlreadyMovedObjects);
-        Vector2 tableTopPoint;
-        if (index % 3 == 0){
-            tableTopPoint = new Vector2(40, -20);
-        }
-        else if (index % 3 == 1){
-            tableTopPoint = new Vector2(-40, 20);
-        }
-        else {
-            tableTopPoint = new Vector2(40, 20);
-        }
+        Vector2 tableTopPoint = RandomReachablePointOnTable(listOfAlreadyMovedObjects);
         Vector3 tableCenter = tableBounds.center;
         float x = tableCenter.x + tableTopPoint.x;
         float z = tableCenter.z + tableTopPoint.y;
@@ -42,13 +33,13 @@ public class RandomizerPositionObject : MonoBehaviour
         
 
         // random rotation
-        /*
+        
         Vector3 randomRotation = new Vector3(
             transform.rotation.eulerAngles.x,
             Random.value * 360.0f,
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
-        */
+        
     }
 
 
@@ -102,6 +93,7 @@ public class RandomizerPositionObject : MonoBehaviour
             
             float gameObjectRadius = GameObjectRadius(gameObject);
 
+            /*
             float randomX;
             int randomSignX = 2 * Random.Range(0,2) - 1;
             
@@ -120,7 +112,43 @@ public class RandomizerPositionObject : MonoBehaviour
             else {
                 randomZ = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
             }
+            */
             
+            float randomX;
+            float randomZ;
+            int randomConstraint = Random.Range(0, 2);
+            if (randomConstraint == 1){
+                // we put a constraint on X 
+                int randomSignX = 2 * Random.Range(0,2) - 1;
+            
+                if (randomSignX == 1){
+                    randomX = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
+                }
+                else {
+                    randomX = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
+                }
+
+                randomZ = -maxRadius + gameObjectRadius + (2 * maxRadius - 2 * gameObjectRadius) * Random.value;
+            }
+            
+            else {
+                // we put a constraint on Z
+                int randomSignZ = 2 * Random.Range(0,2) - 1;
+            
+                if (randomSignZ == 1){
+                    randomZ = minRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
+                }
+                else {
+                    randomZ = -maxRadius + gameObjectRadius + (maxRadius - minRadius - 2 * gameObjectRadius) * Random.value;
+                }
+
+                randomX = -maxRadius + gameObjectRadius + (2 * maxRadius - 2 * gameObjectRadius) * Random.value;
+            }
+            
+
+            
+
+
             Vector2 randomPoint = new Vector2(randomX, randomZ); // now we are sure the point is in the area reachable by the robot 
 
             // now we need to check if their is no conflict with the position of objects already moved 

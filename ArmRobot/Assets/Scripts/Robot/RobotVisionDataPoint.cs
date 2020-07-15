@@ -3,8 +3,8 @@
 [System.Serializable]
 public class RobotVisionDataPoint
 {
-    public float pixel_position_x; 
-    public float pixel_position_y;
+    public float pixel_x; 
+    public float pixel_y;
 
     public float x;
     public float y;
@@ -14,8 +14,8 @@ public class RobotVisionDataPoint
     public RobotVisionDataPoint(Vector2 screenPos, Vector3 relativeCubePosition, string screenCaptureName)
     {
         
-        this.pixel_position_x = screenPos[0];
-        this.pixel_position_y = screenPos[1];
+        this.pixel_x = screenPos[0];
+        this.pixel_y = 1 - screenPos[1]; // we need to switch from bottom left corner to top left corner
 
         this.x = relativeCubePosition[0];
         this.y = relativeCubePosition[1];

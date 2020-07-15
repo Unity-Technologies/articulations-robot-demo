@@ -34,18 +34,15 @@ public class RobotVisionCapture : MonoBehaviour
 
         RobotVisionDataPoint dataPoint = new RobotVisionDataPoint(screenPos, relativeCubePosition, imageName);
 
-        Debug.Log("the data is" + JsonUtility.ToJson(dataPoint));
+        
         bool didCapture = visionDataCollector.CaptureIfNecessary(imageName, dataPoint);
         if (didCapture)
         {
-            index = 0;
             Reset(index);
+            index = index + 1;
         }
 
     }
-
-    // HELPERS
-
     private void Reset(int index)
     {   
         /* Here we will do the domain randomization. Thus we will randomize:

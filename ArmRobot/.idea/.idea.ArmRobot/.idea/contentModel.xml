@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="ArmRobot.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="ArticulationHandManualInput.cs" t="Include" />
+          <e p="ArticulationJointController.cs" t="Include" />
+          <e p="Camera" t="Include">
+            <e p="RandomizerPositionCamera.cs" t="Include" />
+          </e>
+          <e p="CameraPixel.cs" t="Include" />
+          <e p="CheckerBoard.cs" t="Include" />
+          <e p="ColorRandomizer.cs" t="Include" />
+          <e p="DomainRandomization.cs" t="Include" />
+          <e p="GripperDemoController.cs" t="Include" />
+          <e p="GripperDemoManualInput.cs" t="Include" />
+          <e p="Light" t="Include">
+            <e p="DirectionalLightRandomization.cs" t="Include" />
+            <e p="PointLightRandomization.cs" t="Include" />
+          </e>
+          <e p="PincherController.cs" t="Include" />
+          <e p="PincherFingerController.cs" t="Include" />
+          <e p="RandomizerPositionObject.cs" t="Include" />
+          <e p="Robot" t="Include">
+            <e p="RobotVisionCapture.cs" t="Include" />
+            <e p="RobotVisionDataPoint.cs" t="Include" />
+          </e>
+          <e p="RobotController.cs" t="Include" />
+          <e p="RobotManualInput.cs" t="Include" />
+          <e p="testScript.cs" t="Include" />
+          <e p="VisionDataCollector.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive">
+        <e p="com.unity.simulation.capture" t="Include">
+          <e p="Runtime" t="Include">
+            <e p="BatchReadback.cs" t="Include" />
+            <e p="CaptureCamera.cs" t="Include" />
+            <e p="CaptureEncode.cs" t="Include" />
+            <e p="CaptureGPUBuffer.cs" t="Include" />
+            <e p="CaptureOptions.cs" t="Include" />
+            <e p="CaptureRenderTexture.cs" t="Include" />
+            <e p="CaptureVersion.cs" t="Include" />
+            <e p="com.unity.simulation.capture.asmdef" t="Include" />
+            <e p="Convenience" t="Include">
+              <e p="CameraGrab.cs" t="Include" />
+              <e p="DataLogger.cs" t="Include" />
+              <e p="DepthGrab.cs" t="Include" />
+            </e>
+            <e p="DataCaptureHandler.cs" t="Include" />
+            <e p="HeadlessCustomPlayerLoop.cs" t="Include" />
+            <e p="Plugins" t="Include">
+              <e p="JpgEncoder" t="Include">
+                <e p="JpegEncoder.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Resources" t="Include">
+              <e p="USimBlitToDepth.shader" t="Include" />
+            </e>
+            <e p="SRPSupport.cs" t="Include" />
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="Tests" t="Include">
+            <e p="CapturePerformanceBase.cs" t="Include" />
+            <e p="CaptureTests.cs" t="Include" />
+            <e p="com.unity.simulation.capture.tests.asmdef" t="Include" />
+            <e p="DataLoggerTests.cs" t="Include" />
+            <e p="ExistingMonobehaviourTest.cs" t="Include" />
+            <e p="ImageFormatTests.cs" t="Include" />
+            <e p="PerformanceTestsBase.cs" t="Include" />
+            <e p="PlayerTest" t="Include">
+              <e p="PlayerTest.cs" t="Include" />
+            </e>
+            <e p="Resources" t="Include">
+              <e p="CaptureTestComputeBuffer.compute" t="Include" />
+              <e p="TestsUnlitShader.shader" t="Include" />
+            </e>
+            <e p="ScreenCaptureBase.cs" t="Include" />
+            <e p="ScreenCapturePerformanceTests.cs" t="Include" />
+            <e p="ScreenCaptureTestNew.cs" t="Include" />
+            <e p="ScreenCaptureTestOld.cs" t="Include" />
+            <e p="UtilityTests.cs" t="Include" />
+          </e>
+        </e>
+        <e p="com.unity.simulation.core" t="Include">
+          <e p="Editor" t="Include">
+            <e p="com.unity.simulation.core.editor.asmdef" t="Include" />
+            <e p="ExitPlaymode.cs" t="Include" />
+            <e p="PreBuildStep.cs" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="AsyncRequest.cs" t="Include" />
+            <e p="BaseDataConsumer.cs" t="Include" />
+            <e p="ChunkedStream.cs" t="Include" />
+            <e p="ChunkedUnityLog.cs" t="Include" />
+            <e p="com.unity.simulation.core.asmdef" t="Include" />
+            <e p="Configuration.cs" t="Include" />
+            <e p="ContentType.cs" t="Include" />
+            <e p="ContinuousEvents.cs" t="Include" />
+            <e p="FileProducer.cs" t="Include" />
+            <e p="Format.cs" t="Include" />
+            <e p="FrameLimit.cs" t="Include" />
+            <e p="HardwareSpecs.cs" t="Include" />
+            <e p="Heartbeat.cs" t="Include" />
+            <e p="IDataProduced.cs" t="Include" />
+            <e p="LambdaJob.cs" t="Include" />
+            <e p="Log.cs" t="Include" />
+            <e p="Manager.cs" t="Include" />
+            <e p="Options.cs" t="Include" />
+            <e p="ProfilerManager.cs" t="Include" />
+            <e p="SequencedPathName.cs" t="Include" />
+            <e p="SharedMemory.cs" t="Include" />
+            <e p="SignedURLDataConsumer.cs" t="Include" />
+            <e p="TimeLimit.cs" t="Include" />
+            <e p="TimeLogger.cs" t="Include" />
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="Tests" t="Include">
+            <e p="AsyncRequestTests.cs" t="Include" />
+            <e p="ChunkedLoggerTests.cs" t="Include" />
+            <e p="ChunkedStreamTests.cs" t="Include" />
+            <e p="com.unity.simulation.core.tests.asmdef" t="Include" />
+            <e p="ConfigurationTests.cs" t="Include" />
+            <e p="FormatTests.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Temp/Bin" t="ExcludeRecursive" />
+      <e p="Unity.Simulation.Capture.csproj" t="IncludeRecursive" />
+      <e p="Unity.Simulation.Capture.Tests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Simulation.Core.csproj" t="IncludeRecursive" />
+      <e p="Unity.Simulation.Core.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Simulation.Core.Tests.csproj" t="IncludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_ArmRobot.-1924932106.00" t="ExcludeRecursive" />
+  </component>
+</project>

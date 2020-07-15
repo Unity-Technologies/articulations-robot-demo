@@ -10,6 +10,8 @@ public class VisionDataCollector : MonoBehaviour
 {
     public Camera _camera;
     public int maxSamples;
+    public GameObject cube;
+    public int fileCounter;
 
     private Unity.Simulation.Logger dataLogger;
     private string screenCapturePath;
@@ -52,6 +54,7 @@ public class VisionDataCollector : MonoBehaviour
 
             lastCaptureTime = Time.time;
             sampleIndex += 1;
+
             return true;
         }
 
@@ -83,64 +86,26 @@ public class VisionDataCollector : MonoBehaviour
         #endif
     }
 
+
     private void Capture(string imageName, System.Object dataPoint)
     {
-        // Call Screen Capture
-        /*
-        var screen = CaptureCamera.Capture(_camera, request =>
-        {
-            Debug.Log("beginning capture");
-            string path = string.Format("{0}/{1}.jpg", screenCapturePath, imageName);
-            bool flipY = false;
+        RenderTexture currentRT = RenderTexture.active;
+        RenderTexture.active = _camera.targetTexture;
+ 
+        _camera.Render();
+ 
+        Texture2D Image = new Texture2D(_camera.targetTexture.width, _camera.targetTexture.height);
+        Image.ReadPixels(new Rect(0, 0, _camera.targetTexture.width, _camera.targetTexture.height), 0, 0);
+        Image.Apply();
+        RenderTexture.active = currentRT;
+ 
+        var Bytes = Image.EncodeToPNG();
+        Destroy(Image);
 
-            // Convert the screen capture to a byte array
-            Array image = CaptureImageEncoder.Encode(
-                request.data.colorBuffer as Array,
-                width, 
-                height,
-                GraphicsFormat.R8G8B8A8_UNorm,
-                CaptureImageEncoder.ImageFormat.Jpg,
-                flipY);
-
-            // Write the screen capture to a file
-            
-            var result = FileProducer.Write(path, image);
-
-            // Wait for Async screen capture request to return and then log data point
-            Debug.Log("result" + result);
-            if (result)
-            {
-                Debug.Log("datapoint" + dataPoint);
-                // Log data point to file
-                dataLogger.Log(dataPoint);
-
-                return AsyncRequest.Result.Completed;
-            }
-            
-            return AsyncRequest.Result.Error;
-        });
-        */
-        bool flag_screen = false;
-        while (flag_screen == false){
-
-            var screen = CaptureCamera.Capture(_camera, request =>
-            {
-                // Convert the screen capture to a byte array
-                byte[] image = ImageConversion.EncodeArrayToPNG(
-                        (byte[])request.data.colorBuffer,
-                        GraphicsFormat.R8G8B8A8_UNorm, 
-                        (uint)width,
-                        (uint)height);
-                    // Write the screen capture to a file
-                    string path = string.Format("{0}/{1}.png", screenCapturePath, imageName);
-                    bool fileWrite = FileProducer.Write(path, image);
-                    Debug.Log("Logging entry for image :  " + imageName);
-                    dataLogger.Log(dataPoint);
-                    flag_screen = true;
-                    return fileWrite ? AsyncRequest.Result.Completed : AsyncRequest.Result.Error;
-            }, flipY: _camera.targetTexture == null);
-        }
+        string path = string.Format("{0}/{1}.png", screenCapturePath, imageName);
+        File.WriteAllBytes(path, Bytes);
+        dataLogger.Log(dataPoint);
+        fileCounter++;
     }
-
 
 }
