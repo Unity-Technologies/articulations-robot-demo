@@ -8,19 +8,7 @@ public class RobotVisionCapture : MonoBehaviour
     public GameObject robot;
     public GameObject table;
     public GameObject DomainRandomizationObject;
-    public int index;
 
-    
-
-    void Start()
-    {
-        
-        if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
-            DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
-            //domainRandomization.InitializationObjects();
-        }
-        
-    }
 
     private void Update()
     {
@@ -38,12 +26,11 @@ public class RobotVisionCapture : MonoBehaviour
         bool didCapture = visionDataCollector.CaptureIfNecessary(imageName, dataPoint);
         if (didCapture)
         {
-            Reset(index);
-            index = index + 1;
+            Reset();
         }
 
     }
-    private void Reset(int index)
+    private void Reset()
     {   
         /* Here we will do the domain randomization. Thus we will randomize:
         - number and shape of distractor objects on the table (cylinders and spheres)
@@ -53,7 +40,7 @@ public class RobotVisionCapture : MonoBehaviour
         */
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
-            domainRandomization.DomainRandomizationScene(index);
+            domainRandomization.DomainRandomizationScene();
         }
         
     }

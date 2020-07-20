@@ -567,7 +567,6 @@ MonoBehaviour:
   robot: {fileID: 1442213767}
   table: {fileID: 1064094162}
   DomainRandomizationObject: {fileID: 1054542686}
-  index: 0
 --- !u!114 &886963048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,7 +2467,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
