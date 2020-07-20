@@ -17,7 +17,7 @@ public class RobotVisionCapture : MonoBehaviour
         
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
-            //domainRandomization.InitializationObjects();
+            domainRandomization.InitializationObjects();
         }
         
     }

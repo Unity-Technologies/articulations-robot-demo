@@ -33,13 +33,11 @@ public class RandomizerPositionObject : MonoBehaviour
         
 
         // random rotation
-        /*
         Vector3 randomRotation = new Vector3(
             transform.rotation.eulerAngles.x,
             Random.value * 360.0f,
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
-        */
     }
 
 

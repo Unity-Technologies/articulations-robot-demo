@@ -53,40 +53,31 @@ public class DomainRandomization : MonoBehaviour
         // Then we start moving the objects and changing the color 
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        //tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
-        if (index == 0){
-            cube.transform.position = new Vector3(34f, yAltitudeTable, -14f);
-        }
-        else {
-            cube.transform.position = new Vector3(34.12f, yAltitudeTable, -14.12f);
-        }
+        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
         
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
-        //checkerBoardCube.CheckerBoardChange();
-        
-        
+        checkerBoardCube.CheckerBoardChange(); 
 
         // then we change its color 
         
         ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
-        //colorRandomizerCube.ChangeColor();
+        colorRandomizerCube.ChangeColor();
         
 
         listOfAlreadyMovedObjects.Add(cube);
 
         // We desactive the older objects 
-        //DesactiveObjects();
+        DesactiveObjects();
 
         // Create and move the new objects 
         // We create the new ojects 
         
-        //List<GameObject> listOfObjectsTable = InitializationObjects();
+        List<GameObject> listOfObjectsTable = InitializationObjects();
 
         // then we move them
         // we iterate through the listOfObjects and move them one by one 
-        /*
         foreach (GameObject gameobject in listOfObjectsTable) {
             RandomizerPositionObject tablePositionRandomizerObject = gameobject.GetComponent<RandomizerPositionObject>();
             tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects);
@@ -120,7 +111,6 @@ public class DomainRandomization : MonoBehaviour
         GameObject directionLight = GameObject.Find("DirectionalLight");
         DirectionalLightRandomization directionalLightRandomizer = directionLight.GetComponent<DirectionalLightRandomization>();
         directionalLightRandomizer.UpdateLight();
-        */
            
     }
     
