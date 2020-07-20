@@ -45,7 +45,7 @@ public class DomainRandomization : MonoBehaviour
     }
     
     
-    public void DomainRandomizationScene()
+    public void DomainRandomizationScene(int index)
     {
         // we create a list that will contains all the objects we have already moved 
         List<GameObject> listOfAlreadyMovedObjects = new List<GameObject>();
@@ -53,30 +53,40 @@ public class DomainRandomization : MonoBehaviour
         // Then we start moving the objects and changing the color 
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
+        //tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
+        if (index == 0){
+            cube.transform.position = new Vector3(34f, yAltitudeTable, -14f);
+        }
+        else {
+            cube.transform.position = new Vector3(34.12f, yAltitudeTable, -14.12f);
+        }
         
         
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
-        checkerBoardCube.CheckerBoardChange();
+        //checkerBoardCube.CheckerBoardChange();
+        
         
 
         // then we change its color 
+        
         ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
-        colorRandomizerCube.ChangeColor();
+        //colorRandomizerCube.ChangeColor();
+        
 
         listOfAlreadyMovedObjects.Add(cube);
 
         // We desactive the older objects 
-        DesactiveObjects();
+        //DesactiveObjects();
 
         // Create and move the new objects 
         // We create the new ojects 
-        List<GameObject> listOfObjectsTable = InitializationObjects();
+        
+        //List<GameObject> listOfObjectsTable = InitializationObjects();
 
         // then we move them
         // we iterate through the listOfObjects and move them one by one 
-        
+        /*
         foreach (GameObject gameobject in listOfObjectsTable) {
             RandomizerPositionObject tablePositionRandomizerObject = gameobject.GetComponent<RandomizerPositionObject>();
             tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects);
@@ -86,18 +96,21 @@ public class DomainRandomization : MonoBehaviour
         
         // move robot 
         MoveRobot(rotationAngle);
+        
         // then we change its color and the color of all its children
+        
         foreach (Transform child in robot.transform){
             ColorRandomizer colorRandomizerChildRobot = child.gameObject.GetComponent<ColorRandomizer>();
             colorRandomizerChildRobot.ChangeColor();
         } 
         
         
+        
         // move the camera
         GameObject camera = GameObject.Find("VisionCamera");
         RandomizerPositionCamera randomizedPositionCamera = camera.GetComponent<RandomizerPositionCamera>();
         randomizedPositionCamera.Move();
-
+        
         
         // change the color of the table 
         ColorRandomizer colorRandomizerTable = table.GetComponent<ColorRandomizer>();
@@ -107,8 +120,8 @@ public class DomainRandomization : MonoBehaviour
         GameObject directionLight = GameObject.Find("DirectionalLight");
         DirectionalLightRandomization directionalLightRandomizer = directionLight.GetComponent<DirectionalLightRandomization>();
         directionalLightRandomizer.UpdateLight();
-
-                
+        */
+           
     }
     
     
@@ -132,7 +145,7 @@ public class DomainRandomization : MonoBehaviour
             GameObject distractor;
             if (typeObject == 0){
 
-                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects , 
+                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects, 
                                     yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
                 distractor = CreateCylinder(position, scaleObject);
             }

@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1207423634}
-  maxSamples: 20000
+  maxSamples: 10
   cube: {fileID: 1383161865}
   fileCounter: 0
 --- !u!114 &886963047
@@ -567,6 +567,7 @@ MonoBehaviour:
   robot: {fileID: 1442213767}
   table: {fileID: 1064094162}
   DomainRandomizationObject: {fileID: 1054542686}
+  index: 0
 --- !u!114 &886963048
 MonoBehaviour:
   m_ObjectHideFlags: 0

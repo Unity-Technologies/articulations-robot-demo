@@ -15,7 +15,7 @@ public class RobotVisionDataPoint
     {
         
         this.pixel_x = screenPos[0];
-        this.pixel_y = 1 - screenPos[1]; // we need to switch from bottom left corner to top left corner
+        this.pixel_y = 1028 - screenPos[1]; // we need to switch from bottom left corner to top left corner
 
         this.x = relativeCubePosition[0];
         this.y = relativeCubePosition[1];
