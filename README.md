@@ -1,77 +1,45 @@
-# Unity Robotics Demos
+# Single Cube Environment 
 
-The recent integration of [Nvidia's PhysX 4](https://news.developer.nvidia.com/announcing-physx-sdk-4-0-an-open-source-physics-engine/) into Unity has dramatically improved the quality of robotics simulation that is possible in Unity. 
+In this branch, we set up an environment with a [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot on a table along with a cube. 
+#single_cube image 
+Open `Scenes` > `ArticulationRobot`.
 
-* The new [articulation joint system](https://docs.unity3d.com/2020.1/Documentation/ScriptReference/ArticulationBody.html) (available in 2020.1) is much better suited to building things like robot arms than the older joint types available in Unity. It uses Featherstone's algorithm and a reduced coordinate representation to gaurantee no unwanted stretch in the joints. In practice, this means that we can now chain many joints in a row and still achieve stable and precise movement. 
 
-* The new [Temporal Gauss Seidel (TGS) solver](https://gameworksdocs.nvidia.com/PhysX/4.0/documentation/PhysXGuide/Manual/RigidBodyDynamics.html#temporal-gauss-seidel) also supports more accurate simulation. 
 
-## Installation
+## Purpose of the Scene 
+This scene has been set up to predict the coordonates of the center of the cube in order to feed some algorithm as a Neural Network. The idea behind is to train neural network only using simulated data instead of real data. Nevertheless, the neural network will be then applied on real data. The focus is hence to decrease the reality gap as much as possible which is the difference between the simulated and the real worl. Domain randomization is one of the many techniques enabling to reduce the reality gap. Instead of training a model only on one simulator, we randomize the simulator to expose the model to multiple different environments during training time. 
 
-Unity 2020.10b1 or later is needed for the new joint system. 
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/multiple_objects_domain_randomization.png">
 
-#### Install Unity
+Below is the list of element we randomize:
+- The number of source lights  
+- The direction, the position and the intensity of the light for the source lights
+- The number of distractor objects (either cylinders or spheres) on the table
+- The position and the texture of the objects on the table  
+- The position of the robot  
+- The position, orientation and field of view of the camera 
+- The texture of the table and the robot 
 
-If you do not have Unity 2020.1.0b1 or later, add the latest 2020.1 beta release
-through [Unity Hub](https://unity3d.com/get-unity/download). This demo has been
-last tested on Unity 2020.1.0b5.
+The domain randomization process is controlled by the script `DomainRandomization.cs` under `Assets` > `Scripts`
 
-#### Clone the Articulations Robot Demo Repo
+## Glimpse into the code 
+The orchestror file is `Robot` > `RobotVisionCapture.cs`. In this file, at each frame, we extract the position of the cube relative to the camera and we create a datapoint object which is the vector of data we want to extract (see `Robot` > `RobotVisionDataPoint.cs`). Then, we capture the image of the mainCamera and we load the image and the datapoint. We do these two actions in when we call the `CaptureIfNeccessary` method inside `VisionDataCollector.cs` file. Then, if we didn't reach the number of simulated data we want to extract, we repeat the process but we need to change the environment of the data by performing domain randomization. This is done in the `Reset` method. 
 
-Clone this repository:
-```sh
-git clone https://github.com/Unity-Technologies/articulations-robot-demo.git
-```
+Inside `DomainRandomization.cs`, we need to generate new objects at each frame. The number of generated objects is controlled by the variable `nbMaxDistractorObjects` inside inspector in the `DomainRandomizationObject` game object. The objects are randomly either cylinders of spheres. We create those inside the methods `CreateCylinder` and `CreateSphere`. 
 
-Then, open the `ArmRobot` project in Unity.
+we need to move the robot and the different objects in the scence. We distinguish their motion as they are completely different objects. 
+For the robot, I create a method `MoveRobot` which calls the method `ForceJointsToRotation` inside the `RobotController.cs` file. This method forces the joints of the robot to move. 
+For the other objects, I call the `Move` method from the `RandomizerPositionObject.cs` file. To generate a new position of the cube, I pick a random point between a square of edge minRobotReach and a square of edge maxRobotReach. This is the area where the robot can reach the object and perform task on it. I also change the orientation of the cube.
+Then, I need to check if the proposed position does not interfer which other objects. This is done inside the `PositionIsValid` method.  
 
-## UR3 Robot Arm
+For the other elements which are randomized, follow the code inside `DomainRandomization.cs` and go to the corresponding files to understand how it is done. 
 
-<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/robot_still.png">
+## Run Simulation 
+Open `Scenes` > `ArticulationRobot`, and press play. To control the number of data you want to extract, you need to change the value of variable `Max Samples` in the inspector of the `VisionDataCollector` game object. Then, when you press start and the ismulation is over, if you go to the log, you can see the path on your computer where the data was loaded. 
 
-This is a simulation of the [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot. You can steer it by directly rotating all six joints of the arm. You can also rotate the end effector, and open and close the pincher. 
+# path data 
 
-Open `Scenes` > `ArticulationRobot`, and press play.
-
-#### Manual Controls
-
-You can move the robot around manually using the following keyboard commands:
-
-```
-A/D - rotate base joint
-S/W - rotate shoulder joint
-Q/E - rotate elbow joint
-O/P - rotate wrist1
-K/L - rotate wrist2
-N/M - rotate wrist3
-V/B - rotate hand
-X - close pincher
-Z - open pincher
-```
-
-All manual control is handled through the scripts on the `ManualInput` object. To disable
-manual input, just uncheck this object in the Hierarchy window.
-
-You can learn more about how this robot was built with articulations by following our guide [here](docs/Building-With-Articulations.md). 
-
-## Robotiq Hand-E Gripper 
-
-<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="300px" src="docs/images/hand-e.gif">
-
-This simulation focuses on picking up objects with the [Robotiq Hand-E Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper).
-
-Open `Scenes` > `GripperScene`, and press play. Try to pick up the cube and drop it!
-
-#### Manual Controls
-
-Use the following keyboard commands:
-
-```
-G - down
-H - up
-X - close pinhcer
-Z - open pincher
-```
+Then, there is two folders inside the data folder: Logs and ScreenCapture. The ScreenCapture folder gathers all the images captured by the mainCanera object whereas Logs gathers all the datapoints inside txt files. 
 
 ## Survey
 

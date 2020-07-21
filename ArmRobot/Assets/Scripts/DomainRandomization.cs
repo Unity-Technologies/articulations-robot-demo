@@ -158,6 +158,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     void DesactiveObjects(){
+        // after each frame we need to desactive the current object on the scene so that we can generate new ones
         GameObject[] arrayOfSpheres = GameObject.FindGameObjectsWithTag("Sphere");
         GameObject[] arrayOfCylinders = GameObject.FindGameObjectsWithTag("Cylinder");
         GameObject[] arrayOfLights = GameObject.FindGameObjectsWithTag("Light");
@@ -172,6 +173,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     GameObject CreateCylinder(Vector3 position, Vector3 scale) {
+        // method to create a cylinder gameobject 
         GameObject cylinder  = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         cylinder.transform.position = position;
         cylinder.tag = "Cylinder";
@@ -191,6 +193,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     GameObject CreateShere(Vector3 position, Vector3 scale) {
+        // method to create a sphere gameobject 
         GameObject sphere  = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = position;
         sphere.tag = "Sphere";
