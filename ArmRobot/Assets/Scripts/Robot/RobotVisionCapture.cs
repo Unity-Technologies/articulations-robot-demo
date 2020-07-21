@@ -33,10 +33,12 @@ public class RobotVisionCapture : MonoBehaviour
     private void Reset()
     {   
         /* Here we will do the domain randomization. Thus we will randomize:
-        - number and shape of distractor objects on the table (cylinders and spheres)
-        - position and texture of all objects on the table 
-        - position, orientation and filed of view of camera 
-        - position, orientation and specular characteristics of the lights
+        - The number of source lights  
+        - The direction, the position and the intensity of the light for the source lights
+        - The position and the texture of the cube 
+        - The position of the robot  
+        - The position, orientation and field of view of the camera 
+        - The texture of the table and the robot 
         */
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
