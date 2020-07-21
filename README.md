@@ -1,7 +1,7 @@
 # Single Cube Environment 
 
 In this branch, we set up an environment with a [Universal Robotics UR3e](https://www.universal-robots.com/products/ur3-robot/) robot on a table along with a cube. 
-#single_cube image 
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/single_cube.png">
 Open `Scenes` > `ArticulationRobot`.
 
 
@@ -37,7 +37,7 @@ For the other elements which are randomized, follow the code inside `DomainRando
 ## Run Simulation 
 Open `Scenes` > `ArticulationRobot`, and press play. To control the number of data you want to extract, you need to change the value of variable `Max Samples` in the inspector of the `VisionDataCollector` game object. Then, when you press start and the ismulation is over, if you go to the log, you can see the path on your computer where the data was loaded. 
 
-# path data 
+<img align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/path_data.png">
 
 Then, there is two folders inside the data folder: Logs and ScreenCapture. The ScreenCapture folder gathers all the images captured by the mainCanera object whereas Logs gathers all the datapoints inside txt files. 
 
