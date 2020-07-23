@@ -30,8 +30,10 @@ For the cube, I call the `Move` method from the `RandomizerPositionObject.cs` fi
 
 For the other elements which are randomized, follow the code inside `DomainRandomization.cs` and go to the corresponding files to understand how it is done. 
 
-## Switch to a asymetric cube 
+## Switch to an asymetric cube 
 The advantage to switch to an asymmetric cube is to train a model for predicting orientation. We define the orientation of an object by its quaternion represensation and to have an asymmetric cube in the scene they are some few steps to do.
+
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/asymmetric_cube.png">
 
 - in the `Project` pannel click on `Materials`. You will see a file called `NonSymmetricCubeTexture`
 - then click on the `Cube` GameObject in the `Hierarchy`. 
@@ -39,6 +41,8 @@ The advantage to switch to an asymmetric cube is to train a model for predicting
 - drag and drop the `NonSymmetricCubeTexture` file in the `Albedo` variable under `Main Maps`
 
 Then if you want to go back to a symmetric cube, click on the little circle in front of `Albedo` and select `None`. Then you can also change the color of the cube. 
+
+
 
 ## Run Simulation 
 Open `Scenes` > `ArticulationRobot`, and press play. To control the number of data you want to extract, you need to change the value of variable `Max Samples` in the inspector of the `VisionDataCollector` game object. Then, when you press start and the ismulation is over, if you go to the log, you can see the path on your computer where the data was loaded. 
