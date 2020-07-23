@@ -7,30 +7,25 @@ public class DomainRandomization : MonoBehaviour
     public GameObject table;
     public GameObject cube;
     public GameObject robot;
-    float robotMinReach;
-    float robotMaxReach;
+
+    public int maxdistanceToTheCenter = 35;
     
 
 
     public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
 
-    public int nbMaxDistractorObjects = 8;
+    public int nbMaxDistractorObjects = 7;
     public float rotationAngle = 10.0f;
 
     public float yAltitudeTable = 57f;
-    public float minimumDistanceWithoutObjects = 0.35f;
+    public float minimumDistanceWithoutObjects = 3.5f;
 
     public int nbMaxLights = 3;
 
     
     void Start()
     {
-        //cube.tag = "Cube";
-
-        RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        robotMinReach = tablePositionRandomizerCube.robotMinReach;
-        robotMaxReach = tablePositionRandomizerCube.robotMaxReach;
-
+        cube.tag = "Cube";
     }
     
     
@@ -45,7 +40,7 @@ public class DomainRandomization : MonoBehaviour
     }
     
     
-    public void DomainRandomizationScene(int index)
+    public void DomainRandomizationScene()
     {
         // we create a list that will contains all the objects we have already moved 
         List<GameObject> listOfAlreadyMovedObjects = new List<GameObject>();
@@ -57,13 +52,12 @@ public class DomainRandomization : MonoBehaviour
         
         
         // then we change its pattern 
-        //CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
+        CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
         //checkerBoardCube.CheckerBoardChange(); 
 
         // then we change its color 
-        
         ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
-        colorRandomizerCube.ChangeColor();
+        //colorRandomizerCube.ChangeColor();
         
 
         listOfAlreadyMovedObjects.Add(cube);
@@ -129,23 +123,50 @@ public class DomainRandomization : MonoBehaviour
     {
         // this function is designed to create a list of a random number of cylinders and instantiate them 
         float minimumDistanceBetweenObjects = scaleObject[0] + minimumDistanceWithoutObjects;
+        
         int randomNumberDistractors = 1 + Random.Range(1, nbMaxDistractorObjects); 
         List<GameObject> listOfDistractors = new List<GameObject>();
         for (var i = 0; i < randomNumberDistractors; i++) {
             int typeObject = Random.Range(0,2);
             GameObject distractor;
-            if (typeObject == 0){
+            if (i <= 2) {
+                Vector3 position = new Vector3(maxdistanceToTheCenter - 2*minimumDistanceWithoutObjects, 
+                                        yAltitudeTable, maxdistanceToTheCenter - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
+                if (typeObject == 0){
+                    distractor = CreateCylinder(position, scaleObject);
+                }
+                else {
+                    distractor = CreateShere(position, scaleObject);
+                }
+                listOfDistractors.Add(distractor);
+            }
+            if ((2 < i) && (i <=5)) {
+                Vector3 position = new Vector3(maxdistanceToTheCenter - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects,
+                                        yAltitudeTable, maxdistanceToTheCenter - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*(i-2));
+                Debug.Log("position");
+                Debug.Log(position);
+                if (typeObject == 0){
+                    distractor = CreateCylinder(position, scaleObject);
+                }
+                else {
+                    distractor = CreateShere(position, scaleObject);
+                }
+                listOfDistractors.Add(distractor);
+            }
 
-                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects, 
-                                    yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
-                distractor = CreateCylinder(position, scaleObject);
+            if (i > 5) {
+                Vector3 position = new Vector3(maxdistanceToTheCenter - 2*minimumDistanceWithoutObjects - 2 * minimumDistanceBetweenObjects, 
+                                    yAltitudeTable, maxdistanceToTheCenter - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*(i-5));
+                
+                if (typeObject == 0){
+                    distractor = CreateCylinder(position, scaleObject);
+                }
+                else {
+                    distractor = CreateShere(position, scaleObject);
+                }
+                listOfDistractors.Add(distractor);  
             }
-            else {
-                Vector3 position = new Vector3(robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects, 
-                                    yAltitudeTable, robotMaxReach - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*i);
-                distractor = CreateShere(position, scaleObject);
-            }
-            listOfDistractors.Add(distractor);
+            
         }
         return listOfDistractors;
     }
@@ -175,7 +196,7 @@ public class DomainRandomization : MonoBehaviour
 
     GameObject CreateCylinder(Vector3 position, Vector3 scale) {
         // method to create a cylinder gameobject 
-        GameObject cylinder  = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         cylinder.transform.position = position;
         cylinder.tag = "Cylinder";
         
@@ -195,7 +216,7 @@ public class DomainRandomization : MonoBehaviour
 
     GameObject CreateShere(Vector3 position, Vector3 scale) {
         // method to create a sphere gameobject 
-        GameObject sphere  = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = position;
         sphere.tag = "Sphere";
         

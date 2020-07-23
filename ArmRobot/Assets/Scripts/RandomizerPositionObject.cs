@@ -7,8 +7,8 @@ public class RandomizerPositionObject : MonoBehaviour
 
 
     private GameObject gameObjectSeen;
-    public float robotMinReach = 20f;
-    public float robotMaxReach = 50f;
+    public float robotMinReach = 20;
+    public float robotMaxReach = 35;
 
     Bounds tableBounds;
     public float yAltitudeTable = 57f;
@@ -38,6 +38,7 @@ public class RandomizerPositionObject : MonoBehaviour
             Random.value * 360.0f,
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
+        
     }
 
 
@@ -90,8 +91,7 @@ public class RandomizerPositionObject : MonoBehaviour
             // edge (2 * maxRadius - radiusOfTheGameObject) to be sure that the point is reachable by the robot 
             
             float gameObjectRadius = GameObjectRadius(gameObject);
-            Debug.Log("gameObjectRadius :" + gameObjectRadius);
-            
+
             float randomX;
             float randomZ;
             int randomConstraint = Random.Range(0, 2);

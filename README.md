@@ -34,6 +34,21 @@ Then, I need to check if the proposed position does not interfer which other obj
 
 For the other elements which are randomized, follow the code inside `DomainRandomization.cs` and go to the corresponding files to understand how it is done. 
 
+
+## Switch to an asymetric cube 
+The advantage to switch to an asymmetric cube is to train a model for predicting orientation. We define the orientation of an object by its quaternion represensation and to have an asymmetric cube in the scene they are some few steps to do. 
+- delete the `Cube` gameObject in the `Hierarchy`
+- inside the `Project` pannel, you have a folder `Models` where there is a sub-folder `SymmetryCube2`. Inside this sub-folder there is a prefab called `SymmetryCube`. Drag and drop the prefab inside the `Hierarchy`. Thus, you have just created a new gameObject called `SymmetryCube`. You need to change the name to `Cube`. 
+- now click on the `DomainRandomizationObject` GameObject. In the inspector view, under the `DomainRandomization (script)` you can see a variable `Cube` equal to `None`. You need to drag and drop the `Cube` GameObject at that location. 
+- now click on the `VisionDataCollection` GameObject. In the inspector view, under the `VisionDataCollector (script)` you can see a variable `Cube` equal to `None`. You need to drag and drop the `Cube` GameObject at that location. Also, you do the same for `RobotVisionCapture (script)` and `CameraPixel (script)`. 
+- you need to add two components in the `Cube` GameObject. Thus click on the `Cube` GameObject and under the inspector view you can add components. You need to add `boxCollider` and a `RigidBody`. 
+
+<img align="right" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px" height="250px" src="docs/images/path_data.png">
+
+Finally the scene should look like the following: 
+
+
+
 ## Run Simulation 
 Open `Scenes` > `ArticulationRobot`, and press play. To control the number of data you want to extract, you need to change the value of variable `Max Samples` in the inspector of the `VisionDataCollector` game object. Then, when you press start and the ismulation is over, if you go to the log, you can see the path on your computer where the data was loaded. 
 

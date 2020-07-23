@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
@@ -149,7 +149,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
@@ -194,17 +194,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 380
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 380
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 380
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3e59c8daa92034cdc906b0103d57c584,
         type: 3}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotMinReach: 20
-  robotMaxReach: 50
+  robotMaxReach: 35
   yAltitudeTable: 57
 --- !u!1 &385129266
 GameObject:
@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1207423634}
-  maxSamples: 10
+  maxSamples: 20000
   cube: {fileID: 174459726}
   fileCounter: 0
 --- !u!114 &886963047
@@ -729,7 +729,6 @@ MonoBehaviour:
   robot: {fileID: 1442213767}
   table: {fileID: 1064094162}
   DomainRandomizationObject: {fileID: 1054542686}
-  index: 0
 --- !u!114 &886963048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,11 +1176,12 @@ MonoBehaviour:
   table: {fileID: 1064094162}
   cube: {fileID: 174459726}
   robot: {fileID: 1442213767}
+  maxdistanceToTheCenter: 35
   scaleObject: {x: 7, y: 7, z: 7}
   nbMaxDistractorObjects: 8
   rotationAngle: 10
   yAltitudeTable: 57
-  minimumDistanceWithoutObjects: 0.35
+  minimumDistanceWithoutObjects: 3.5
   nbMaxLights: 3
 --- !u!4 &1054542688
 Transform:
@@ -1296,7 +1296,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
