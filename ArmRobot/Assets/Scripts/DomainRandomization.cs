@@ -25,7 +25,7 @@ public class DomainRandomization : MonoBehaviour
     
     void Start()
     {
-        cube.tag = "Cube";
+        //cube.tag = "Cube";
 
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         robotMinReach = tablePositionRandomizerCube.robotMinReach;
@@ -57,8 +57,8 @@ public class DomainRandomization : MonoBehaviour
         
         
         // then we change its pattern 
-        CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
-        checkerBoardCube.CheckerBoardChange(); 
+        //CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
+        //checkerBoardCube.CheckerBoardChange(); 
 
         // then we change its color 
         
@@ -68,6 +68,7 @@ public class DomainRandomization : MonoBehaviour
 
         listOfAlreadyMovedObjects.Add(cube);
 
+        
         // We desactive the older objects 
         DesactiveObjects();
 
@@ -84,7 +85,7 @@ public class DomainRandomization : MonoBehaviour
             listOfAlreadyMovedObjects.Add(gameobject); // we add the gameobject to the already moved objects 
         }
         
-        
+    
         // move robot 
         MoveRobot(rotationAngle);
         

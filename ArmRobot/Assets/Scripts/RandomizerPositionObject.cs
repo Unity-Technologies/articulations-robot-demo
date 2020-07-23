@@ -90,6 +90,7 @@ public class RandomizerPositionObject : MonoBehaviour
             // edge (2 * maxRadius - radiusOfTheGameObject) to be sure that the point is reachable by the robot 
             
             float gameObjectRadius = GameObjectRadius(gameObject);
+            Debug.Log("gameObjectRadius :" + gameObjectRadius);
             
             float randomX;
             float randomZ;
