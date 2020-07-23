@@ -18,7 +18,6 @@ public class DomainRandomization : MonoBehaviour
     public float rotationAngle = 10.0f;
 
     public float yAltitudeTable = 57f;
-    public float minimumDistanceWithoutObjects = 0.35f;
 
     public int nbMaxLights = 3;
 
@@ -43,12 +42,12 @@ public class DomainRandomization : MonoBehaviour
         
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
-        checkerBoardCube.CheckerBoardChange();
+        //checkerBoardCube.CheckerBoardChange();
           
 
         // then we change its color 
         ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
-        colorRandomizerCube.ChangeColor();
+        //colorRandomizerCube.ChangeColor();
 
         
         // move robot 
@@ -77,8 +76,6 @@ public class DomainRandomization : MonoBehaviour
         directionalLightRandomizer.UpdateLight();
            
     }
-    
-    
     public void MoveRobot(float rotationAngle)
     {
         // this function is designed to do the move operation for the robot
