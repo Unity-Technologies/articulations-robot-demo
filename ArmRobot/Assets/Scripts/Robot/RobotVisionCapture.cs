@@ -16,11 +16,7 @@ public class RobotVisionCapture : MonoBehaviour
         string imageName = visionDataCollector.NextImageName();
         Vector3 relativeCubePosition = cube.transform.position - robot.transform.position;
 
-        CameraPixel cameraPixel = GetComponent<CameraPixel>();
-        Vector2 screenPos = cameraPixel.GetPixelPosition();
-
-
-        RobotVisionDataPoint dataPoint = new RobotVisionDataPoint(screenPos, relativeCubePosition, imageName);
+        RobotVisionDataPoint dataPoint = new RobotVisionDataPoint(relativeCubePosition, imageName);
 
         
         bool didCapture = visionDataCollector.CaptureIfNecessary(imageName, dataPoint);

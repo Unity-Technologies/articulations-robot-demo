@@ -10,12 +10,11 @@ public class RandomizerPositionObject : MonoBehaviour
     public float robotMaxReach = 50f;
 
     Bounds tableBounds;
-    public float yAltitudeTable = 57f;
 
 
     // CONTROL
 
-    public void Move()
+    public void Move(float yAltitudeTable)
     {
         Vector3 initialRotation = new Vector3(0f, 0f, 0f);
         transform.rotation = Quaternion.Euler(initialRotation);

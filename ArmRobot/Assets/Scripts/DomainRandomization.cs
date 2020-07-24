@@ -7,6 +7,8 @@ public class DomainRandomization : MonoBehaviour
     public GameObject table;
     public GameObject cube;
     public GameObject robot;
+    public GameObject _camera;
+    public GameObject directionalLight;
     float robotMinReach;
     float robotMaxReach;
     public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
@@ -29,7 +31,7 @@ public class DomainRandomization : MonoBehaviour
     {
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        tablePositionRandomizerCube.Move();
+        tablePositionRandomizerCube.Move(yAltitudeTable);
         
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
@@ -51,8 +53,7 @@ public class DomainRandomization : MonoBehaviour
         } 
  
         // move the camera
-        GameObject camera = GameObject.Find("VisionCamera");
-        RandomizerPositionCamera randomizedPositionCamera = camera.GetComponent<RandomizerPositionCamera>();
+        RandomizerPositionCamera randomizedPositionCamera = _camera.GetComponent<RandomizerPositionCamera>();
         randomizedPositionCamera.Move();
         
         
@@ -61,8 +62,7 @@ public class DomainRandomization : MonoBehaviour
         colorRandomizerTable.ChangeColor();
 
         // change the Directionalight
-        GameObject directionLight = GameObject.Find("DirectionalLight");
-        DirectionalLightRandomization directionalLightRandomizer = directionLight.GetComponent<DirectionalLightRandomization>();
+        DirectionalLightRandomization directionalLightRandomizer = directionalLight.GetComponent<DirectionalLightRandomization>();
         directionalLightRandomizer.UpdateLight();
            
     }
