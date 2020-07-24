@@ -16,7 +16,7 @@ public class VisionDataCollector : MonoBehaviour
     private Unity.Simulation.Logger dataLogger;
     private string screenCapturePath;
 
-    private int sampleIndex;
+    private int sampleIndex; 
     private bool haveQuit;
     private float minCaptureInterval = 0.0f;
     private float lastCaptureTime;
@@ -40,7 +40,6 @@ public class VisionDataCollector : MonoBehaviour
 
 
     // CONTROL
-
     public bool CaptureIfNecessary(string imageName, System.Object dataPoint)
     {
         bool belowSampleLimit = (sampleIndex < maxSamples);
@@ -88,6 +87,7 @@ public class VisionDataCollector : MonoBehaviour
 
 
     private void Capture(string imageName, System.Object dataPoint)
+    // method to take a capture of the scene and save it inside the ScreenCapture file but also save the data into the Log file
     {
         RenderTexture currentRT = RenderTexture.active;
         RenderTexture.active = _camera.targetTexture;

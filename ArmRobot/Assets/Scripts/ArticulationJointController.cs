@@ -9,7 +9,6 @@ public class ArticulationJointController : MonoBehaviour
 {
     public RotationDirection rotationState = RotationDirection.None;
     public float speed = 300.0f;
-
     private ArticulationBody articulation;
 
 

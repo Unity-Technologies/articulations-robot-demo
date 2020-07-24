@@ -9,47 +9,37 @@ public class DomainRandomization : MonoBehaviour
     public GameObject robot;
     float robotMinReach;
     float robotMaxReach;
-    
-
-
     public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
-
     public int nbMaxDistractorObjects = 8;
     public float rotationAngle = 10.0f;
-
     public float yAltitudeTable = 57f;
-
     public int nbMaxLights = 3;
 
     
     void Start()
     {
         cube.tag = "Cube";
-
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         robotMinReach = tablePositionRandomizerCube.robotMinReach;
         robotMaxReach = tablePositionRandomizerCube.robotMaxReach;
 
     }
-    
-    
+
     public void DomainRandomizationScene()
     {
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         tablePositionRandomizerCube.Move();
         
-        
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
         //checkerBoardCube.CheckerBoardChange();
           
-
         // then we change its color 
         ColorRandomizer colorRandomizerCube = cube.GetComponent<ColorRandomizer>();
         //colorRandomizerCube.ChangeColor();
 
-        
+
         // move robot 
         MoveRobot(rotationAngle);
         

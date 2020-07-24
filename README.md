@@ -39,9 +39,9 @@ The advantage to switch to an asymmetric cube is to train a model for predicting
 - then click on the `Cube` GameObject in the `Hierarchy`. 
 - go under `Alphabet Cube Material (Material)`
 - drag and drop the `NonSymmetricCubeTexture` file in the `Albedo` variable under `Main Maps`
+- go into `Scripts` under `Project pannel` and open the `DomainRandomization.cs` script. Scroll down and comment `//` the lines 35 and 39. These two lines are responsible of imposing a checker pattern to the cube and also of changing its color. 
 
-Then if you want to go back to a symmetric cube, click on the little circle in front of `Albedo` and select `None`. Then you can also change the color of the cube. 
-
+Then if you want to go back to a symmetric cube, click on the little circle in front of `Albedo` and select `None`. Then you can also change the color of the cube. You can also uncomment lignes 35 and 39 of the `DomainRandomization.cs` script. 
 
 
 ## Run Simulation 
