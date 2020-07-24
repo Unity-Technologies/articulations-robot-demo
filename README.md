@@ -22,6 +22,8 @@ Below is the list of element we randomize:
 
 The domain randomization process is controlled by the script `DomainRandomization.cs` under `Assets` > `Scripts`
 
+`IMPORTANT`: to activate more than one object on the scene you need to go in the `Hierarchy` project and select `DomainRandomizationObject` game object. Go in the `Inspector` pannel. Then in the component `DomainRandomization` there is a variable called `NbMaxDistractorObjects`. This variable corresponds to maximum number of distractors (objects other than the cube) than we can generate on the table at each frame (each simulation). 
+
 
 ## Glimpse into the code 
 The orchestror file is `Robot` > `RobotVisionCapture.cs`. In this file, at each frame, we extract the position of the cube relative to the camera and we create a datapoint object which is the vector of data we want to extract (see `Robot` > `RobotVisionDataPoint.cs`). Then, we capture the image of the mainCamera and we load the image and the datapoint. We do these two actions in when we call the `CaptureIfNeccessary` method inside `VisionDataCollector.cs` file. Then, if we didn't reach the number of simulated data we want to extract, we repeat the process but we need to change the environment of the data by performing domain randomization. This is done in the `Reset` method. 
@@ -35,6 +37,8 @@ Then, I need to check if the proposed position does not interfer which other obj
 
 For the other elements which are randomized, follow the code inside `DomainRandomization.cs` and go to the corresponding files to understand how it is done. 
 
+## Switch from a single cube to a scene composed by a cube and multiple object
+`Hierarchy` > `DomainRandomizationObject` then in the `Inspector` pannel, go in the `DomainRandomization` component and set the variable `NbMaxDistractorObjects` to more than 0. 
 
 ## Switch to an asymetric cube 
 The advantage to switch to an asymmetric cube is to train a model for predicting orientation. We define the orientation of an object by its quaternion represensation and to have an asymmetric cube in the scene they are some few steps to do.
