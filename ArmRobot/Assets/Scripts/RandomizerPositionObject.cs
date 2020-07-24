@@ -7,16 +7,15 @@ public class RandomizerPositionObject : MonoBehaviour
 
 
     private GameObject gameObjectSeen;
-    public float robotMinReach = 20f;
-    public float robotMaxReach = 50f;
+    public float robotMinReach = 0.20f;
+    public float robotMaxReach = 0.35f;
 
     Bounds tableBounds;
-    public float yAltitudeTable = 57f;
 
 
     // CONTROL
 
-    public void Move(List<GameObject> listOfAlreadyMovedObjects)
+    public void Move(List<GameObject> listOfAlreadyMovedObjects, float yAltitudeTable)
     {
         Vector3 initialRotation = new Vector3(0f, 0f, 0f);
         transform.rotation = Quaternion.Euler(initialRotation);
@@ -38,6 +37,7 @@ public class RandomizerPositionObject : MonoBehaviour
             Random.value * 360.0f,
             transform.rotation.eulerAngles.z);
         transform.rotation = Quaternion.Euler(randomRotation);
+        
     }
 
 
@@ -90,7 +90,7 @@ public class RandomizerPositionObject : MonoBehaviour
             // edge (2 * maxRadius - radiusOfTheGameObject) to be sure that the point is reachable by the robot 
             
             float gameObjectRadius = GameObjectRadius(gameObject);
-            
+
             float randomX;
             float randomZ;
             int randomConstraint = Random.Range(0, 2);

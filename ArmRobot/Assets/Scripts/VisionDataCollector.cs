@@ -88,6 +88,7 @@ public class VisionDataCollector : MonoBehaviour
 
 
     private void Capture(string imageName, System.Object dataPoint)
+    // method to take a capture of the scene and save it inside the ScreenCapture file but also save the data into the Log file
     {
         RenderTexture currentRT = RenderTexture.active;
         RenderTexture.active = _camera.targetTexture;

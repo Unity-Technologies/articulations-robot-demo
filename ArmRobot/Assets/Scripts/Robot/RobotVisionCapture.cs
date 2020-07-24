@@ -8,7 +8,6 @@ public class RobotVisionCapture : MonoBehaviour
     public GameObject robot;
     public GameObject table;
     public GameObject DomainRandomizationObject;
-    public int index;
 
     
 
@@ -27,23 +26,19 @@ public class RobotVisionCapture : MonoBehaviour
         VisionDataCollector visionDataCollector = GetComponent<VisionDataCollector>();
         string imageName = visionDataCollector.NextImageName();
         Vector3 relativeCubePosition = cube.transform.position - robot.transform.position;
-
-        CameraPixel cameraPixel = GetComponent<CameraPixel>();
-        Vector2 screenPos = cameraPixel.GetPixelPosition();
-
-
-        RobotVisionDataPoint dataPoint = new RobotVisionDataPoint(screenPos, relativeCubePosition, imageName);
+    
+        Quaternion cube_orientation = cube.transform.rotation;
+        RobotVisionDataPoint dataPoint = new RobotVisionDataPoint(cube_orientation, relativeCubePosition, imageName);
 
         
         bool didCapture = visionDataCollector.CaptureIfNecessary(imageName, dataPoint);
         if (didCapture)
         {
-            Reset(index);
-            index = index + 1;
+            Reset();
         }
 
     }
-    private void Reset(int index)
+    private void Reset()
     {   
         /* Here we will do the domain randomization. Thus we will randomize:
         - number and shape of distractor objects on the table (cylinders and spheres)
@@ -53,7 +48,7 @@ public class RobotVisionCapture : MonoBehaviour
         */
         if (DomainRandomizationObject.GetComponent<DomainRandomization>() != null){
             DomainRandomization domainRandomization = DomainRandomizationObject.GetComponent<DomainRandomization>();
-            domainRandomization.DomainRandomizationScene(index);
+            domainRandomization.DomainRandomizationScene();
         }
         
     }
