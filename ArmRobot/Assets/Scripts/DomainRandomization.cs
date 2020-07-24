@@ -11,10 +11,9 @@ public class DomainRandomization : MonoBehaviour
     public GameObject directionalLight;
     float robotMinReach;
     float robotMaxReach;
-    public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
-    public int nbMaxDistractorObjects = 8;
+    public Vector3 scaleObject = new Vector3 (0.1f, 0.1f, 0.1f);
     public float rotationAngle = 10.0f;
-    public float yAltitudeTable = 57f;
+    public float yAltitudeTable = 0.815f;
     public int nbMaxLights = 3;
 
     

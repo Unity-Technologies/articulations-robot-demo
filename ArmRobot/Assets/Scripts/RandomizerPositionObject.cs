@@ -6,8 +6,8 @@ public class RandomizerPositionObject : MonoBehaviour
 {
 
 
-    public float robotMinReach = 20f;
-    public float robotMaxReach = 50f;
+    public float robotMinReach = 0.25f;
+    public float robotMaxReach = 0.5f;
 
     Bounds tableBounds;
 
