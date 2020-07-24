@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1207423634}
-  maxSamples: 20
+  maxSamples: 10
   cube: {fileID: 174459726}
   fileCounter: 0
 --- !u!114 &886963047
