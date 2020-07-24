@@ -3,9 +3,6 @@
 [System.Serializable]
 public class RobotVisionDataPoint
 {
-    public float pixel_x; 
-    public float pixel_y;
-
     public float x;
     public float y;
     public float z; 

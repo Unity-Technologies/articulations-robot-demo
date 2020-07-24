@@ -110,7 +110,7 @@ public class DomainRandomization : MonoBehaviour
         // this function is designed to create a list of a random number of cylinders and instantiate them 
         float minimumDistanceBetweenObjects = scaleObject[0] + minimumDistanceWithoutObjects;
         
-        int randomNumberDistractors = 1 + Random.Range(1, nbMaxDistractorObjects); 
+        int randomNumberDistractors = Random.Range(0, nbMaxDistractorObjects); 
         List<GameObject> listOfDistractors = new List<GameObject>();
         for (var i = 0; i < randomNumberDistractors; i++) {
             int typeObject = Random.Range(0,2);
