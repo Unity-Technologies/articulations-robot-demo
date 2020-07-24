@@ -131,8 +131,6 @@ public class DomainRandomization : MonoBehaviour
             if ((2 < i) && (i <=5)) {
                 Vector3 position = new Vector3(maxdistanceToTheCenter - 2*minimumDistanceWithoutObjects - minimumDistanceBetweenObjects,
                                         yAltitudeTable, maxdistanceToTheCenter - minimumDistanceWithoutObjects - minimumDistanceBetweenObjects*(i-2));
-                Debug.Log("position");
-                Debug.Log(position);
                 if (typeObject == 0){
                     distractor = CreateCylinder(position, scaleObject);
                 }
