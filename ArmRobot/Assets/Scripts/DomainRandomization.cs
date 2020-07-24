@@ -40,7 +40,7 @@ public class DomainRandomization : MonoBehaviour
         // Then we start moving the objects and changing the color 
         // move cube
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
-        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
+        tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects, yAltitudeTable);
         
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
@@ -65,7 +65,7 @@ public class DomainRandomization : MonoBehaviour
         // we iterate through the listOfObjects and move them one by one 
         foreach (GameObject gameobject in listOfObjectsTable) {
             RandomizerPositionObject tablePositionRandomizerObject = gameobject.GetComponent<RandomizerPositionObject>();
-            tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects);
+            tablePositionRandomizerObject.Move(listOfAlreadyMovedObjects, yAltitudeTable);
             listOfAlreadyMovedObjects.Add(gameobject); // we add the gameobject to the already moved objects 
         }
         

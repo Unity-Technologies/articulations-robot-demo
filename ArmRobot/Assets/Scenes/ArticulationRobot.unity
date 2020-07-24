@@ -290,7 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotMinReach: 20
   robotMaxReach: 35
-  yAltitudeTable: 57
 --- !u!1 &385129266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,8 +1175,8 @@ MonoBehaviour:
   table: {fileID: 1064094162}
   cube: {fileID: 174459726}
   robot: {fileID: 1442213767}
-  _camera: {fileID: 0}
-  directionalLight: {fileID: 0}
+  _camera: {fileID: 1207423632}
+  directionalLight: {fileID: 954335180}
   maxdistanceToTheCenter: 35
   scaleObject: {x: 7, y: 7, z: 7}
   nbMaxDistractorObjects: 8
