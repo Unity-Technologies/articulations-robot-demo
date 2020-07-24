@@ -7,19 +7,12 @@ public class DomainRandomization : MonoBehaviour
     public GameObject table;
     public GameObject cube;
     public GameObject robot;
-
     public int maxdistanceToTheCenter = 35;
-    
-
-
     public Vector3 scaleObject = new Vector3 (7f, 7f, 7f);
-
     public int nbMaxDistractorObjects = 7;
     public float rotationAngle = 10.0f;
-
     public float yAltitudeTable = 57f;
     public float minimumDistanceWithoutObjects = 3.5f;
-
     public int nbMaxLights = 3;
 
     
@@ -27,8 +20,6 @@ public class DomainRandomization : MonoBehaviour
     {
         cube.tag = "Cube";
     }
-    
-    
     
     public List<GameObject> InitializationObjects(){ 
 
@@ -38,7 +29,6 @@ public class DomainRandomization : MonoBehaviour
 
         return listOfObjectsTable;
     }
-    
     
     public void DomainRandomizationScene()
     {
@@ -50,7 +40,6 @@ public class DomainRandomization : MonoBehaviour
         RandomizerPositionObject tablePositionRandomizerCube = cube.GetComponent<RandomizerPositionObject>();
         tablePositionRandomizerCube.Move(listOfAlreadyMovedObjects);
         
-        
         // then we change its pattern 
         CheckerBoard checkerBoardCube = cube.GetComponent<CheckerBoard>();
         //checkerBoardCube.CheckerBoardChange(); 
@@ -61,7 +50,6 @@ public class DomainRandomization : MonoBehaviour
         
 
         listOfAlreadyMovedObjects.Add(cube);
-
         
         // We desactive the older objects 
         DesactiveObjects();
@@ -195,7 +183,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     GameObject CreateCylinder(Vector3 position, Vector3 scale) {
-        // method to create a cylinder gameobject 
+        // method to create a cylinder GameObject 
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         cylinder.transform.position = position;
         cylinder.tag = "Cylinder";
@@ -215,7 +203,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     GameObject CreateShere(Vector3 position, Vector3 scale) {
-        // method to create a sphere gameobject 
+        // method to create a sphere GameObject 
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = position;
         sphere.tag = "Sphere";
@@ -235,6 +223,7 @@ public class DomainRandomization : MonoBehaviour
     }
 
     GameObject CreateLight(){
+        // method to create a light GameObject 
         GameObject light = new GameObject();
         light.tag = "Light";
 
