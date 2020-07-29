@@ -14,7 +14,7 @@ public class RobotAgent : Agent
     RobotController robotController;
     TouchDetector touchDetector;
     TablePositionRandomizer tablePositionRandomizer;
-    
+
 
     void Start()
     {
@@ -41,21 +41,6 @@ public class RobotAgent : Agent
             // No robot is present, no observation should be added
             return;
         }
-        // current rotations
-        float[] rotations = robotController.GetCurrentJointRotations();
-        foreach (float rotation in rotations)
-        {
-            // normalize rotation to [-1, 1] range
-            float normalizedRotation = (rotation / 360.0f) %  1f;
-            sensor.AddObservation(normalizedRotation);
-        }
-
-        foreach (var joint in robotController.joints)
-        {
-            sensor.AddObservation(joint.robotPart.transform.position - robot.transform.position);
-            sensor.AddObservation(joint.robotPart.transform.forward);
-            sensor.AddObservation(joint.robotPart.transform.right);
-        }
 
         // relative cube position
         Vector3 cubePosition = cube.transform.position - robot.transform.position;
@@ -63,8 +48,8 @@ public class RobotAgent : Agent
 
         // relative end position
         Vector3 endPosition = endEffector.transform.position - robot.transform.position;
-        sensor.AddObservation(endPosition);  
-        sensor.AddObservation(cubePosition - endPosition);      
+        sensor.AddObservation(endPosition);
+        sensor.AddObservation(cubePosition - endPosition);
     }
 
     public override void OnActionReceived(float[] vectorAction)
@@ -74,6 +59,13 @@ public class RobotAgent : Agent
         {
             RotationDirection rotationDirection = ActionIndexToRotationDirection((int) vectorAction[jointIndex]);
             robotController.RotateJoint(jointIndex, rotationDirection, false);
+        }
+
+        // Knocked the cube off the table
+        if (cube.transform.position.y < -1.0)
+        {
+            SetReward(-1f);
+            EndEpisode();
         }
 
         // end episode if we touched the cube
@@ -86,7 +78,7 @@ public class RobotAgent : Agent
 
         //reward
         float distanceToCube = Vector3.Distance(endEffector.transform.position, cube.transform.position); // roughly 0.7f
-        
+
 
         var jointHeight = 0f; // This is to reward the agent for keeping high up // max is roughly 3.0f
         for (int jointIndex = 0; jointIndex < robotController.joints.Length; jointIndex ++)

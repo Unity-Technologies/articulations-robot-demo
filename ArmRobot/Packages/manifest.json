@@ -3,7 +3,8 @@
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.rider": "2.0.1",
     "com.unity.ide.vscode": "1.2.0",
-    "com.unity.ml-agents": "1.0.0-preview",
+    "com.unity.ml-agents": "1.2.0-preview",
+    "com.unity.ml-agents.extensions": "git+https://github.com/Unity-Technologies/ml-agents.git?path=com.unity.ml-agents.extensions",
     "com.unity.test-framework": "1.1.13",
     "com.unity.textmeshpro": "3.0.0-preview.1",
     "com.unity.ugui": "1.0.0",
@@ -38,5 +39,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.unity.ml-agents.extensions": {
+      "revision": "HEAD",
+      "hash": "4e8f08c6260742a936d6881f9e3a48b31ea45993"
+    }
   }
 }
