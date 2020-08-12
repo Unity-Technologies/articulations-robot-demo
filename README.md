@@ -73,6 +73,11 @@ X - close pinhcer
 Z - open pincher
 ```
 
+## ML-Agents Integration
+
+The Articulation Robot Demo has been integrated with the [ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents) on [this branch.](https://github.com/Unity-Technologies/articulations-robot-demo/tree/mlagents)
+__Note:__ The integration is not up to date with the latest `master` branch.
+
 ## Survey
 
 Your opinion matters a great deal to us. Only by hearing your thoughts can we continue to make Unity a better simulator for robotics. Please take a few minutes to let us know about it.
