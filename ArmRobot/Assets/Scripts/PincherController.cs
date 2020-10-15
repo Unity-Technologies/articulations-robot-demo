@@ -1,10 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
 
 public enum GripState { Fixed = 0, Opening = -1, Closing = 1 };
 
-public class PincherController : MonoBehaviour
+[System.Serializable]
+public class PincherControllerData : BaseData
+{
+    public int fingerAId;
+    public int fingerBId;
+
+    public PincherControllerData(PincherController controller)
+    {
+        instanceID = controller.GetInstanceID();
+        fingerAId = controller.fingerA.GetInstanceID();
+        fingerBId = controller.fingerB.GetInstanceID();
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((PincherController)component).fingerA = GameObjectInstanceMap.Instance
+            .GetDeserializedObject(GameObjectInstanceMap.Instance.GetDeserializedId(fingerAId));
+        ((PincherController)component).fingerB = GameObjectInstanceMap.Instance
+            .GetDeserializedObject(GameObjectInstanceMap.Instance.GetDeserializedId(fingerBId));
+    }
+}
+
+public class PincherController : ScriptComponent
 {
     public GameObject fingerA;
     public GameObject fingerB;
@@ -81,7 +104,10 @@ public class PincherController : MonoBehaviour
         fingerBController.UpdateGrip(grip);
     }
 
-
+    public override BaseData ToBaseData()
+    {
+        return new PincherControllerData(this);
+    }
 
 
 

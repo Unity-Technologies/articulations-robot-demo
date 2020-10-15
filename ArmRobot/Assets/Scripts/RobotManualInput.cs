@@ -1,8 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
 
-public class RobotManualInput : MonoBehaviour
+[System.Serializable]
+public class RobotManualInputData : BaseData
+{
+    public int robotId;
+
+    public RobotManualInputData(RobotManualInput input)
+    {
+        instanceID = input.GetInstanceID();
+        robotId = input.robot.GetInstanceID();
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((RobotManualInput)component).robot =
+            GameObjectInstanceMap.Instance.GetDeserializedObject(
+                GameObjectInstanceMap.Instance.GetDeserializedId(robotId));
+    }
+}
+
+public class RobotManualInput : ScriptComponent
 {
     public GameObject robot;
 
@@ -41,5 +61,10 @@ public class RobotManualInput : MonoBehaviour
         {
             return RotationDirection.None;
         }
+    }
+
+    public override BaseData ToBaseData()
+    {
+        return new RobotManualInputData(this);
     }
 }

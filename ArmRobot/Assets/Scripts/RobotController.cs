@@ -1,9 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
+
+[System.Serializable]
+public class RobotControllerData : BaseData
+{
+    public string[] inputAxis;
+    public int[] robotPartId;
+
+    public RobotControllerData(RobotController controller)
+    {
+        instanceID = controller.GetInstanceID();
+        inputAxis = new string[controller.joints.Length];
+        robotPartId = new int[controller.joints.Length];
+
+        for (int i = 0; i < controller.joints.Length; i ++)
+        {
+            inputAxis[i] = controller.joints[i].inputAxis;
+            robotPartId[i] = controller.joints[i].robotPart.GetInstanceID();
+        }
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((RobotController)component).joints = new RobotController.Joint[inputAxis.Length];
+        for (int i = 0; i < inputAxis.Length; i ++)
+        {
+            ((RobotController)component).joints[i] = new RobotController.Joint()
+            {
+                inputAxis = inputAxis[i],
+                robotPart = GameObjectInstanceMap.Instance.GetDeserializedObject(
+                    GameObjectInstanceMap.Instance.GetDeserializedId(robotPartId[i])),
+            };
+        }
+    }
+}
 
 
-public class RobotController : MonoBehaviour
+
+public class RobotController : ScriptComponent
 {
     [System.Serializable]
     public struct Joint
@@ -41,5 +77,8 @@ public class RobotController : MonoBehaviour
     }
 
 
-
+    public override BaseData ToBaseData()
+    {
+        return new RobotControllerData(this);
+    }
 }

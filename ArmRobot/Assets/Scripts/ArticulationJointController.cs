@@ -2,10 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
 
 public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
 
-public class ArticulationJointController : MonoBehaviour
+[Serializable]
+public class ArticulationJointControllerData : BaseData
+{
+    public RotationDirection rotationState;
+    public float speed;
+
+    public ArticulationJointControllerData(ArticulationJointController controller)
+    {
+        instanceID = controller.GetInstanceID();
+        rotationState = controller.rotationState;
+        speed = controller.speed;
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((ArticulationJointController)component).rotationState = rotationState;
+        ((ArticulationJointController)component).speed = speed;
+    }
+}
+
+public class ArticulationJointController : ScriptComponent
 {
     public RotationDirection rotationState = RotationDirection.None;
     public float speed = 300.0f;
@@ -27,8 +48,6 @@ public class ArticulationJointController : MonoBehaviour
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(rotationGoal);
         }
-
-
     }
 
 
@@ -49,5 +68,8 @@ public class ArticulationJointController : MonoBehaviour
     }
 
 
-
+    public override BaseData ToBaseData()
+    {
+        return new ArticulationJointControllerData(this);
+    }
 }

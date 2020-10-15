@@ -129,6 +129,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1783092415}
   m_PrefabAsset: {fileID: 0}
+--- !u!134 &182094758
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &385129266
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +201,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -236,7 +248,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385129266}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 883440823}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -297,6 +309,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385129266}
   m_Mesh: {fileID: 5101511310565666422, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
+--- !u!134 &443355983
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
+--- !u!134 &590520706
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &622386702
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,8 +392,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -389,7 +425,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622386702}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 443355983}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -464,6 +500,18 @@ Transform:
   m_Father: {fileID: 1207038285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!134 &883440823
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &948141744
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +572,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -571,7 +619,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948141744}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1788150446}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -703,6 +751,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &954335182
@@ -749,8 +798,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -813,7 +862,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995377197}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1205837881}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 3.750001
@@ -825,7 +874,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1675546438}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
@@ -845,7 +894,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
@@ -865,7 +914,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
         type: 3}
@@ -886,6 +935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3fba682e7b5a0444eb5e51e6fc772147,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fba682e7b5a0444eb5e51e6fc772147, type: 3}
@@ -924,6 +978,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!4 &1064094167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3fba682e7b5a0444eb5e51e6fc772147,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064094161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1089875216
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +1012,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089875216}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.08605486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -984,8 +1044,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1031,7 +1091,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089875216}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 590520706}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1091,6 +1151,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089875216}
   m_Mesh: {fileID: -8855424465492398110, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
+--- !u!134 &1205837881
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &1207038283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,8 +1208,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1198,7 +1270,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207038283}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 182094758}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1257,6 +1329,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207038283}
   m_Mesh: {fileID: 8277753648479351336, guid: 583fc14d55e195d4db06bf5785fd6fa6, type: 3}
+--- !u!134 &1366080478
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &1383161865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,12 +1446,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383161865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.485, y: 0.778, z: -0.17}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1675546438}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1442213767
 GameObject:
@@ -1474,7 +1558,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442213767}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1366080478}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1543,6 +1627,69 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1089875217}
+  m_Father: {fileID: 1675546438}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1445052745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1445052748}
+  - component: {fileID: 1445052747}
+  - component: {fileID: 1445052746}
+  m_Layer: 0
+  m_Name: PhysXSpectrometer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1445052746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445052745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f9c1978eb9d494bb719dba1c66715e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDebug: 1
+  appParam:
+    primaryInitialStateDir: /Users/peifeng.jing/Documents/github/articulations-robot-demo/ArmRobot/Assets/DataPrimary/80
+    primaryFinalStateDir: /Users/peifeng.jing/Documents/github/articulations-robot-demo/ArmRobot/Assets/DataPrimary/100
+    baselineOutputDir: /Users/peifeng.jing/Documents/github/articulations-robot-demo/ArmRobot/Assets/DataBaseline/100
+    baselineConfigFilepath: /Users/peifeng.jing/Documents/github/articulations-robot-demo/ArmRobot/Assets/DataBaseline/physx_baseline.config
+  initDump: 0
+--- !u!114 &1445052747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445052745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0713cf1ce9c5547478c9cfaed8f7ef90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1445052748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445052745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1565,6 +1712,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closedZ: 1.1
+--- !u!114 &1449517473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449517471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786ab1db18df849df9676fdc18336ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!171741748 &1449517475
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1605,8 +1764,8 @@ ArticulationBody:
   m_ZDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 9000
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1628,6 +1787,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.144, y: 6.190002, z: 0.96531755}
   m_Center: {x: 0, y: 0.0000018626451, z: -1.7773571}
+--- !u!134 &1465068901
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &1557304988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,12 +1837,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557304988}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.14377439, y: 1.0863101, z: -0.26917624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1675546438}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1557304991
 MonoBehaviour:
@@ -1686,6 +1857,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 1442213767}
+--- !u!1 &1675546435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675546438}
+  - component: {fileID: 1675546437}
+  - component: {fileID: 1675546436}
+  m_Layer: 0
+  m_Name: PhysXSpectrometer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1675546436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675546435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57bf9b4202d947d7bab95d85c79b65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configuration:
+    fixedTimeStep: 0.01
+    totalSimulationIterations: 100
+    solverType: 1
+    solverIterations: 6
+    solverVelocityIterations: 1
+    broadPhaseType: 0
+    defaultContactOffset: 0.01
+    bounceThreshold: 2
+    frictionType: 0
+    sleepThreshold: 0.005
+    gravity: {x: 0, y: -9.81, z: 0}
+  primaryDataDir: Assets/DataPrimary
+  baselineDataDir: Assets/DataBaseline
+  baselineTimestep: 0.01
+  numPrimaryTimesteps: 20
+  baselineAppPath: /Users/peifeng.jing/Desktop/baseline/baseline.app/Contents/MacOS/ArmRobot
+--- !u!114 &1675546437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675546435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0713cf1ce9c5547478c9cfaed8f7ef90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1675546438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675546435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1709081029}
+  - {fileID: 1383161871}
+  - {fileID: 1064094167}
+  - {fileID: 1557304990}
+  - {fileID: 1442213774}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709081025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1961,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709081025}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1465068901}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1775,12 +2024,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709081025}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1675546438}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1783092415
 PrefabInstance:
@@ -1851,6 +2100,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f795b5118c0744de3bcac7a83315a637, type: 3}
+--- !u!134 &1788150446
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &1838417712 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1051544179896239664, guid: f795b5118c0744de3bcac7a83315a637,
@@ -1870,6 +2131,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closedZ: -1.1
+--- !u!114 &1838417714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838417712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786ab1db18df849df9676fdc18336ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!171741748 &1838417716
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1910,8 +2183,8 @@ ArticulationBody:
   m_ZDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 9000
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -1933,6 +2206,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.144, y: 6.190002, z: 1.2655594}
   m_Center: {x: 0, y: 0.0000018626453, z: 1.6272212}
+--- !u!134 &1970076748
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &2114954002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,8 +2361,8 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0
-    stiffness: 100000
-    damping: 100
+    stiffness: 1000
+    damping: 0
     forceLimit: 3.4028235e+38
     target: 0
     targetVelocity: 0
@@ -2123,7 +2408,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127710631}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1970076748}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

@@ -1,8 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
 
-public class PincherFingerController : MonoBehaviour
+[System.Serializable]
+public class PincherFingerControllerData : BaseData
+{
+    public float closedZ;
+
+    public PincherFingerControllerData(PincherFingerController controller)
+    {
+        instanceID = controller.GetInstanceID();
+        closedZ = controller.closedZ;
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((PincherFingerController)component).closedZ = closedZ;
+    }
+}
+
+public class PincherFingerController : ScriptComponent
 {
    
     public float closedZ; 
@@ -72,5 +90,8 @@ public class PincherFingerController : MonoBehaviour
         return targetZ;
     }
 
-
+    public override BaseData ToBaseData()
+    {
+        return new PincherFingerControllerData(this);
+    }
 }

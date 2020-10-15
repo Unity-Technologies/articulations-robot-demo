@@ -1,8 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityPhysicsSpectrometer;
 
-public class ArticulationHandManualInput : MonoBehaviour
+[System.Serializable]
+public class ArticulationHandManualInputData : BaseData
+{
+    public int handId;
+
+    public ArticulationHandManualInputData(ArticulationHandManualInput input)
+    {
+        instanceID = input.GetInstanceID();
+        handId = input.hand.GetInstanceID();
+    }
+
+    public override void UpdateComponent(Component component)
+    {
+        ((ArticulationHandManualInput)component).hand =
+            GameObjectInstanceMap.Instance.GetDeserializedObject(
+                GameObjectInstanceMap.Instance.GetDeserializedId(handId));
+    }
+}
+
+public class ArticulationHandManualInput : ScriptComponent
 {
     public GameObject hand;
 
@@ -30,5 +50,10 @@ public class ArticulationHandManualInput : MonoBehaviour
         {
             return GripState.Fixed;
         }
+    }
+
+    public override BaseData ToBaseData()
+    {
+        return new ArticulationHandManualInputData(this);
     }
 }

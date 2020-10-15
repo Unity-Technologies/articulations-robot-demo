@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "co.parabox.stl": "https://github.com/karl-/pb_Stl.git",
     "com.unity.ext.nunit": "1.0.0",
-    "com.unity.ide.rider": "2.0.1",
-    "com.unity.ide.vscode": "1.2.0",
-    "com.unity.test-framework": "1.1.13",
-    "com.unity.textmeshpro": "3.0.0-preview.1",
+    "com.unity.ide.rider": "2.0.7",
+    "com.unity.ide.vscode": "1.2.1",
+    "com.unity.simulation.capture": "0.0.10-preview.13",
+    "com.unity.test-framework": "1.1.16",
+    "com.unity.textmeshpro": "3.0.1",
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
