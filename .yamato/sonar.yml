@@ -10,7 +10,7 @@ variables:
     MSBUILD_SLN_PATH: ./ArmRobot/ArmRobot.sln
 commands:
     - npm install upm-ci-utils@stable -g --registry https://artifactory.prd.it.unity3d.com/artifactory/api/npm/upm-npm
-    - unity-downloader-cli -u 2020.1.0b5 -c Editor
+    - unity-downloader-cli -u 2020.3.11f1 -c Editor
     - brew install mono corretto
     - curl https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/5.2.1.31210/sonar-scanner-msbuild-5.2.1.31210-net46.zip -o sonar-scanner-msbuild-net46.zip -L
     - unzip sonar-scanner-msbuild-net46.zip -d ~/sonar-scanner-msbuild
